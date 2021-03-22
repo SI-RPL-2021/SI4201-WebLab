@@ -5,6 +5,7 @@
     <script type="text/javascript" src="{{ asset('assets/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -95,11 +96,11 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Selamat Datang, <font style="color:white">{{ Auth::user()->nama ?? ''}} </font>
+                        Selamat Datang, <font style="color:white"></font>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#" onclick="return confirm('Apakah anda ingin keluar?');">LogOut</a>
+                        <a class="dropdown-item" href="editprofile">Profile</a>
+                        <a class="dropdown-item" href="{{route('logout')}}" onclick="return confirm('Apakah anda ingin keluar?');">LogOut</a>
                     </div>
                 </li>
             </ul>
@@ -151,9 +152,21 @@
                 </a>
                 {{-- end of menu 1 --}}
                 {{-- menu 2 --}}
-                <a href="buatkegiatan" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed"><i class="fa fa-dashboard mr-3"></i> Daftar Kegiatan</span>
+                <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-dashboard fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Menu Admin</span>
+                        <span class="submenu-icon ml-auto"><i class="fas fa-angle-down"></i>
+                    </div>
                 </a>
+                <div id='submenu2' class="collapse sidebar-submenu">
+                    <a href="buatkegiatan" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Daftar Kegiatan</span>
+                    </a>
+                    <a href="akunanggota" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Daftar Akun Anggota</span>
+                    </a>
+                </div>
                 {{-- end of menu 2 --}}
             </ul>
         </div>

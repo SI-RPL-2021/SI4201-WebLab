@@ -21,24 +21,24 @@ Route::get('layout', function () {
     return view('layout');
 });
 
-Route::get('home', function () {
-    return view('home');
-});
+Route::get('register', 'App\Http\Controllers\AuthController@getRegister') -> name('get_register') -> middleware('guest');
+Route::post('register', 'App\Http\Controllers\AuthController@PostRegister') -> name('register') -> middleware('guest');
+Route::get('login', 'App\Http\Controllers\AuthController@getLogin')-> name('get_login') -> middleware('guest');
+Route::post('login', 'App\Http\Controllers\AuthController@postLogin') -> name('login') -> middleware('guest');
+Route::get('logout', 'App\Http\Controllers\AuthController@logout') -> name('logout')  -> middleware('auth');
 
-Route::get('login', function () {
-    return view('login');
-});
 
-Route::get('register', function () {
-    return view('register');
-});
+Route::get('home', 'App\Http\Controllers\AuthController@ihome')-> name('ihome');
+
+// Route::get('home', function () {
+//     return view('home');
+// }) -> name('home') -> middleware('auth');
+// Route::get('home', function () {
+//     return view('home');
+// }) -> name('home');
 
 Route::get('buatkegiatan', function () {
     return view('buatkegiatan');
-});
-
-Route::get('listkegiatan', function () {
-    return view('tampilkegiatan');
 });
 
 Route::get('editprofile', function () {

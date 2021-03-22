@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h5 class="card-title" align="center">Update Akun Anggota</h5>
                 <hr></hr>
-                <form method="post" action="">
+                <form method="" action="">
                     <div class="form-group ml-3">
                         <label>Nama</label>
                         <input type="text" class="form-control" name="nama" style="width:95%" placeholder="Masukkan Nama Lengkap">
@@ -45,7 +45,7 @@
                     <div class="form-group ml-3" align="center">
                         <button type="submit" name="register" class="btn btn-primary mb-2">Update</button>
                         <br>
-                        <button type="cancel" name="register" class="btn btn-primary mb-2" a href="profile">Cancel</button>
+                        <button type="cancel" name="register" class="btn btn-primary mb-2" href="javascript:history.back()">Cancel</button>
                     </div>
                 </form>
             </div>

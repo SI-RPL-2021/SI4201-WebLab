@@ -47,22 +47,27 @@
         <div class="card centered mx-auto px-3 mt-3" style="width: 26rem;">
             <div class="card-body">
                 <h5 class="card-title" align="center">Login</h5>
-                <hr></hr>
-                <form method="post" action="">
+                <hr>
+                
+                <div class="error-warn">
+                    <?php if(isset($_GET['error'])) { ?>
+                        <h6 class="error"><?php echo $_GET['error']  ?> </h6>
+                    <?php } 
+                    ?>
+                </div>
+
+                <form method="post" action="{{ route('login')}}">
+                    {{csrf_field()}}
                     <div class="form-group ml-3">
-                        <label>E-mail</label>
-                        <input type="email" class="form-control" name="email" style="width:80%" placeholder="Masukkan Alamat E-mail">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" style="width:80%" placeholder="Masukkan Email" required>
                     </div>
                     <div class="form-group ml-3">
                         <label>Kata Sandi</label>
-                        <input type="password" class="form-control" name="password" style="width:80%" placeholder="Buat Kata Sandi">
-                    </div>
-                    <div class="form-check ml-3">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
-                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        <input type="password" class="form-control" name="password" style="width:80%" placeholder="Buat Kata Sandi" required>
                     </div>
                     <div class="form-group mt-3" align="center">
-                        <button type="submit" name="login" class="btn btn-primary mb-2">Login</button>
+                        <button type="submit" class="btn btn-primary mb-2">Login</button>
                         <br>
                         Belum punya akun? <a href="register">Registrasi</a>
                     </div>
