@@ -2,77 +2,66 @@
 @section('title', 'Edit Profile Anggota')
 @section('konten')
 <!-- konten -->
-    <legend><b>Edit Profil</b></legend>
-
-    <form action="" methode="post">
-        <table>
-            <tr>
-                <td>Nama</td>
-                <td>:</td>
-                <td><input type="text" class="form-control" name="nama" style="width:100%"></td>
-            </tr>
-            <tr>
-                <td>NIM</td>
-                <td>:</td>
-                <td><input type="number" class="form-control" name="nim" style="width:100%"></td>
-            </tr>
-            <tr>
-                <td>Kelas</td>
-                <td>:</td>
-                <td>
-                            <select class="form-control" id="exampleFormControlSelect1" style="width:100%">
-                            <option>SI-42-01</option>
-                            <option>SI-42-02</option>
-                            <option>SI-42-03</option>
-                            <option>SI-42-04</option>
-                            <option>SI-42-05</option>
-                            <option>SI-42-06</option>
-                            </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Divisi</td>
-                    <td>:</td>
-                    <td>
-                            <select class="form-control" id="exampleFormControlSelect1" style="width:100%">
-                                <option>Trainer</option>
-                                <option>Sekretaris</option>
-                                <option>Anggota</option>
-                            </select>
-                    </td>
-            </tr>
-            <tr>
-                <td>Study Group</td>
-                    <td>:</td>
-                    <td>
-                            <select class="form-control" id="exampleFormControlSelect1" style="width:100%">
-                            <option>Data Engineer</option>
-                            <option>Data Scientist</option>
-                            </select>
-                    </td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>:</td>
-                <td><input type="email" class="form-control" name="email" style="width:100%"></td>
-            </tr>
-            <tr>
-                <td>Kata Sandi</td>
-                <td>:</td>
-                <td><input type="password" class="form-control" name="password" style="width:100%"></td>
-            </tr>
-            <tr>
-                <td>Konfirmasi Kata Sandi</td>
-                <td>:</td>
-                <td><input type="password" class="form-control" name="konfirmasi_password" style="width:100%"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td><input type="submit" class="button" name="edit" value="Edit" /> <input type="reset" value="Cancel" /></td>
-            </tr>
-
-        </table>
-    </form>
+<div class="container my-3">
+        <div class="card my-4 mx-auto px-3" style="width: 40rem;">
+            <div class="card-body">
+                <h5 class="card-title" align="center">Edit Profile</h5>
+                <hr></hr>
+                <form method="post" action="">
+                    <div class="form-group ml-3">
+                        <label>Nama</label>
+                        <input type="text" class="form-control" name="nama" style="width:95%" placeholder="Masukkan Nama Lengkap">
+                    </div>
+                    <div class="form-group ml-3">
+                        <label>NIM</label>
+                        <input type="number" class="form-control" name="nim" style="width:95%" placeholder="Masukkan NIM">
+                    </div>
+                    <div class="form-group ml-3">
+                        <label for="exampleFormControlSelect1">Kelas</label>
+                        <select class="form-control" id="exampleFormControlSelect1" style="width:95%">
+                          <option>SI-42-01</option>
+                          <option>SI-42-02</option>
+                          <option>SI-42-03</option>
+                          <option>SI-42-04</option>
+                          <option>SI-42-05</option>
+                          <option>SI-42-06</option>
+                        </select>
+                      </div>
+                      <div class="form-group ml-3">
+                        <label for="exampleFormControlSelect1">Divisi</label>
+                        <select class="form-control" id="exampleFormControlSelect1" style="width:95%">
+                            <option>Trainer</option>
+                            <option>Sekretaris</option>
+                            <option>Anggota</option>
+                        </select>
+                      </div>
+                      <div class="form-group ml-3">
+                        <label for="exampleFormControlSelect1">Study Group</label>
+                        <select class="form-control" id="exampleFormControlSelect1" style="width:95%">
+                          <option>Data Engineer</option>
+                          <option>Data Scientist</option>
+                        </select>
+                      </div>
+                    <div class="form-group ml-3">
+                        <label>E-mail</label>
+                        <input type="email" class="form-control" name="email" style="width:95%" placeholder="Masukkan Alamat E-mail">
+                    </div>
+                    <div class="form-group ml-3">
+                        <label>Kata Sandi</label>
+                        <input type="password" class="form-control" name="password" style="width:95%" placeholder="Buat Kata Sandi">
+                    </div>
+                    <div class="form-group ml-3">
+                        <label>Konfirmasi Kata Sandi</label>
+                        <input type="password" class="form-control" name="konfirmasi_password" style="width:95%" placeholder="Konfirmasi Kata Sandi">
+                    </div>
+                    <div class="form-group ml-3" align="center">
+                        <button type="submit" name="register" class="btn btn-primary mb-2">Edit</button>
+                        <br>
+                        <button type="cancel" name="register" class="btn btn-primary mb-2" a href="profile">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 <!-- end of konten -->
 @endsection
