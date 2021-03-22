@@ -9,7 +9,8 @@
         </ul>
     </div>
 @endif
-<h3>Daftar Akun Anggota</h3>
+<h3 class="card-title" align="center">Daftar Akun Anggota</h3>
+<br>
 <table class="table table-responsive-sm table-hover table-sm">
     <thead class="thead-dark">
         <tr>
