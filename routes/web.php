@@ -47,3 +47,6 @@ Route::get('editprofile', function () {
 Route::get('akunanggota', function () {
     return view('akunanggota');
 });
+Route::get('updateakun', function () {
+    return view('updateakun');
+});
