@@ -40,3 +40,7 @@ Route::get('buatkegiatan', function () {
 Route::get('listkegiatan', function () {
     return view('tampilkegiatan');
 });
+
+Route::get('editprofile', function () {
+    return view('editprofile');
+});
