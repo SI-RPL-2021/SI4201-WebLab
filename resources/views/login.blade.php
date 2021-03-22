@@ -43,9 +43,8 @@
     <div class="container my-3">
         <div class="col-md-15 mt-5">
             <h3 align="center">Sistem Informasi Web Lab</h3>
-            <p align="center">Kemudahan Akses Terpadu Untuk Laboratorium Telkom.</p>
         </div>
-        <div class="card centered mx-auto px-3" style="width: 26rem;">
+        <div class="card centered mx-auto px-3 mt-3" style="width: 26rem;">
             <div class="card-body">
                 <h5 class="card-title" align="center">Login</h5>
                 <hr></hr>
