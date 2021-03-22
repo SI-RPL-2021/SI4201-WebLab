@@ -146,26 +146,14 @@
                 {{-- end of menampilkan waktu dan tanggal --}}
 
                 {{-- menu 1 --}}
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <a href="home" class="list-group-item list-group-item-action bg-dark text-white">
                     <span class="menu-collapsed"><i class="fa fa-dashboard mr-3"></i> Beranda</span>
                 </a>
                 {{-- end of menu 1 --}}
                 {{-- menu 2 --}}
-                <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-start align-items-center">
-                        <span class="fa fa-dashboard fa-fw mr-3"></span>
-                        <span class="menu-collapsed">Daftar Kegiatan</span>
-                        <span class="submenu-icon ml-auto"><i class="fas fa-angle-down"></i>
-                    </div>
+                <a href="buatkegiatan" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed"><i class="fa fa-dashboard mr-3"></i> Daftar Kegiatan</span>
                 </a>
-                <div id='submenu2' class="collapse sidebar-submenu">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                        <span class="menu-collapsed">Membuat Daftar Kegiatan</span>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                        <span class="menu-collapsed">List Daftar Kegiatan</span>
-                    </a>
-                </div>
                 {{-- end of menu 2 --}}
             </ul>
         </div>
