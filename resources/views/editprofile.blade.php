@@ -54,9 +54,8 @@
                         <label>Konfirmasi Kata Sandi</label>
                         <input type="password" class="form-control" name="konfirmasi_password" style="width:95%" placeholder="Konfirmasi Kata Sandi">
                     </div>
-                    <div class="form-group ml-3" align="center">
-                        <button type="submit" name="register" class="btn btn-primary mb-2">Edit</button>
-                        <br>
+                    <div class="form-group ml-3">
+                        <button type="submit" name="register" class="btn btn-primary mb-2" align="left">Edit</button>
                         <button type="cancel" name="register" class="btn btn-primary mb-2" a href="profile">Cancel</button>
                     </div>
                 </form>
