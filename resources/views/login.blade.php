@@ -16,7 +16,6 @@
             transform: translate(-50%, -50%);
         }
     </style>
-
 </head>
 <body style="background-color:#e9f9fe">
     <!-- Navbar Section-->
@@ -37,9 +36,8 @@
         </div>
     </nav>
     <!-- Navbar Section -->
-
     <!-- Content Section -->
-    
+
     <div class="container my-3">
         <div class="col-md-15 mt-5">
             <h3 align="center">Sistem Informasi Web Lab</h3>
@@ -48,14 +46,13 @@
             <div class="card-body">
                 <h5 class="card-title" align="center">Login</h5>
                 <hr>
-                
+
                 <div class="error-warn">
                     <?php if(isset($_GET['error'])) { ?>
                         <h6 class="error"><?php echo $_GET['error']  ?> </h6>
-                    <?php } 
+                    <?php }
                     ?>
                 </div>
-
                 <form method="post" action="{{ route('login')}}">
                     {{csrf_field()}}
                     <div class="form-group ml-3">
