@@ -24,6 +24,7 @@
             <td>
                 <div class="row">
                     <div class="col"><button type="button" class="btn btn-warning" style="width: 70.75px">Edit</button></div>
+                    <div class="col"><button type="button" class="btn btn-primary btn-block">Buat Absensi</button></div>
                     <div class="col"><button type="button" class="btn btn-danger">Hapus</button></div>
                 </div>
             </td>
@@ -33,8 +34,9 @@
             <td>Pelatihan</td>
             <td>
                 <div class="row">
-                    <div class="col"><button type="button" class="btn btn-warning" style="width: 70.75px">Edit</button></div>
-                    <div class="col"><button type="button" class="btn btn-danger">Hapus</button></div>
+                    <div class="col"><button type="button" class="btn btn-warning btn-block">Edit</button></div>
+                    <div class="col"><button type="button" class="btn btn-primary btn-block">Buat Absensi</button></div>
+                    <div class="col"><button type="button" class="btn btn-danger btn-block">Hapus</button></div>
                 </div>
             </td>
         </tr>
@@ -44,6 +46,7 @@
             <td>
                 <div class="row">
                     <div class="col"><button type="button" class="btn btn-warning" style="width: 70.75px">Edit</button></div>
+                    <div class="col"><button type="button" class="btn btn-primary btn-block">Buat Absensi</button></div>
                     <div class="col"><button type="button" class="btn btn-danger">Hapus</button></div>
                 </div>
             </td>
@@ -52,3 +55,4 @@
 </table>
 <!-- end of konten -->
 @endsection
+{{-- Layout membuat jenis kegiatan masih on-progress --}}
