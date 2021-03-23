@@ -55,4 +55,4 @@
 </table>
 <!-- end of konten -->
 @endsection
-{{-- Layout membuat jenis kegiatan masih on-progress --}}
+{{-- Layout membuat jenis kegiatan masih on-progres --}}
