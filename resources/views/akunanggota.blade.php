@@ -35,8 +35,8 @@
             <td>faizalhudya@gmail.com</td>
             <td>
                 <div class="row">
-                    <div class="col"><a href="updateakun" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda ingin mengedit akun?');">Edit</a></div>
-                    <div class="col"><button type="button"  class="btn btn-danger btn-block" onclick="return confirm('Apakah anda ingin menghapus akun?');">Hapus</button></div>
+                    <div class="col"><a href="updateakun" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda yakin ingin mengedit akun?');">Edit</a></div>
+                    <div class="col"><button type="button"  class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ingin menghapus akun?');">Hapus</button></div>
                 </div>
             </td>
         </tr>
