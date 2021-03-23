@@ -22,7 +22,7 @@ class AuthController extends Controller
         if($login){
             // return redirect('home');
             // return view('home');
-            return redirect()->route('ihome');
+            return redirect()->route('home');
             // echo $user = Auth::user();
             // echo $user = Auth::user()->nama;
         }

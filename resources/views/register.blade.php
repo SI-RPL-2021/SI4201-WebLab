@@ -90,7 +90,7 @@
                     <div class="form-group ml-3" align="center">
                         <input type="submit" value="Daftar" class="btn btn-primary mb-2">
                         <br>
-                        Sudah punya akun? <a href="login">Login</a>
+                        Sudah punya akun ? <a href="login">Login</a>
                     </div>
                 </form>
             </div>
@@ -99,3 +99,4 @@
     <!-- Content Section -->
 </body>
 </html>
+{{-- register --}}

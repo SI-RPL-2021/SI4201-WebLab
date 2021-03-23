@@ -28,11 +28,11 @@ Route::post('login', 'App\Http\Controllers\AuthController@postLogin') -> name('l
 Route::get('logout', 'App\Http\Controllers\AuthController@logout') -> name('logout')  -> middleware('auth');
 
 
-Route::get('home', 'App\Http\Controllers\AuthController@ihome')-> name('ihome');
+// Route::get('home', 'App\Http\Controllers\AuthController@ihome')-> name('home');
 
-// Route::get('home', function () {
-//     return view('home');
-// }) -> name('home') -> middleware('auth');
+Route::get('home', function () {
+    return view('home');
+}) -> name('home');
 // Route::get('home', function () {
 //     return view('home');
 // }) -> name('home');
