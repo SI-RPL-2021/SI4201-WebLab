@@ -21,7 +21,7 @@ class AuthController extends Controller
         $login = Auth::attempt($credentials);
         if($login){
             // return redirect('home');
-            // return view('home');
+            // return view(' home ');
             return redirect()->route('home');
             // echo $user = Auth::user();
             // echo $user = Auth::user()->nama;
