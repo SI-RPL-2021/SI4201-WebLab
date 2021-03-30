@@ -1,13 +1,21 @@
 @extends('layout')
-@section('title', 'Edit Profile Anggota')
+@section('title', 'Profile Anggota')
 @section('konten')
 <!-- konten -->
+<?php
+    $nama = $_POST['nama'];
+    $nim = $_POST['nim'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $konfirmasi_password = $_POST['konffirmasi_password'];
+?>
+
 <div class="container my-3">
         <div class="card my-4 mx-auto px-3" style="width: 40rem;">
             <div class="card-body">
-                <h5 class="card-title" align="center">Edit Profile</h5>
+                <h5 class="card-title" align="center">Profile</h5>
                 <hr></hr>
-                <form method="post" action="">
+                <form method="POST" action="">
                     <div class="form-group ml-3">
                         <label>Nama</label>
                         <input type="text" class="form-control" name="nama" style="width:95%" placeholder="Masukkan Nama Lengkap">
@@ -55,8 +63,8 @@
                         <input type="password" class="form-control" name="konfirmasi_password" style="width:95%" placeholder="Konfirmasi Kata Sandi">
                     </div>
                     <div class="form-group ml-3">
-                        <button type="submit" name="register" class="btn btn-primary mb-2" align="left">Edit</button>
-                        <button type="cancel" name="register" class="btn btn-primary mb-2" a href="profile">Cancel</button>
+                        <button type="submit" name="submit" class="btn btn-primary mb-2" value="submit" align="left">Edit</button>
+                        <button type="reset" name="cancel" class="btn btn-primary mb-2" a href="profile" >Cancel</button>
                     </div>
                 </form>
             </div>

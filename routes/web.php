@@ -41,7 +41,7 @@ Route::get('buatkegiatan', function () {
     return view('buatkegiatan');
 });
 
-Route::get('editprofile', function () {
+Route::post('editprofile', function () {
     return view('editprofile');
 });
 Route::get('akunanggota', function () {
