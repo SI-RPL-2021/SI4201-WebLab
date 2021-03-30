@@ -53,4 +53,51 @@
         </div>
     </div>
 <!-- end of konten -->
+
+<?
+$updateGET = $_GET['update'];
+?>
+
+<body>
+  <?php
+  if(isset($_GET['nama'])  ||  isset($_GET['nim']) ||  isset($_GET['kelas']) || isset($_GET['divisi']) || isset($_GET['study_group']) ) {
+  $nama = $_GET['nama'];
+  $nim = $_GET['nim'];
+  $kelas = $_GET['kelas'];
+  $divisi = $_GET['divisi'];
+  $study_group = $_GET['study_group'];
+  }
+  ?>
+  <div class="container-sm">
+     <h2 style="text-align: center;"> Update Akun Anggota (GET)</h2>
+      <fieldset>
+        <table class="table">
+            <tr>
+                <td>Nama: </td>
+                <td><?= $nama ?> </td>
+            </tr>
+            <tr>
+                <td>NIM: </td>
+                <td><?= $nim ?> </td>
+            </tr>
+            <tr>
+                <td>Kelas: </td>
+                <td><?= $kelas ?> </td>
+            </tr>
+            <tr>
+                <tr>Divisi: </td>
+                <tr><?= $divisi ?> </td>
+            </tr>
+            <tr>
+                <tr>StudyGrup: </td>
+                <tr><?= $study_group ?> </td>
+            </tr>
+        </table>
+        <div style="text-align: center;">
+          <a href="input_get.php" class="btn btn-primary mb-2"> kembali</a>
+      </div>
+    </fieldset>
+  </dev>
+</body>  
+
 @endsection
