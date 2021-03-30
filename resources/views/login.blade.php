@@ -18,6 +18,7 @@
     </style>
 </head>
 <body style="background-color:#e9f9fe">
+
     <!-- Navbar Section-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Web Lab</a>
@@ -36,8 +37,8 @@
         </div>
     </nav>
     <!-- Navbar Section -->
-    <!-- Content Section -->
 
+    <!-- Content Section -->
     <div class="container my-3">
         <div class="col-md-15 mt-5">
             <h3 align="center">Sistem Informasi Web Lab</h3>
@@ -73,5 +74,6 @@
         </div>
     </div>
     <!--  Content Section -->
+
 </body>
 </html>
