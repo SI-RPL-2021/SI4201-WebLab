@@ -25,21 +25,23 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="col">1</th>
-            <td>Faizal Hudya</td>
-            <td>1202180000</td>
-            <td>SI-42-01</td>
-            <td>Trainer</td>
-            <td>Data Engineer</td>
-            <td>faizalhudya@gmail.com</td>
-            <td>
-                <div class="row">
-                    <div class="col"><a href="updateakun" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda yakin ingin mengedit akun?');">Edit</a></div>
-                    <div class="col"><button type="button"  class="btn btn-danger btn-block" onsubmit="return confirm('Apakah anda yakin ingin menghapus akun?');">Delete</button></div>
-                </div>
-            </td>
-        </tr>
+        @foreach ($anggota as $data) { ?>
+            <tr>
+                <td><?=$no++?>.</td>
+                <td><?=$data->nama?>.</td>
+                <td><?=$data->nim?>.</td>
+                <td><?=$data->kelas?>.</td>
+                <td><?=$data->divisi?>.</td>
+                <td><?=$data->study_group?>.</td>
+                <td><?=$data->email?>.</td>
+                <td>
+                    <div class="row">
+                        <div class="col"><a href="updateakun" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda yakin ingin mengedit akun?');">Edit</a></div>
+                        <div class="col"><button type="button"  class="btn btn-danger btn-block" onsubmit="return confirm('Apakah anda yakin ingin menghapus akun?');">Delete</button></div>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
     </tbody>
 </table>
 <!-- end of konten -->
