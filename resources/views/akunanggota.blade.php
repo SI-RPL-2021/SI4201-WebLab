@@ -39,8 +39,8 @@
             <td>{{$data->email}}</td>
             <td>
                 <div class="row">
-                    <div class="col"><a href="/updateakun/{{$data->id}}" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda yakin ingin mengedit akun?');">Edit</a></div>
-                    <div class="col"><a href="/delete/{{$data->id}}"  class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ingin menghapus akun?');">Delete</a></div>
+                    <div class="col"><a href="/updateakun/{{$data->id}}" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda yakin ingin mengedit akun anggota?');">Edit</a></div>
+                    <div class="col"><a href="/delete/{{$data->id}}"  class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ingin menghapus akun anggota?');">Delete</a></div>
                 </div>
             </td>
         </tr>
