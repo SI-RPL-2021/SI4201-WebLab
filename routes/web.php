@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,9 +45,9 @@ Route::get('buatkegiatan', function () {
 Route::post('editprofile', function () {
     return view('editprofile');
 });
-Route::get('akunanggota', function () {
-    return view('akunanggota');
-});
-Route::get('updateakun', function () {
-    return view('updateakun');
-});
+
+//Routing anggota
+Route::get('/akunanggota',[AnggotaController::class,'index']); 
+Route::get('/updateakun/{Anggota:id}',[AnggotaController::class,'updateanggota']); 
+Route::post('/update/{Anggota:id}',[AnggotaController::class,'updatestore']);
+Route::get('/delete/{Anggota:id}',[AnggotaController::class,'destroy']);

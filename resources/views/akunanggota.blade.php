@@ -25,23 +25,27 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($anggota as $data) { ?>
-            <tr>
-                <td><?=$no++?>.</td>
-                <td><?=$data->nama?>.</td>
-                <td><?=$data->nim?>.</td>
-                <td><?=$data->kelas?>.</td>
-                <td><?=$data->divisi?>.</td>
-                <td><?=$data->study_group?>.</td>
-                <td><?=$data->email?>.</td>
-                <td>
-                    <div class="row">
-                        <div class="col"><a href="updateakun" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda yakin ingin mengedit akun?');">Edit</a></div>
-                        <div class="col"><button type="button"  class="btn btn-danger btn-block" onsubmit="return confirm('Apakah anda yakin ingin menghapus akun?');">Delete</button></div>
-                    </div>
-                </td>
-            </tr>
-            @endforeach
+        {{-- @foreach ($anggota as $data) { ?> --}}
+        <?php $index = 1; ?>
+        @foreach ($angg as $data)
+            
+        <tr>
+            <td>{{$index++}}</td>
+            <td>{{$data->nama}}</td>
+            <td>{{$data->nim}}</td>
+            <td>{{$data->kelas}}</td>
+            <td>{{$data->divisi}}</td>
+            <td>{{$data->study_group}}</td>
+            <td>{{$data->email}}</td>
+            <td>
+                <div class="row">
+                    <div class="col"><a href="/updateakun/{{$data->id}}" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda yakin ingin mengedit akun?');">Edit</a></div>
+                    <div class="col"><a href="/delete/{{$data->id}}"  class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ingin menghapus akun?');">Delete</a></div>
+                </div>
+            </td>
+        </tr>
+        @endforeach
+        {{-- @endforeach --}}
     </tbody>
 </table>
 <!-- end of konten -->
