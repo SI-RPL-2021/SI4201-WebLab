@@ -17,7 +17,7 @@ class AnggotaController extends Controller
     }
     public function updateanggota($id){
         $angg = Anggota::findorfail($id);
-        return view('updateakun',compact('angg'));
+        return view('/updateakun',compact('angg'));
     }
     public function updatestore(Request $request, $id){
 
