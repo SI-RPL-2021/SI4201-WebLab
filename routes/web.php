@@ -42,7 +42,7 @@ Route::get('buatkegiatan', function () {
     return view('buatkegiatan');
 });
 
-Route::post('editprofile', function () {
+Route::get('editprofile', function () {
     return view('editprofile');
 });
 
