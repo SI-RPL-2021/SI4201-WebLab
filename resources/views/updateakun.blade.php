@@ -50,7 +50,8 @@
                     <div class="form-group ml-3" align="center">
                         <button type="submit" name="register" class="btn btn-primary mb-2">Update</button>
                         <br>
-                        <button type="cancel" name="register" class="btn btn-primary mb-2" href="javascript:history.back()">Cancel</button>
+                        {{-- <button type="cancel" name="register" class="btn btn-primary mb-2" href="javascript:history.back()">Cancel</button> --}}
+                        <a href="javascript:history.back()" class="btn btn-primary mb-2">Cancel</a>
                     </div>
                 </form>
             </div>
