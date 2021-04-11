@@ -1,8 +1,8 @@
 @extends('layout')
-@section('title', 'Membuat Daftar Kegiatan')
+@section('title', 'Home Page')
 @section('konten')
 <!-- konten -->
-<h5>Selamat Datang</h5>
+<h5>Selamat Datang, {{ Auth::user()->nama }}</h5>
 
 <!-- end of konten -->
 @endsection

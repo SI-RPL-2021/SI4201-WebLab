@@ -12,19 +12,11 @@ class AuthController extends Controller
     public function getLogin(){
         return view('login');
     }
-    public function ihome(){
-        return view('home');
-    }
 
     public function postLogin(Request $request){
-        $credentials = $request->only('email', 'password');
-        $login = Auth::attempt($credentials);
+        $login = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
         if($login){
-            // return redirect('home');
-            // return view(' home ');
             return redirect()->route('home');
-            // echo $user = Auth::user();
-            // echo $user = Auth::user()->nama;
         }
         else{
             return redirect()->back();

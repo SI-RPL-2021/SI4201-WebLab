@@ -28,15 +28,9 @@ Route::get('login', 'App\Http\Controllers\AuthController@getLogin')-> name('get_
 Route::post('login', 'App\Http\Controllers\AuthController@postLogin') -> name('login') -> middleware('guest');
 Route::get('logout', 'App\Http\Controllers\AuthController@logout') -> name('logout')  -> middleware('auth');
 
-
-// Route::get('home', 'App\Http\Controllers\AuthController@ihome')-> name('home');
-
 Route::get('home', function () {
     return view('home');
-}) -> name('home');
-// Route::get('home', function () {
-//     return view('home');
-// }) -> name('home');
+}) -> name('home') -> middleware('auth');
 
 Route::get('buatkegiatan', function () {
     return view('buatkegiatan');
