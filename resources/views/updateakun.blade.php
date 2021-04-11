@@ -20,31 +20,31 @@
                     <div class="form-group ml-3">
                         <label for="exampleFormControlSelect1">Kelas</label>
                         <select class="form-control" id="exampleFormControlSelect1" style="width:95%" name="kelas">
-                          <option value="{{$angg->kelas}}">{{$angg->kelas}}</option>
-                          <option value="SI-42-01">SI-42-01</option>
-                          <option value="SI-42-02">SI-42-02</option>
-                          <option value="SI-42-03">SI-42-03</option>
-                          <option value="SI-42-04">SI-42-04</option>
-                          <option value="SI-42-05">SI-42-05</option>
-                          <option value="SI-42-06">SI-42-06</option>
-                          <option value="SI-42-07">SI-42-07</option>
+                          <option value="SI-42-01" @if ((Auth::user()->kelas) == "SI-42-01") {{ 'selected' }} @endif>SI-42-01</option>
+                          <option value="SI-42-02" @if ((Auth::user()->kelas) == "SI-42-02") {{ 'selected' }} @endif>SI-42-02</option>
+                          <option value="SI-42-03" @if ((Auth::user()->kelas) == "SI-42-03") {{ 'selected' }} @endif>SI-42-03</option>
+                          <option value="SI-42-04" @if ((Auth::user()->kelas) == "SI-42-04") {{ 'selected' }} @endif>SI-42-04</option>
+                          <option value="SI-42-05" @if ((Auth::user()->kelas) == "SI-42-05") {{ 'selected' }} @endif>SI-42-05</option>
+                          <option value="SI-42-06" @if ((Auth::user()->kelas) == "SI-42-06") {{ 'selected' }} @endif>SI-42-06</option>
+                          <option value="SI-42-07" @if ((Auth::user()->kelas) == "SI-42-07") {{ 'selected' }} @endif>SI-42-07</option>
+                          <option value="SI-42-08" @if ((Auth::user()->kelas) == "SI-42-08") {{ 'selected' }} @endif>SI-42-08</option>
+                          <option value="SI-42-09" @if ((Auth::user()->kelas) == "SI-42-09") {{ 'selected' }} @endif>SI-42-09</option>
+                          <option value="SI-42-INT" @if ((Auth::user()->kelas) == "SI-42-INT") {{ 'selected' }} @endif>SI-42-INT</option>
                         </select>
                       </div>
                       <div class="form-group ml-3">
                         <label for="exampleFormControlSelect1">Divisi</label>
                         <select class="form-control" id="exampleFormControlSelect1" style="width:95%" name="divisi">
-                            <option value="{{$angg->divisi}}">{{$angg->divisi}}</option>
-                            <option value="Trainer">Trainer</option>
-                            <option value="Sekretaris">Sekretaris</option>
-                            <option value="Anggota">Anggota</option>
+                          <option value="Trainer" @if ((Auth::user()->divisi) == "Trainer") {{ 'selected' }} @endif>Trainer</option>
+                          <option value="Sekertaris"  @if ((Auth::user()->divisi) == "Sekertaris") {{ 'selected' }} @endif>Sekretaris</option>
+                          <option Value="Anggota"  @if ((Auth::user()->divisi) == "Anggota") {{ 'selected' }} @endif>Anggota</option>
                         </select>
                       </div>
                       <div class="form-group ml-3">
                         <label for="exampleFormControlSelect1">Study Group</label>
                         <select class="form-control" id="exampleFormControlSelect1" style="width:95%" name="study_group">
-                          <option value="{{$angg->study_group}}">{{$angg->study_group}}</option>
-                          <option value="Data Engineer">Data Engineer</option>
-                          <option value="Data Scientist">Data Scientist</option>
+                          <option value="Data Engineer"  @if ((Auth::user()->study_group) == "Data Engineer") {{ 'selected' }} @endif>Data Engineer</option>
+                        <option value="Data Scientist"  @if ((Auth::user()->study_group) == "Data Scientist") {{ 'selected' }} @endif>Data Scientist</option>
                         </select>
                       </div>
                     <div class="form-group ml-3" align="center">
