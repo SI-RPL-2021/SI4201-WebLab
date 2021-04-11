@@ -63,16 +63,16 @@
                     <div class="form-group ml-3">
                         <label for="exampleFormControlSelect1">Divisi</label>
                         <select class="form-control" id="exampleFormControlSelect1" style="width:86%" name="divisi" required>
-                            <option>Trainer</option>
-                            <option>Sekretaris</option>
-                            <option>Anggota</option>
+                            <option value="Trainer">Trainer</option>
+                            <option value="Sekretaris">Sekretaris</option>
+                            <option value="Anggota">Anggota</option>
                         </select>
                     </div>
                     <div class="form-group ml-3">
                         <label for="exampleFormControlSelect1">Study Group</label>
                         <select class="form-control" id="exampleFormControlSelect1" style="width:86%" name="study_group" required>
-                            <option>Data Engineer</option>
-                            <option>Data Scientist</option>
+                            <option value="Data Engineer">Data Engineer</option>
+                            <option value="Data Scientist">Data Scientist</option>
                         </select>
                     </div>
                     <div class="form-group ml-3">

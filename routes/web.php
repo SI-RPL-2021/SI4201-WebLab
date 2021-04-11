@@ -36,9 +36,7 @@ Route::get('buatkegiatan', function () {
     return view('buatkegiatan');
 });
 
-Route::get('editprofile', function () {
-    return view('editprofile');
-});
+Route::get('edit/profile/{id}', 'App\Http\Controllers\ProfileController@editProfile');
 
 //Routing anggota
 Route::get('/akunanggota',[AnggotaController::class,'index']); 
