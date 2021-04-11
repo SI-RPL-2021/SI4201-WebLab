@@ -445,17 +445,4 @@ class Kernel implements KernelContract
     {
         return $this->app;
     }
-
-    /**
-     * Set the Laravel application instance.
-     *
-     * @param  \Illuminate\Contracts\Foundation\Application
-     * @return $this
-     */
-    public function setApplication(Application $app)
-    {
-        $this->app = $app;
-
-        return $this;
-    }
 }

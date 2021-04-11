@@ -13,13 +13,14 @@ class ValidGenerator
     protected $maxRetries;
 
     /**
+     * @param Generator $generator
      * @param callable|null $validator
-     * @param int           $maxRetries
+     * @param int $maxRetries
      */
     public function __construct(Generator $generator, $validator = null, $maxRetries = 10000)
     {
-        if (null === $validator) {
-            $validator = static function () {
+        if (is_null($validator)) {
+            $validator = function () {
                 return true;
             };
         } elseif (!is_callable($validator)) {
@@ -32,32 +33,28 @@ class ValidGenerator
 
     /**
      * Catch and proxy all generator calls but return only valid values
-     *
      * @param string $attribute
      *
-     * @deprecated Use a method instead.
+     * @return mixed
      */
     public function __get($attribute)
     {
-        trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', $attribute, $attribute);
-
         return $this->__call($attribute, []);
     }
 
     /**
      * Catch and proxy all generator calls with arguments but return only valid values
-     *
      * @param string $name
-     * @param array  $arguments
+     * @param array $arguments
+     *
+     * @return mixed
      */
     public function __call($name, $arguments)
     {
         $i = 0;
-
         do {
             $res = call_user_func_array([$this->generator, $name], $arguments);
-            ++$i;
-
+            $i++;
             if ($i > $this->maxRetries) {
                 throw new \OverflowException(sprintf('Maximum retries of %d reached without finding a valid value', $this->maxRetries));
             }

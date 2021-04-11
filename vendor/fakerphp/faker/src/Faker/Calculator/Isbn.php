@@ -7,19 +7,17 @@ namespace Faker\Calculator;
  */
 class Isbn
 {
-    /**
-     * @var string ISBN-10 validation pattern
-     */
+    /** @var string ISBN-10 validation pattern */
     public const PATTERN = '/^\d{9}[0-9X]$/';
 
     /**
      * ISBN-10 check digit
+     * @link http://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digits
      *
-     * @see http://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digits
-     *
-     * @param string $input ISBN without check-digit
-     *
+     * @param  string           $input ISBN without check-digit
      * @throws \LengthException When wrong input length passed
+     *
+     * @return string
      */
     public static function checksum(string $input): string
     {
@@ -34,7 +32,7 @@ class Isbn
         $digits = str_split($input);
         array_walk(
             $digits,
-            static function (&$digit, $position) {
+            function (&$digit, $position) {
                 $digit = (10 - $position) * $digit;
             }
         );
@@ -48,6 +46,8 @@ class Isbn
      * Checks whether the provided number is a valid ISBN-10 number
      *
      * @param string $isbn ISBN to check
+     *
+     * @return bool
      */
     public static function isValid(string $isbn): bool
     {

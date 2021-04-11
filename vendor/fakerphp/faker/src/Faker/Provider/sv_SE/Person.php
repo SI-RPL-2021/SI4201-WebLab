@@ -22,8 +22,7 @@ class Person extends \Faker\Provider\Person
 
     /**
      * @var array Swedish female first names
-     *
-     * @see http://spraakbanken.gu.se/statistik/lbfnamnalf.phtml
+     * @link http://spraakbanken.gu.se/statistik/lbfnamnalf.phtml
      */
     protected static $firstNameFemale = [
 
@@ -50,13 +49,12 @@ class Person extends \Faker\Provider\Person
         'Valborg', 'Vanja', 'Vega', 'Vendela', 'Vendla', 'Vera', 'Veronica', 'Veronika', 'Victoria', 'Viktoria', 'Vilhelmina', 'Vilma', 'Viola', 'Virginia', 'Vivan', 'Viveca', 'Viveka', 'Vivi', 'Vivian', 'Viviann', 'Vivianne', 'Vivi-Ann', 'Vivi-Anne',
         'Wilhelmina',
         'Ylva', 'Yvonne',
-        'Åsa', 'Åse',
+        'Åsa', 'Åse'
     ];
 
     /**
      * @var array Swedish male first names
-     *
-     * @see http://spraakbanken.gu.se/statistik/lbfnamnalf.phtml
+     * @link http://spraakbanken.gu.se/statistik/lbfnamnalf.phtml
      */
     protected static $firstNameMale = [
         'Abraham', 'Adam', 'Adolf', 'Adrian', 'Agaton', 'Agne', 'Albert', 'Albin', 'Aldor', 'Alex', 'Alexander', 'Alexis', 'Alexius', 'Alf', 'Alfons', 'Alfred', 'Algot', 'Allan', 'Alrik', 'Alvar', 'Alve', 'Amandus', 'Anders', 'André', 'Andreas', 'Anselm', 'Anshelm', 'Antero', 'Anton', 'Antonius', 'Arne', 'Arnold', 'Aron', 'Arthur', 'Artur', 'Arvid', 'Assar', 'Astor', 'August', 'Augustin', 'Axel',
@@ -83,13 +81,12 @@ class Person extends \Faker\Provider\Person
         'Waldemar', 'Walter', 'Werner', 'Wilhelm', 'William', 'Willy',
         'Yngve',
         'Åke',
-        'Örjan', 'Östen',
+        'Örjan', 'Östen'
     ];
 
     /**
      * @var array Swedish common last names
-     *
-     * @see http://www.scb.se/sv_/Hitta-statistik/Statistik-efter-amne/Befolkning/Amnesovergripande-statistik/Namnstatistik/30898/2012A01x/Samtliga-folkbokforda--Efternamn-topplistor/Efternamn-topp-100/
+     * @link http://www.scb.se/sv_/Hitta-statistik/Statistik-efter-amne/Befolkning/Amnesovergripande-statistik/Namnstatistik/30898/2012A01x/Samtliga-folkbokforda--Efternamn-topplistor/Efternamn-topp-100/
      */
     protected static $lastName = [
 
@@ -113,17 +110,14 @@ class Person extends \Faker\Provider\Person
         'Viklund',
         'Wallin', 'Wikström',
         'Åberg', 'Åkesson', 'Åström',
-        'Öberg',
+        'Öberg'
     ];
 
     /**
      * National Personal Identity number (personnummer)
-     *
-     * @see http://en.wikipedia.org/wiki/Personal_identity_number_(Sweden)
-     *
+     * @link http://en.wikipedia.org/wiki/Personal_identity_number_(Sweden)
      * @param \DateTime $birthdate
-     * @param string    $gender    Person::GENDER_MALE || Person::GENDER_FEMALE
-     *
+     * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
      * @return string on format XXXXXX-XXXX
      */
     public function personalIdentityNumber(\DateTime $birthdate = null, $gender = null)
@@ -140,6 +134,7 @@ class Person extends \Faker\Provider\Person
         } else {
             $randomDigits = (string) static::numerify('###');
         }
+
 
         $checksum = Luhn::computeCheckDigit($datePart . $randomDigits);
 

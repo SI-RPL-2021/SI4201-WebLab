@@ -13,7 +13,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @see http://www.ons.gov.uk/ons/rel/vsob1/baby-names--england-and-wales/2013/index.html
+     * @link http://www.ons.gov.uk/ons/rel/vsob1/baby-names--england-and-wales/2013/index.html
      */
     protected static $firstNameMale = [
         'Aaron', 'Adam', 'Adrian', 'Aiden', 'Alan', 'Alex', 'Alexander', 'Alfie', 'Andrew', 'Andy', 'Anthony', 'Archie', 'Arthur',
@@ -37,7 +37,7 @@ class Person extends \Faker\Provider\Person
         'Samuel', 'Scott', 'Sean', 'Sebastian', 'Stefan', 'Stephen', 'Steve',
         'Theo', 'Thomas', 'Tim', 'Toby', 'Tom', 'Tony', 'Tyler',
         'Wayne', 'Will', 'William',
-        'Zachary', 'Zach',
+        'Zachary', 'Zach'
     ];
 
     protected static $firstNameFemale = [
@@ -67,7 +67,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @see http://surname.sofeminine.co.uk/w/surnames/most-common-surnames-in-great-britain.html
+     * @link http://surname.sofeminine.co.uk/w/surnames/most-common-surnames-in-great-britain.html
      */
     protected static $lastName = [
         'Adams', 'Allen', 'Anderson',
@@ -93,8 +93,7 @@ class Person extends \Faker\Provider\Person
 
     /**
      * Generates a random National Insurance number.
-     *
-     * @see https://www.gov.uk/hmrc-internal-manuals/national-insurance-manual/nim39110
+     * @link https://www.gov.uk/hmrc-internal-manuals/national-insurance-manual/nim39110
      */
     public function nino(): string
     {
@@ -103,7 +102,7 @@ class Person extends \Faker\Provider\Person
 
         do {
             $prefix = implode('', self::randomElements($prefixAllowList, 2, true));
-        } while (in_array($prefix, $prefixBanList, false) || $prefix[1] == 'O');
+        } while (in_array($prefix, $prefixBanList) || $prefix[1] == 'O');
 
         $digits = static::numerify('######');
         $suffix = static::randomElement(['A', 'B', 'C', 'D']);

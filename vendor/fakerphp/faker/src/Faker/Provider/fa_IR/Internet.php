@@ -16,14 +16,14 @@ class Internet extends \Faker\Provider\Internet
     ];
 
     /**
-     * @see https://en.wikipedia.org/wiki/.ir
+     * @link https://en.wikipedia.org/wiki/.ir
      */
     protected static $tld = [
         'biz', 'com', 'info', 'ac.ir', 'sch.ir', 'co.ir', 'ir', 'net', 'org',
     ];
 
     /**
-     * @see http://en.wikipedia.org/wiki/Category:Iranian-language_surnames
+     * @link http://en.wikipedia.org/wiki/Category:Iranian-language_surnames
      */
     protected static $lastNameAscii = [
         'abdullahi', 'abbasi', 'abedini', 'ahadi', 'ahmadi', 'akbari', 'alizadeh', 'asadi',
@@ -47,7 +47,7 @@ class Internet extends \Faker\Provider\Internet
     ];
 
     /**
-     * @see http://en.wikipedia.org/wiki/Persian_name
+     * @link http://en.wikipedia.org/wiki/Persian_name
      */
     protected static $firstNameAscii = [
         'abbas', 'afshin', 'ahmad', 'ali', 'amir', 'anahita', 'anousheh', 'arash', 'ardeshir', 'arezu', 'aria', 'arian', 'arman', 'ashraf', 'atoosa', 'azadeh', 'azar',

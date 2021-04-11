@@ -153,11 +153,9 @@ class BladeCompiler extends Compiler implements CompilerInterface
                 $contents = $this->appendFilePath($contents);
             }
 
-            $this->ensureCompiledDirectoryExists(
-                $compiledPath = $this->getCompiledPath($this->getPath())
+            $this->files->put(
+                $this->getCompiledPath($this->getPath()), $contents
             );
-
-            $this->files->put($compiledPath, $contents);
         }
     }
 

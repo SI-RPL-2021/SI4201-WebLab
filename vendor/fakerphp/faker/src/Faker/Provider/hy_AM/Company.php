@@ -32,7 +32,6 @@ class Company extends \Faker\Provider\Company
     public function catchPhrase()
     {
         $result = [];
-
         foreach (static::$catchPhraseWords as &$word) {
             $result[] = static::randomElement($word);
         }
@@ -46,7 +45,6 @@ class Company extends \Faker\Provider\Company
     public function bs()
     {
         $result = [];
-
         foreach (static::$bsWords as &$word) {
             $result[] = static::randomElement($word);
         }

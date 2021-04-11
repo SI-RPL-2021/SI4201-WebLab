@@ -2,10 +2,6 @@
 
 All notable changes to `flare-client-php` will be documented in this file
 
-## 1.5.0 - 2021-03-31
-
-- add `determineVersionUsing`
-
 ## 1.4.0 - 2021-02-16
 
 - remove custom grouping

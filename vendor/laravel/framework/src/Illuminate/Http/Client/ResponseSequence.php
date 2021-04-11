@@ -2,13 +2,10 @@
 
 namespace Illuminate\Http\Client;
 
-use Illuminate\Support\Traits\Macroable;
 use OutOfBoundsException;
 
 class ResponseSequence
 {
-    use Macroable;
-
     /**
      * The responses in the sequence.
      *

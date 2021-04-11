@@ -18,18 +18,18 @@ class DefaultGenerator
     /**
      * @param string $attribute
      *
-     * @deprecated Use a method instead.
+     * @return mixed
      */
     public function __get($attribute)
     {
-        trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', $attribute, $attribute);
-
         return $this->default;
     }
 
     /**
      * @param string $method
-     * @param array  $attributes
+     * @param array $attributes
+     *
+     * @return mixed
      */
     public function __call($method, $attributes)
     {

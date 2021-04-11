@@ -47,31 +47,11 @@ class Flare
     /** @var callable|null */
     private $previousErrorHandler;
 
-    /** @var callable|null */
-    private $determineVersionCallable;
-
     public static function register(string $apiKey, string $apiSecret = null, ContextDetectorInterface $contextDetector = null, Container $container = null)
     {
         $client = new Client($apiKey, $apiSecret);
 
         return new static($client, $contextDetector, $container);
-    }
-
-    public function determineVersionUsing($determineVersionCallable)
-    {
-        $this->determineVersionCallable = $determineVersionCallable;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function version()
-    {
-        if (! $this->determineVersionCallable) {
-            return null;
-        }
-
-        return ($this->determineVersionCallable)();
     }
 
     public function __construct(Client $client, ContextDetectorInterface $contextDetector = null, Container $container = null, array $middleware = [])
@@ -235,8 +215,7 @@ class Flare
         $report = Report::createForThrowable(
             $throwable,
             $this->contextDetector->detectCurrentContext(),
-            $this->applicationPath,
-            $this->version()
+            $this->applicationPath
         );
 
         return $this->applyMiddlewareToReport($report);

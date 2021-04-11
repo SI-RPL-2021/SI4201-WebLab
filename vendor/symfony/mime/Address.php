@@ -78,16 +78,7 @@ final class Address
 
     public function toString(): string
     {
-        return ($n = $this->getEncodedName()) ? $n.' <'.$this->getEncodedAddress().'>' : $this->getEncodedAddress();
-    }
-
-    public function getEncodedName(): string
-    {
-        if ('' === $this->getName()) {
-            return '';
-        }
-
-        return sprintf('"%s"', preg_replace('/"/u', '\"', $this->getName()));
+        return ($n = $this->getName()) ? $n.' <'.$this->getEncodedAddress().'>' : $this->getEncodedAddress();
     }
 
     /**
