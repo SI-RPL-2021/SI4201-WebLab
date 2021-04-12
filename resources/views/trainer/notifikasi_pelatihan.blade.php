@@ -73,7 +73,7 @@
                     <td>
                         <form method="GET">
                             <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning">Edit</a>
-                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan rapat ini?');">Hapus</a>
+                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Hapus</a>
                         </form>
                     </td>
                 </tr>

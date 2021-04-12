@@ -76,4 +76,10 @@ class PelatihanController extends Controller
             return redirect('readPelatihan')->with('edit_gagal', 'Data gagal disimpan');
         }
     }
+
+    public function deletePelatihan($id){
+        $delete = Pelatihan::findorfail($id);
+        $delete->delete();
+        return redirect('readPelatihan')->with('hapus_berhasil', 'Pengajuan pelatihan berhasil dihapus');
+    }
 }
