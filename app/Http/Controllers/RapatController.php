@@ -32,4 +32,9 @@ class RapatController extends Controller
             return redirect()->back()->with('failed', 'Data telah berhasil disimpan');
         }
     }
+
+    public function readRapat(Request $request){
+        $rapat = Rapat::all();
+        return view ('sekretaris.notifikasi_rapat', ['rapat' => $rapat]);
+    }
 }

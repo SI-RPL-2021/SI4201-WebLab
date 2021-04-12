@@ -50,3 +50,4 @@ Route::get('rapat', function () {
     return view('sekretaris.form_rapat');
 });
 Route::get('rapat/create', [RapatController::class, 'createRapat']);
+Route::get('rapat/readRapat', [RapatController::class, 'readRapat']);
