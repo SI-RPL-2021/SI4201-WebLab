@@ -40,4 +40,9 @@ class PelatihanController extends Controller
             return redirect()->back()->with('failed', 'Data telah berhasil disimpan');
         }
     }
+
+    public function readPelatihan(Request $request){
+        $pelatihan = Pelatihan::all();
+        return view ('trainer.notifikasi_pelatihan', ['pelatihan' => $pelatihan]);
+    }
 }

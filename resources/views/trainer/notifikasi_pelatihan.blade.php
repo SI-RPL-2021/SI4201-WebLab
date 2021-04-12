@@ -41,21 +41,23 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nama Rapat</th>
-                <th scope="col">Tanggal Rapat</th>
-                <th scope="col">Jam Rapat</th>
+                <th scope="col">Nama Pelatihan</th>
+                <th scope="col">Study Group</th>
+                <th scope="col">Tanggal Pelatihan</th>
+                <th scope="col">Jam Pelatihan</th>
                 <th scope="col">Link</th>
                 <th scope="col">Aproval</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($rapat as $p)
+            @foreach ($pelatihan as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $p->nama_rapat }}</td>
-                    <td>{{ $p->tgl_rapat }}</td>
-                    <td>{{ $p->jam_rapat }}</td>
+                    <td>{{ $p->nama_pelatihan }}</td>
+                    <td>{{ $p->study_group }}</td>
+                    <td>{{ $p->tgl_pelatihan }}</td>
+                    <td>{{ $p->jam_pelatihan }}</td>
                     <td>{{ $p->link }}</td>
                     <td>
                         @if (($p->status_aproval) == 'waiting')

@@ -62,7 +62,7 @@ Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRap
 // Routing trainer
 Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);
 Route::get('pelatihan/create', [PelatihanController::class, 'createPelatihan']);
-// Route::get('readPelatihan', [PelatihanController::class, 'readPelatihan']);
+Route::get('readPelatihan', [PelatihanController::class, 'readPelatihan']);
 // Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);
 // Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
 // Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
