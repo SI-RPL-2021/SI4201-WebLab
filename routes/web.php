@@ -39,16 +39,17 @@ Route::get('editprofile', function () {
 
 Route::get('edit/profile/{id}', 'App\Http\Controllers\ProfileController@editProfile');
 
-// Routing anggota
+// Routing admin
 Route::get('/akunanggota',[AnggotaController::class,'index']); 
 Route::get('/updateakun/{Anggota:id}',[AnggotaController::class,'updateanggota']); 
 Route::post('/update/{Anggota:id}',[AnggotaController::class,'updatestore']);
 Route::get('/delete/{Anggota:id}',[AnggotaController::class,'destroy']);
+Route::get('cek_aprovalRapat',[RapatController::class, 'cek_aprovalRapat']);
+Route::get('aprove/{Rapat:id}',[RapatController::class, 'aprove']);
+Route::get('disaprove/{Rapat:id}',[RapatController::class, 'disaprove']);
 
 // Routing sekretaris
-Route::get('rapat', function () {
-    return view('sekretaris.form_rapat');
-});
+Route::get('rapat', [RapatController::class, 'rapat']);
 Route::get('rapat/create', [RapatController::class, 'createRapat']);
 Route::get('readRapat', [RapatController::class, 'readRapat']);
 Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);

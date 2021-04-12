@@ -160,8 +160,11 @@
                     </div>
                 </a>
                 <div id='submenu2' class="collapse sidebar-submenu">
+                    <a href="cek_aprovalRapat" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Cek Aproval Rapat</span>
+                    </a>
                     <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                        <span class="menu-collapsed">Cek Aproval</span>
+                        <span class="menu-collapsed">Cek Aproval Pelatihan</span>
                     </a>
                     <a href="akunanggota" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Daftar Akun Anggota</span>

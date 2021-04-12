@@ -59,12 +59,18 @@
                     <td>{{ $p->link }}</td>
                     <td>
                         @if (($p->status_aproval) == 'waiting')
-                        <button type="button" class="btn btn-warning">Waiting</button>
+                            <button type="button" class="btn btn-block btn-warning">Waiting</button>
+                        @endif
+                        @if (($p->status_aproval) == 'aproved')
+                            <button type="button" class="btn btn-block btn-success">Aproved</button>
+                        @endif
+                        @if (($p->status_aproval) == 'disaproved')
+                            <button type="button" class="btn btn-block btn-danger">Disaproved</button>
                         @endif
                     </td>
                     <td>
                         <form method="GET">
-                            <a href="goEditRapat/{{ $p->id }}" class="btn btn-danger">Edit</a>
+                            <a href="goEditRapat/{{ $p->id }}" class="btn btn-warning">Edit</a>
                             <a href="deleteRapat/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan rapat ini?');">Hapus</a>
                         </form>
                     </td>

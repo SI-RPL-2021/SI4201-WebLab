@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Rapat;
+use App\Models\Anggota;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RapatController extends Controller
-{
+{   
+    // Bagian Sekertaris
+    public function rapat(){
+        return view('sekretaris.form_rapat');
+    }
+
     public function createRapat(Request $request){
         $this->validate($request,[
             'nama_rapat' => 'required',
@@ -71,5 +77,28 @@ class RapatController extends Controller
         }else {
             return redirect('readRapat')->with('edit_gagal', 'Data gagal disimpan');
         }
+    }
+
+    // Bagian Admin
+    public function cek_aprovalRapat(Request $request){
+        $rapat = Rapat::leftJoin('tb_anggota', 'tb_anggota.nim', '=', 'tb_rapat.pemohon')
+        ->select('tb_anggota.nama', 'tb_rapat.*')->get();
+        return view ('admin.cek_aprovalRapat', ['rapat' => $rapat]);
+    }
+
+    public function aprove($id, Request $request){
+        $aprove = "aproved";
+        $status = Rapat::findorfail($id);
+        $status->status_aproval = $aprove;
+        $status->save();
+        return redirect()->back()->with('aprove', 'Status rapat telah diaprove');
+    }
+
+    public function disaprove($id, Request $request){
+        $disaprove = "disaproved";
+        $status = Rapat::findorfail($id);
+        $status->status_aproval = $disaprove;
+        $status->save();
+        return redirect()->back()->with('disaprove', 'Status rapat disaproved');
     }
 }
