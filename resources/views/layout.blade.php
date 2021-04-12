@@ -188,7 +188,7 @@
                     <a href="readRapat" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Notifikasi Rapat</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white" style="height: fit-content">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white" style="height: fit-content" hidden>
                         <span class="menu-collapsed">Dokumentasi dan Validasi Kegiatan</span>
                     </a>
                 </div>
