@@ -6,9 +6,6 @@
     <div class="alert alert-success">
         <ul>
             <li>{!! \Session::get('aprove') !!}</li>
-            {{-- @php
-                header('Location: http://localhost:8000/readRapat');
-            @endphp --}}
         </ul>
     </div>
 @endif
@@ -23,9 +20,13 @@
     <div class="alert alert-warning">
         <ul>
             <li>{!! \Session::get('edit') !!}</li>
-            {{-- @php
-                header('Location: http://localhost:8000/readRapat');
-            @endphp --}}
+        </ul>
+    </div>
+@endif
+@if (\Session::has('edit_gagal'))
+    <div class="alert alert-danger">
+        <ul>
+            <li>{!! \Session::get('edit_gagal') !!}</li>
         </ul>
     </div>
 @endif
@@ -74,7 +75,7 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button type="button" class="btn btn-sm btn-block btn-warning">Edit Pengajuan</button>
+                                    <a href="goEditRapatAdmin/{{ $p->id }}" class="btn btn-sm btn-block btn-warning">Edit Pengajuan</a>
                                 </div>
                             </div>
                         </form>

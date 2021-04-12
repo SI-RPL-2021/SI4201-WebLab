@@ -47,6 +47,8 @@ Route::get('/delete/{Anggota:id}',[AnggotaController::class,'destroy']);
 Route::get('cek_aprovalRapat',[RapatController::class, 'cek_aprovalRapat']);
 Route::get('aprove/{Rapat:id}',[RapatController::class, 'aprove']);
 Route::get('disaprove/{Rapat:id}',[RapatController::class, 'disaprove']);
+Route::get('goEditRapatAdmin/{Rapat:id}', [RapatController::class, 'goEditRapatAdmin']);
+Route::get('goEditRapatAdmin/editRapatAdmin/{Rapat:id}', [RapatController::class, 'editRapatAdmin']);
 
 // Routing sekretaris
 Route::get('rapat', [RapatController::class, 'rapat']);

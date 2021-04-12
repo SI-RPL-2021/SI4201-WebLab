@@ -101,4 +101,33 @@ class RapatController extends Controller
         $status->save();
         return redirect()->back()->with('disaprove', 'Status rapat disaproved');
     }
+
+    public function goEditRapatAdmin($id, Request $request){
+        $go = Rapat::findorfail($id);
+        return view ('admin.edit_rapat', ['go' => $go]);
+    }
+
+    public function editRapatAdmin($id, Request $request){
+        $this->validate($request,[
+            'nama_rapat' => 'required',
+            'pemohon' => 'required',
+            'tgl_rapat' => 'required',
+            'jam_rapat' => 'required',
+            'link' => 'required',
+        ]);
+
+        $edit = Rapat::findorfail($id);
+        $edit->nama_rapat = $request->nama_rapat;
+        $edit->pemohon = $request->pemohon;
+        $edit->tgl_rapat = $request->tgl_rapat;
+        $edit->jam_rapat = $request->jam_rapat;
+        $edit->link = $request->link;
+
+        if ($edit) {
+            $edit->save();
+            return redirect('cek_aprovalRapat')->with('edit', 'Data telah berhasil diupdate');
+        }else {
+            return redirect('cek_aprovalRapat')->with('edit_gagal', 'Data gagal disimpan');
+        }
+    }
 }
