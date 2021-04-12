@@ -49,5 +49,7 @@ Route::get('/delete/{Anggota:id}',[AnggotaController::class,'destroy']);
 Route::get('rapat', function () {
     return view('sekretaris.form_rapat');
 });
+Route::get('index', [RapatController::class, 'createRapat']);
 Route::get('rapat/create', [RapatController::class, 'createRapat']);
-Route::get('rapat/readRapat', [RapatController::class, 'readRapat']);
+Route::get('readRapat', [RapatController::class, 'readRapat']);
+Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);

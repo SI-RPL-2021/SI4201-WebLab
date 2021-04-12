@@ -182,7 +182,7 @@
                     <a href="rapat" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Membuat Rapat</span>
                     </a>
-                    <a href="rapat/readRapat" class="list-group-item list-group-item-action bg-dark text-white">
+                    <a href="readRapat" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Notifikasi Rapat</span>
                     </a>
                     <a href="#" class="list-group-item list-group-item-action bg-dark text-white" style="height: fit-content">

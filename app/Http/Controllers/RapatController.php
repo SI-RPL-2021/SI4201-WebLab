@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class RapatController extends Controller
 {
+    public function index(){
+        $rapat = Rapat::all();
+        return view ('sekretaris.notifikasi_rapat', ['rapat' => $rapat]);
+    }
+
     public function createRapat(Request $request){
         $this->validate($request,[
             'nama_rapat' => 'required',
@@ -36,5 +41,11 @@ class RapatController extends Controller
     public function readRapat(Request $request){
         $rapat = Rapat::all();
         return view ('sekretaris.notifikasi_rapat', ['rapat' => $rapat]);
+    }
+
+    public function deleteRapat($id){
+        $delete = Rapat::findorfail($id);
+        $delete->delete();
+        return redirect('index')->with('hapus_berhasil', 'Pengajuan rapat berhasil dihapus');
     }
 }
