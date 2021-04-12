@@ -19,6 +19,23 @@
         </ul>
     </div>
 @endif
+@if (\Session::has('edit_berhasil'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('edit_berhasil') !!}</li>
+            @php
+                header('Location: http://localhost:8000/readRapat');
+            @endphp
+        </ul>
+    </div>
+@endif
+@if (\Session::has('edit_gagal'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('edit_gagal') !!}</li>
+        </ul>
+    </div>
+@endif
 <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
@@ -47,7 +64,7 @@
                     </td>
                     <td>
                         <form method="GET">
-                            <button type="button" class="btn btn-warning">Edit</button>
+                            <a href="goEditRapat/{{ $p->id }}" class="btn btn-danger">Edit</a>
                             <a href="deleteRapat/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan rapat ini?');">Hapus</a>
                         </form>
                     </td>

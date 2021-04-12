@@ -21,6 +21,7 @@ class CreateTbRapatTable extends Migration
             $table->time('jam_rapat');
             $table->string('link');
             $table->string('status_aproval')->default('waiting');
+            $table->string('jenis_kegiatan')->default('rapat');
             $table->timestamps();
         });
     }
