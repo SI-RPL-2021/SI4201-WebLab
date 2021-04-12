@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\RapatController;
+use App\Http\Controllers\PelatihanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,3 +58,11 @@ Route::get('readRapat', [RapatController::class, 'readRapat']);
 Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);
 Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
 Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
+
+// Routing trainer
+Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);
+Route::get('pelatihan/create', [PelatihanController::class, 'createPelatihan']);
+// Route::get('readPelatihan', [PelatihanController::class, 'readPelatihan']);
+// Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);
+// Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
+// Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);

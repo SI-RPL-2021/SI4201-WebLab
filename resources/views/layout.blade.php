@@ -193,6 +193,25 @@
                     </a>
                 </div>
                 {{-- end of menu 3 --}}
+                {{-- menu 4 --}}
+                <a href="#submenu4" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start" 
+                <?php if ((Auth::user()->divisi) != 'Trainer') { echo 'hidden'; }
+                if ((Auth::user()->akses == 'admin')) { echo 'visible'; } ?>>
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-dashboard fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Menu Trainer</span>
+                        <span class="submenu-icon ml-auto"><i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div id='submenu4' class="collapse sidebar-submenu">
+                    <a href="pelatihan" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Membuat Pelatihan</span>
+                    </a>
+                    <a href="readPelatihan" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Notifikasi Pelatihan</span>
+                    </a>
+                </div>
+                {{-- end of menu 4 --}}
             </ul>
         </div>
     {{-- end of sidebar --}}
