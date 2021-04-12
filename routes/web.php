@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\RapatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,17 +33,20 @@ Route::get('home', function () {
     return view('home');
 }) -> name('home') -> middleware('auth');
 
-Route::get('buatkegiatan', function () {
-    return view('buatkegiatan');
-});
 Route::get('editprofile', function () {
     return view('editprofile');
 });
 
 Route::get('edit/profile/{id}', 'App\Http\Controllers\ProfileController@editProfile');
 
-//Routing anggota
+// Routing anggota
 Route::get('/akunanggota',[AnggotaController::class,'index']); 
 Route::get('/updateakun/{Anggota:id}',[AnggotaController::class,'updateanggota']); 
 Route::post('/update/{Anggota:id}',[AnggotaController::class,'updatestore']);
 Route::get('/delete/{Anggota:id}',[AnggotaController::class,'destroy']);
+
+// Routing sekretaris
+Route::get('rapat', function () {
+    return view('sekretaris.form_rapat');
+});
+Route::get('rapat/create', [RapatController::class, 'createRapat']);

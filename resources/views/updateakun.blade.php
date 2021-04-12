@@ -2,6 +2,20 @@
 @section('title', 'Update Akun Anggota')
 @section('konten')
 <!-- konten -->
+@if (\Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+@endif
+@if (\Session::has('failed'))
+<div class="alert alert-danger">
+    <ul>
+        <li>{!! \Session::get('failed') !!}</li>
+    </ul>
+</div>
+@endif
 <div class="container my-3">
         <div class="card my-4 mx-auto px-3" style="width: 40rem;">
             <div class="card-body">
@@ -36,7 +50,7 @@
                         <label for="exampleFormControlSelect1">Divisi</label>
                         <select class="form-control" id="exampleFormControlSelect1" style="width:95%" name="divisi">
                           <option value="Trainer" @if ((Auth::user()->divisi) == "Trainer") {{ 'selected' }} @endif>Trainer</option>
-                          <option value="Sekertaris"  @if ((Auth::user()->divisi) == "Sekertaris") {{ 'selected' }} @endif>Sekretaris</option>
+                          <option value="Sekretaris"  @if ((Auth::user()->divisi) == "Sekretaris") {{ 'selected' }} @endif>Sekretaris</option>
                           <option Value="Anggota"  @if ((Auth::user()->divisi) == "Anggota") {{ 'selected' }} @endif>Anggota</option>
                         </select>
                       </div>
@@ -45,6 +59,13 @@
                         <select class="form-control" id="exampleFormControlSelect1" style="width:95%" name="study_group">
                           <option value="Data Engineer"  @if ((Auth::user()->study_group) == "Data Engineer") {{ 'selected' }} @endif>Data Engineer</option>
                         <option value="Data Scientist"  @if ((Auth::user()->study_group) == "Data Scientist") {{ 'selected' }} @endif>Data Scientist</option>
+                        </select>
+                      </div>
+                      <div class="form-group ml-3">
+                        <label for="exampleFormControlSelect1">Hak Akses</label>
+                        <select class="form-control" id="exampleFormControlSelect1" style="width:95%" name="akses">
+                          <option value="admin"  @if ((Auth::user()->akses) == "admin") {{ 'selected' }} @endif>Admin</option>
+                          <option value="non_admin"  @if ((Auth::user()->akses) == "non_admin") {{ 'selected' }} @endif>Non Admin</option>
                         </select>
                       </div>
                     <div class="form-group ml-3" align="center">
@@ -81,7 +102,11 @@
                 <td></td>
             </tr>
             <tr>
-                <td>StudyGroup: {{$angg->study_group}} </td>
+                <td>Study Group: {{$angg->study_group}} </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Hak Akses: {{$angg->akses}} </td>
                 <td></td>
             </tr>
         </table>

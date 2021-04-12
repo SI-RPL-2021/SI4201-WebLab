@@ -152,7 +152,7 @@
                 </a>
                 {{-- end of menu 1 --}}
                 {{-- menu 2 --}}
-                <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start" @if ((Auth::user()->akses) == 'non_admin') {{'hidden'}}@endif>
                     <div class="d-flex w-100 justify-content-start align-items-center">
                         <span class="fa fa-dashboard fa-fw mr-3"></span>
                         <span class="menu-collapsed">Menu Admin</span>
@@ -160,14 +160,36 @@
                     </div>
                 </a>
                 <div id='submenu2' class="collapse sidebar-submenu">
-                    <a href="buatkegiatan" class="list-group-item list-group-item-action bg-dark text-white">
-                        <span class="menu-collapsed">Daftar Kegiatan</span>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Cek Aproval</span>
                     </a>
                     <a href="akunanggota" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Daftar Akun Anggota</span>
                     </a>
                 </div>
                 {{-- end of menu 2 --}}
+                {{-- menu 3 --}}
+                <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start" 
+                <?php if ((Auth::user()->divisi) != 'Sekretaris') { echo 'hidden'; }
+                if ((Auth::user()->akses == 'admin')) { echo 'visible'; } ?>>
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-dashboard fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Menu Sekretaris</span>
+                        <span class="submenu-icon ml-auto"><i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div id='submenu3' class="collapse sidebar-submenu">
+                    <a href="rapat" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Membuat Rapat</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Notifikasi Rapat</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white" style="height: fit-content">
+                        <span class="menu-collapsed">Dokumentasi dan Validasi Kegiatan</span>
+                    </a>
+                </div>
+                {{-- end of menu 3 --}}
             </ul>
         </div>
     {{-- end of sidebar --}}

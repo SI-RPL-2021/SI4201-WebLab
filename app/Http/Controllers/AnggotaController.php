@@ -23,11 +23,11 @@ class AnggotaController extends Controller
 
         $angg = Anggota::findorfail($id);
         $angg->update($request->all());
-        return redirect('akunanggota');
+        return redirect('akunanggota')->with('success', 'Profil berhasil diupdate');
     }
     public function destroy($id){
         $delete = Anggota::findorfail($id);
         $delete->delete();
-        return redirect('akunanggota');
+        return redirect('akunanggota')->with('success', 'Profil berhasil dihapus');
     }
 }
