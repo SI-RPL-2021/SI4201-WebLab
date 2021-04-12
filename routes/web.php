@@ -64,5 +64,5 @@ Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);
 Route::get('pelatihan/create', [PelatihanController::class, 'createPelatihan']);
 Route::get('readPelatihan', [PelatihanController::class, 'readPelatihan']);
 // Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);
-// Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
-// Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
+Route::get('goEditPelatihan/{Pelatihan:id}', [PelatihanController::class, 'goEditPelatihan']);
+Route::get('goEditPelatihan/editPelatihan/{Pelatihan:id}', [PelatihanController::class, 'editPelatihan']);

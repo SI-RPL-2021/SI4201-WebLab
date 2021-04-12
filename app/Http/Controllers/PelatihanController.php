@@ -45,4 +45,35 @@ class PelatihanController extends Controller
         $pelatihan = Pelatihan::all();
         return view ('trainer.notifikasi_pelatihan', ['pelatihan' => $pelatihan]);
     }
+
+    public function goEditPelatihan($id, Request $request){
+        $go = Pelatihan::findorfail($id);
+        return view ('trainer.edit_pelatihan', ['go' => $go]);
+    }
+
+    public function editPelatihan($id, Request $request){
+        $this->validate($request,[
+            'nama_pelatihan' => 'required',
+            'pemohon' => 'required',
+            'study_group' => 'required',
+            'tgl_pelatihan' => 'required',
+            'jam_pelatihan' => 'required',
+            'link' => 'required',
+        ]);
+
+        $edit = Pelatihan::findorfail($id);
+        $edit->nama_pelatihan = $request->nama_pelatihan;
+        $edit->pemohon = $request->pemohon;
+        $edit->study_group = $request->study_group;
+        $edit->tgl_pelatihan = $request->tgl_pelatihan;
+        $edit->jam_pelatihan = $request->jam_pelatihan;
+        $edit->link = $request->link;
+
+        if ($edit) {
+            $edit->save();
+            return redirect('readPelatihan')->with('edit_berhasil', 'Data telah berhasil diupdate');
+        }else {
+            return redirect('readPelatihan')->with('edit_gagal', 'Data gagal disimpan');
+        }
+    }
 }
