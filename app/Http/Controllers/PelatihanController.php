@@ -83,6 +83,12 @@ class PelatihanController extends Controller
         return redirect('readPelatihan')->with('hapus_berhasil', 'Pengajuan pelatihan berhasil dihapus');
     }
 
+    // Bagian Sekertaris
+    // public function dokumentasiValidasi(Request $request){
+    //     $pelatihan = Pelatihan::findorfail();
+    //     return view ('sekretaris.dokumentasi_validasi_kegiatan', ['pelatihan' => $pelatihan]);
+    // }
+
     // Bagian Admin
     public function cek_aprovalPelatihan(Request $request){
         $pelatihan = Pelatihan::leftJoin('tb_anggota', 'tb_anggota.nim', '=', 'tb_pelatihan.pemohon')

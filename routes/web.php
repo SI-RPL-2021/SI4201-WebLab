@@ -61,6 +61,7 @@ Route::get('goEditRapatAdmin/editRapatAdmin/{Rapat:id}', [RapatController::class
 
 // Routing sekretaris
 Route::get('rapat', [RapatController::class, 'rapat']);
+Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
 Route::get('rapat/create', [RapatController::class, 'createRapat']);
 Route::get('readRapat', [RapatController::class, 'readRapat']);
 Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);

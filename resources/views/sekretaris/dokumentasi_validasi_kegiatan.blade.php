@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Notifikasi Rapat')
+@section('title', 'Dokumentasi & Validasi Kegiatan')
 @section('konten')
 <!-- konten -->
 @if (\Session::has('hapus_berhasil'))
@@ -37,15 +37,16 @@
     </div>
 @endif
 <div class="table-responsive">
+    <div class="col-md-15 mt-5 mb-5">
+        <h3 align="center">Dokumentasi & Validasi Kegiatan</h3>
+    </div>
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Nama Rapat</th>
-                <th scope="col">Tanggal Rapat</th>
-                <th scope="col">Jam Rapat</th>
-                <th scope="col">Link</th>
-                <th scope="col">Aproval</th>
+                <th scope="col">Nama Pemohon</th>
+                <th scope="col">Nama Kegiatan</th>
+                <th scope="col">Jenis Kegiatan</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -53,21 +54,9 @@
             @foreach ($rapat as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td>{{ $p->pemohon }}</td>
                     <td>{{ $p->nama_rapat }}</td>
-                    <td>{{ $p->tgl_rapat }}</td>
                     <td>{{ $p->jam_rapat }}</td>
-                    <td>{{ $p->link }}</td>
-                    <td>
-                        @if (($p->status_aproval) == 'waiting')
-                            <button type="button" class="btn btn-block btn-warning">Waiting</button>
-                        @endif
-                        @if (($p->status_aproval) == 'aproved')
-                            <button type="button" class="btn btn-block btn-success">Aproved</button>
-                        @endif
-                        @if (($p->status_aproval) == 'disaproved')
-                            <button type="button" class="btn btn-block btn-danger">Disaproved</button>
-                        @endif
-                    </td>
                     <td>
                         <form method="GET">
                             <a href="goEditRapat/{{ $p->id }}" class="btn btn-warning">Edit</a>
@@ -76,6 +65,20 @@
                     </td>
                 </tr>
             @endforeach
+            {{-- @foreach ($pelatihan as $pe)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $pe->pemohon }}</td>
+                    <td>{{ $pe->nama_rapat }}</td>
+                    <td>{{ $pe->jam_rapat }}</td>
+                    <td>
+                        <form method="GET">
+                            <a href="goEditRapat/{{ $p->id }}" class="btn btn-warning">Edit</a>
+                            <a href="deleteRapat/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan rapat ini?');">Hapus</a>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach --}}
         </tbody>
     </table>
 </div>
