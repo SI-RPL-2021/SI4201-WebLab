@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Anggota;
+use App\Models\Pelatihan;
+use App\Models\Rapat;
 use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
@@ -30,4 +32,12 @@ class AnggotaController extends Controller
         $delete->delete();
         return redirect('akunanggota')->with('success', 'Profil berhasil dihapus');
     }
+    public function mengikutiKegiatan(Request $request, $id){
+        $hadirPelatihan = Pelatihan::findorfail($id);
+        return view('mengikutiKegiatan',compact('hadirPelatihan'));
+
+        $hadirRapat = Rapat::findorfail($id);
+        return view('mengikutiKegiatan',compact('hadirRapat'));
+    }
+    
 }

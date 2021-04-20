@@ -38,6 +38,7 @@ Route::get('editprofile', function () {
     return view('editprofile');
 });
 
+
 Route::get('edit/profile/{id}', 'App\Http\Controllers\ProfileController@editProfile');
 
 // Routing admin
@@ -75,3 +76,6 @@ Route::get('readPelatihan', [PelatihanController::class, 'readPelatihan']);
 Route::get('deletePelatihan/{Pelatihan:id}', [PelatihanController::class, 'deletePelatihan']);
 Route::get('goEditPelatihan/{Pelatihan:id}', [PelatihanController::class, 'goEditPelatihan']);
 Route::get('goEditPelatihan/editPelatihan/{Pelatihan:id}', [PelatihanController::class, 'editPelatihan']);
+
+//routing anggota
+Route::get('mengikutiKegiatan', [AnggotaController::class, 'mengikutiKegiatan']);
