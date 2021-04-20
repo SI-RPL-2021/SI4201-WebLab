@@ -79,3 +79,4 @@ Route::get('goEditPelatihan/editPelatihan/{Pelatihan:id}', [PelatihanController:
 
 //routing anggota
 Route::get('mengikutiKegiatan', [AnggotaController::class, 'mengikutiKegiatan']);
+Route::get('absensiKegiatan', [AnggotaController::class, 'absensiKegiatan']);

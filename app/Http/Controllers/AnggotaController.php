@@ -39,5 +39,7 @@ class AnggotaController extends Controller
         $hadirRapat = Rapat::findorfail($id);
         return view('mengikutiKegiatan',compact('hadirRapat'));
     }
-    
+    public function absensiKegiatan(Request $request, $id){
+        return view('absensiKegiatan');
+    }
 }
