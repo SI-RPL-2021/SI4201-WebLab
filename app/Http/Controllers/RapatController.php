@@ -145,4 +145,10 @@ class RapatController extends Controller
             return redirect('cek_aprovalRapat')->with('edit_gagal', 'Data gagal disimpan');
         }
     }
+    
+    public function notifikasiKegiatan(Request $request){
+        $rapat = Rapat::all();
+        return view ('admin.notifikasi_kegiatan', ['rapat' => $rapat]);
+    }
+
 }

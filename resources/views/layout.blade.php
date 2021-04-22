@@ -169,6 +169,9 @@
                     <a href="akunanggota" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Daftar Akun Anggota</span>
                     </a>
+                    <a href="notifikasiKegiatan" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Notifikasi Kegiatan</span>
+                    </a>
                 </div>
                 {{-- end of menu 2 --}}
                 {{-- menu 3 --}}

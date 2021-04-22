@@ -49,6 +49,7 @@ Route::get('/delete/{Anggota:id}',[AnggotaController::class,'destroy']);
 Route::get('cek_aprovalRapat',[RapatController::class, 'cek_aprovalRapat']);
 Route::get('aprove/{Rapat:id}',[RapatController::class, 'aprove']);
 Route::get('disaprove/{Rapat:id}',[RapatController::class, 'disaprove']);
+Route::get('notifikasiKegiatan', [RapatController::class, 'notifikasiKegiatan']);
 
 Route::get('cek_aprovalPelatihan',[PelatihanController::class, 'cek_aprovalPelatihan']);
 Route::get('aprovePelatihan/{Pelatihan:id}',[PelatihanController::class, 'aprovePelatihan']);
