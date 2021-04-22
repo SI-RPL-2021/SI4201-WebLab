@@ -37,6 +37,9 @@
     </div>
 @endif
 <div class="table-responsive">
+    <div class="col-md-15 mt-5 mb-5">
+        <h1 align="center">Validasi Kehadian Kegiatan</h1>
+    </div>
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>

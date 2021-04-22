@@ -38,7 +38,7 @@
 @endif
 <div class="table-responsive">
     <div class="col-md-15 mt-5 mb-5">
-        <h3 align="center">Dokumentasi & Validasi Kegiatan</h3>
+        <h1 align="center">Dokumentasi & Validasi Kegiatan</h1>
     </div>
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
@@ -59,9 +59,9 @@
                     <td>{{ $p->jam_rapat }}</td>
                     <td>
                         <form method="GET">
-                            <a href="#" class="btn btn-info mb-2">Dokumentasi</a>
+                            <a href="uploadDokumentasi" class="btn btn-primary mb-2">Dokumentasi</a>
                             <br>
-                            <a href="validasiKehadiranKegiatan" class="btn btn-info ml-4">Validasi</a>
+                            <a href="validasiKehadiranKegiatan" class="btn btn-primary ml-4">Validasi</a>
                         </form>
                     </td>
                 </tr>

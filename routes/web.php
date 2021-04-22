@@ -69,6 +69,7 @@ Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
 Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
 Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
 Route::get('validasiKehadiranKegiatan', [RapatController::class, 'validasiKehadiranKegiatan']);
+Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
 
 // Routing trainer
 Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);
