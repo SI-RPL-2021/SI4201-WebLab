@@ -62,12 +62,13 @@ Route::get('goEditRapatAdmin/editRapatAdmin/{Rapat:id}', [RapatController::class
 
 // Routing sekretaris
 Route::get('rapat', [RapatController::class, 'rapat']);
-Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
 Route::get('rapat/create', [RapatController::class, 'createRapat']);
 Route::get('readRapat', [RapatController::class, 'readRapat']);
 Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);
 Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
 Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
+Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
+Route::get('validasiKehadiranKegiatan', [RapatController::class, 'validasiKehadiranKegiatan']);
 
 // Routing trainer
 Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);

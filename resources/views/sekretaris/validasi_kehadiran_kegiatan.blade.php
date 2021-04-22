@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Dokumentasi & Validasi Kegiatan')
+@section('title', 'Validasi Kehadiran Kegiatan')
 @section('konten')
 <!-- konten -->
 @if (\Session::has('hapus_berhasil'))
@@ -37,16 +37,16 @@
     </div>
 @endif
 <div class="table-responsive">
-    <div class="col-md-15 mt-5 mb-5">
-        <h3 align="center">Dokumentasi & Validasi Kegiatan</h3>
-    </div>
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Nama Pemohon</th>
-                <th scope="col">Nama Kegiatan</th>
-                <th scope="col">Jenis Kegiatan</th>
+                <th scope="col">Nama Anggota</th>
+                <th scope="col">NIM</th>
+                <th scope="col">Kelas</th>
+                <th scope="col">Divisi</th>
+                <th scope="col">Study Group</th>
+                <th scope="col">Email</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -54,32 +54,30 @@
             @foreach ($rapat as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $p->pemohon }}</td>
                     <td>{{ $p->nama_rapat }}</td>
-                    <td>{{ $p->jam_rapat }}</td>
+                    <td>{{ $p->study_group }}</td>
+                    <td>{{ $p->tgl_pelatihan }}</td>
+                    <td>{{ $p->jam_pelatihan }}</td>
+                    <td>{{ $p->link }}</td>
+                    <td>
+                        @if (($p->status_aproval) == 'waiting')
+                            <button type="button" class="btn btn-block btn-warning">Waiting</button>
+                        @endif
+                        @if (($p->status_aproval) == 'aproved')
+                            <button type="button" class="btn btn-block btn-success">Aproved</button>
+                        @endif
+                        @if (($p->status_aproval) == 'disaproved')
+                            <button type="button" class="btn btn-block btn-danger">Disaproved</button>
+                        @endif
+                    </td>
                     <td>
                         <form method="GET">
-                            <a href="#" class="btn btn-info mb-2">Dokumentasi</a>
-                            <br>
-                            <a href="validasiKehadiranKegiatan" class="btn btn-info ml-4">Validasi</a>
+                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning">Edit</a>
+                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Hapus</a>
                         </form>
                     </td>
                 </tr>
             @endforeach
-            {{-- @foreach ($pelatihan as $pe)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $pe->pemohon }}</td>
-                    <td>{{ $pe->nama_rapat }}</td>
-                    <td>{{ $pe->jam_rapat }}</td>
-                    <td>
-                        <form method="GET">
-                            <a href="goEditRapat/{{ $p->id }}" class="btn btn-warning">Edit</a>
-                            <a href="deleteRapat/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan rapat ini?');">Hapus</a>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach --}}
         </tbody>
     </table>
 </div>

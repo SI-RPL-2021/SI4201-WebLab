@@ -84,6 +84,11 @@ class RapatController extends Controller
         return view ('sekretaris.dokumentasi_validasi_kegiatan', ['rapat' => $rapat]);
     }
 
+    public function validasiKehadiranKegiatan(Request $request){
+        $rapat = Rapat::all();
+        return view ('sekretaris.validasi_kehadiran_kegiatan', ['rapat' => $rapat]);
+    }
+
     // Bagian Admin
     public function cek_aprovalRapat(Request $request){
         $rapat = Rapat::leftJoin('tb_anggota', 'tb_anggota.nim', '=', 'tb_rapat.pemohon')
