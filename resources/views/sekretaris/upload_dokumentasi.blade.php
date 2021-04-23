@@ -6,7 +6,7 @@
 <div class="col-md-15 mt-5 mb-5">
     <h1 align="center">Upload Dokumentasi</h1>
     <h5 align="center">#nama rapat</h5>
-    {{-- <h5>{{ Auth::rapat()->nama_rapat }}</h5> --}}
+    {{-- <h5>{{ $tb_rapat->nama_rapat }}</h5> --}}
 </div>
 
 <div class="container mx-auto">
