@@ -7,6 +7,7 @@ use App\Models\Rapat;
 use App\Models\Anggota;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RapatController extends Controller
 {   
@@ -82,6 +83,13 @@ class RapatController extends Controller
     public function dokumentasiValidasi(Request $request){
         $rapat = Rapat::all();
         return view ('sekretaris.dokumentasi_validasi_kegiatan', ['rapat' => $rapat]);
+    }
+
+    function data()
+    {
+        $data = DB::table('tb_rapat')
+        ->join('tb_pelatihan','tb_rapat.id',"=", 'tb_pelatihan.id')
+        ->get();
     }
 
     public function validasiKehadiranKegiatan(Request $request){

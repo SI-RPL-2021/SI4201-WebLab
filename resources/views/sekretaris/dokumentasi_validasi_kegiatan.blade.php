@@ -51,12 +51,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($rapat as $p)
+            @foreach ($rapat as $p) 
+            {{-- ($data as $p) --}}
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $p->pemohon }}</td>
                     <td>{{ $p->nama_rapat }}</td>
-                    <td>{{ $p->jam_rapat }}</td>
+                    <td>{{ $p->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
                             <a href="uploadDokumentasi" class="btn btn-primary mb-2">Dokumentasi</a>
@@ -74,8 +75,9 @@
                     <td>{{ $pe->jam_rapat }}</td>
                     <td>
                         <form method="GET">
-                            <a href="goEditRapat/{{ $p->id }}" class="btn btn-warning">Edit</a>
-                            <a href="deleteRapat/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan rapat ini?');">Hapus</a>
+                            <a href="uploadDokumentasi" class="btn btn-primary mb-2">Dokumentasi</a>
+                            <br>
+                            <a href="validasiKehadiranKegiatan" class="btn btn-primary ml-4">Validasi</a>
                         </form>
                     </td>
                 </tr>
