@@ -71,6 +71,7 @@ Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRap
 Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
 Route::get('validasiKehadiranKegiatan', [RapatController::class, 'validasiKehadiranKegiatan']);
 Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
+Route::get('combineData', [RapatController::class, 'combineData']);
 
 // Routing trainer
 Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);

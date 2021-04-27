@@ -556,7 +556,7 @@ trait ValidatesAttributes
             return empty(preg_grep('/^'.preg_quote($value, '/').'$/iu', $data));
         }
 
-        return ! in_array($value, array_values($data));
+        return ! in_array($value, array_values($data), in_array('strict', $parameters));
     }
 
     /**
@@ -617,15 +617,15 @@ trait ValidatesAttributes
             ->unique()
             ->map(function ($validation) {
                 if ($validation === 'rfc') {
-                    return new RFCValidation();
+                    return new RFCValidation;
                 } elseif ($validation === 'strict') {
-                    return new NoRFCWarningsValidation();
+                    return new NoRFCWarningsValidation;
                 } elseif ($validation === 'dns') {
-                    return new DNSCheckValidation();
+                    return new DNSCheckValidation;
                 } elseif ($validation === 'spoof') {
-                    return new SpoofCheckValidation();
+                    return new SpoofCheckValidation;
                 } elseif ($validation === 'filter') {
-                    return new FilterEmailValidation();
+                    return new FilterEmailValidation;
                 } elseif ($validation === 'filter_unicode') {
                     return FilterEmailValidation::unicode();
                 } elseif (is_string($validation) && class_exists($validation)) {
@@ -633,7 +633,7 @@ trait ValidatesAttributes
                 }
             })
             ->values()
-            ->all() ?: [new RFCValidation()];
+            ->all() ?: [new RFCValidation];
 
         return (new EmailValidator)->isValid($value, new MultipleValidationWithAnd($validations));
     }
@@ -1435,6 +1435,19 @@ trait ValidatesAttributes
     }
 
     /**
+     * Validate that an attribute does not exist.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @param  mixed  $parameters
+     * @return bool
+     */
+    public function validateProhibited($attribute, $value)
+    {
+        return false;
+    }
+
+    /**
      * Validate that an attribute does not exist when another attribute has a given value.
      *
      * @param  string  $attribute
@@ -1541,13 +1554,24 @@ trait ValidatesAttributes
 
         $values = array_slice($parameters, 1);
 
-        if (is_bool($other)) {
+        if ($this->shouldConvertToBoolean($parameters[0]) || is_bool($other)) {
             $values = $this->convertValuesToBoolean($values);
         } elseif (is_null($other)) {
             $values = $this->convertValuesToNull($values);
         }
 
         return [$values, $other];
+    }
+
+    /**
+     * Check if parameter should be converted to boolean.
+     *
+     * @param  string  $parameter
+     * @return bool
+     */
+    protected function shouldConvertToBoolean($parameter)
+    {
+        return in_array('boolean', Arr::get($this->rules, $parameter, []));
     }
 
     /**

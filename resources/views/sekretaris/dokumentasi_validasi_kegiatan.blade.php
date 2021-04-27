@@ -51,11 +51,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($rapat as $p) 
-            {{-- ($data as $p) --}}
+            {{--  ($rapat as $p)  --}}
+            @foreach ($combineData as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $p->pemohon }}</td>
+                    <td>{{ $p->nama }}</td>
                     <td>{{ $p->nama_rapat }}</td>
                     <td>{{ $p->jenis_kegiatan }}</td>
                     <td>
