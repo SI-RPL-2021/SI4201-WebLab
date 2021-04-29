@@ -85,11 +85,17 @@ class RapatController extends Controller
         $combineData= DB::table('tb_rapat')
         ->join('tb_anggota','tb_rapat.pemohon',"=", 'tb_anggota.nim')
         ->get();
-        return view ('sekretaris.dokumentasi_validasi_kegiatan', ['combineData' => $combineData]);
+
+        $pelatihan= DB::table('tb_pelatihan')
+        ->join('tb_anggota','tb_pelatihan.pemohon',"=", 'tb_anggota.nim')
+        ->get();
+
+        return view ('sekretaris.dokumentasi_validasi_kegiatan', ['combineData' => $combineData, 'pelatihan' => $pelatihan]);
 
     }
 
-     function combineData()
+    // cek apakah data berhasil di join
+    public function checkJoinData()
      {
          return DB::table('tb_rapat')
          ->join('tb_anggota','tb_rapat.pemohon',"=", 'tb_anggota.nim')

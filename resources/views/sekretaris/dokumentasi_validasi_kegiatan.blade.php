@@ -67,12 +67,12 @@
                     </td>
                 </tr>
             @endforeach
-            {{-- @foreach ($pelatihan as $pe)
+            @foreach ($pelatihan as $pe)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $pe->pemohon }}</td>
-                    <td>{{ $pe->nama_rapat }}</td>
-                    <td>{{ $pe->jam_rapat }}</td>
+                    <td>{{ $pe->nama }}</td>
+                    <td>{{ $pe->nama_pelatihan }}</td>
+                    <td>{{ $pe->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
                             <a href="uploadDokumentasi" class="btn btn-primary mb-2">Dokumentasi</a>
@@ -81,7 +81,7 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach --}}
+            @endforeach
         </tbody>
     </table>
 </div>
