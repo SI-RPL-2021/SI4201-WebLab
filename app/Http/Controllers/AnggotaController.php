@@ -32,14 +32,14 @@ class AnggotaController extends Controller
         $delete->delete();
         return redirect('akunanggota')->with('success', 'Profil berhasil dihapus');
     }
-    public function mengikutiKegiatan(Request $request, $id){
+    public function mengikutiKegiatan($id){
         $hadirPelatihan = Pelatihan::findorfail($id);
-        return view('mengikutiKegiatan',compact('hadirPelatihan'));
+        return view('/mengikutiKegiatan',compact('hadirPelatihan'));
 
         $hadirRapat = Rapat::findorfail($id);
-        return view('mengikutiKegiatan',compact('hadirRapat'));
+        return view('/mengikutiKegiatan',compact('hadirRapat'));
     }
-    public function absensiKegiatan(Request $request, $id){
+    public function absensiKegiatan(){
         return view('absensiKegiatan');
     }
 }
