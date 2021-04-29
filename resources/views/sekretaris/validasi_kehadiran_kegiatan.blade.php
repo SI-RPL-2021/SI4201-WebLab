@@ -54,29 +54,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($rapat as $p)
+            @foreach ($anggota as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $p->nama_rapat }}</td>
+                    <td>{{ $p->nama }}</td>
+                    <td>{{ $p->nim }}</td>
+                    <td>{{ $p->kelas }}</td>
+                    <td>{{ $p->divisi }}</td>
                     <td>{{ $p->study_group }}</td>
-                    <td>{{ $p->tgl_pelatihan }}</td>
-                    <td>{{ $p->jam_pelatihan }}</td>
-                    <td>{{ $p->link }}</td>
-                    <td>
-                        @if (($p->status_aproval) == 'waiting')
-                            <button type="button" class="btn btn-block btn-warning">Waiting</button>
-                        @endif
-                        @if (($p->status_aproval) == 'aproved')
-                            <button type="button" class="btn btn-block btn-success">Aproved</button>
-                        @endif
-                        @if (($p->status_aproval) == 'disaproved')
-                            <button type="button" class="btn btn-block btn-danger">Disaproved</button>
-                        @endif
-                    </td>
+                    <td>{{ $p->email }}</td>
                     <td>
                         <form method="GET">
-                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning">Edit</a>
-                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Hapus</a>
+                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning ml-2 mb-2">Edit</a><br>
+                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger mb-2" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Hapus</a><br>
+                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-success ml-1">Valid</a>
                         </form>
                     </td>
                 </tr>
