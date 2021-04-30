@@ -24,7 +24,7 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        <tbody>
+        {{-- <tbody>
             @foreach 
             @if ($hadirPelatihan as $hp)
                 <tr>
@@ -53,7 +53,7 @@
             </tr>
         @endif
             @endforeach
-        </tbody>
+        </tbody> --}}
     </table>
 </div>
 <!-- end of konten -->
