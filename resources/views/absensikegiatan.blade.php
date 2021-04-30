@@ -21,7 +21,36 @@
             <th scope="col">Kehadiran</th>
         </tr>
     </thead>
-    
+    {{-- <tbody>
+        @foreach 
+        @if ($hadirPelatihan as $hp)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $hp->nama_pelatihan }}</td>
+                <td>{{ $hp->jenis_kegiatan }}</td>
+                <td>{{ $hp->tgl_pelatihan }}</td>
+                <td>{{ $hp->jam_pelatihan }}</td>
+                <td>
+                        <a href="{{ $hp-> }}" >Hadir</a>
+                    @endif
+                </td>
+            </tr>
+        @endif
+        @if ($hadirRapat as $hr)
+        <tr>
+            <td>{{ $loop->iteration }}</td>
+            <td>{{ $hr->nama_rapat }}</td>
+            <td>{{ $hr->jenis_kegiatan }}</td>
+            <td>{{ $hr->tgl_rapat }}</td>
+            <td>{{ $hr->jam_rapat }}</td>
+            <td>
+                    <a href="{{ $hp-> }}" >Hadir</a>
+                @endif
+            </td>
+        </tr>
+    @endif
+        @endforeach
+    </tbody> --}}
 </table>
 <!-- end of konten -->
 @endsection
