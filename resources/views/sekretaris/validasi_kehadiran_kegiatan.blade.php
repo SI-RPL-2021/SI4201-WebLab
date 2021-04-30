@@ -39,7 +39,11 @@
 <div class="table-responsive">
     <div class="col-md-15 mt-5 mb-5">
         <h1 align="center">Validasi Kehadian Kegiatan</h1>
+        <h5 align="center">#nama rapat</h5>
+    {{-- <h5>{{ $tb_rapat->nama_rapat }}</h5> --}}
     </div>
+    
+    <a href="goEditPelatihan/" class="btn btn-success pull-right mb-2 ">Validasi Semua</a>
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>
@@ -65,9 +69,9 @@
                     <td>{{ $p->email }}</td>
                     <td>
                         <form method="GET">
-                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning ml-2 mb-2">Edit</a><br>
-                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger mb-2" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Hapus</a><br>
-                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-success ml-1">Valid</a>
+                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning btn-sm ml-2 mb-2">Edit</a><br>
+                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger btn-sm mb-2" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Hapus</a><br>
+                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-success btn-sm ml-1">Valid</a>
                         </form>
                     </td>
                 </tr>

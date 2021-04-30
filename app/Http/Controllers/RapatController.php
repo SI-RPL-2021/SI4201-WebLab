@@ -101,6 +101,7 @@ class RapatController extends Controller
          ->get();
      }
 
+    // public function validasiKehadiranKegiatan($id,Request $request){
     public function validasiKehadiranKegiatan(Request $request){
         $anggota= DB::table('tb_anggota')
         ->get();
