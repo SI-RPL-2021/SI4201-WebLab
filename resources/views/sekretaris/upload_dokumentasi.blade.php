@@ -11,11 +11,15 @@
 
 <div class="container mx-auto">
 <h5 align="center" class="mx-auto">File Submission</h5>
-<input type="submit" value="Input submit button" align="center" class="mb-2 mx-auto">
-<form method="GET">
-    <a href="deletePelatihan/" class="btn btn-danger mx-auto" align="center" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Save Changes</a>
-    <a href="goEditPelatihan/" class="btn btn-light mx-auto" align="center">Cancel</a>
-</form>
+<div class="text-center mt-5 mb-5">
+    <input type="submit" value="Input submit button" align="center" class="pull-center mb-2 mx-auto">
+</div>
+<div class="text-center mt-5 mb-5">
+    <form method="GET">
+        <a href="deletePelatihan/" class="btn btn-danger" align="center" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Save Changes</a>
+        <a href="goEditPelatihan/" class="btn btn-light" align="center">Cancel</a>
+    </form>
+</div>
 </div>
 
 <!-- end of konten -->
