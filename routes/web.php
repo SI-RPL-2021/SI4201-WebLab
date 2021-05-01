@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\RapatController;
 use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,5 +84,6 @@ Route::get('goEditPelatihan/{Pelatihan:id}', [PelatihanController::class, 'goEdi
 Route::get('goEditPelatihan/editPelatihan/{Pelatihan:id}', [PelatihanController::class, 'editPelatihan']);
 
 //routing anggota
-Route::get('mengikutiKegiatan', [AnggotaController::class, 'mengikutiKegiatan']);
-Route::get('absensiKegiatan', [AnggotaController::class, 'absensiKegiatan']);
+Route::get('mengikutiKegiatan', [KegiatanController::class, 'showalldata']);
+Route::get('absensikegiatan', [KegiatanController::class, 'absensikegiatan'])->name('absensi');
+Route::post('absen', [AnggotaController::class, 'absen'])->name('absen');

@@ -9,4 +9,8 @@ class Anggota extends Model
 {
     protected $table = 'tb_anggota';
     protected $fillable = ['nama','nim','kelas','divisi','study_group','email','password','akses'];
+
+    public function Kehadiran(){
+        return $this->hasMany(Kehadiran::class);
+    }
 }

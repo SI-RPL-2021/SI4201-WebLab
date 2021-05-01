@@ -229,7 +229,7 @@
                     <a href="mengikutiKegiatan" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Notifikasi Kegiatan</span>
                     </a>
-                    <a href="absensiKegiatan" class="list-group-item list-group-item-action bg-dark text-white">
+                    <a href="absensikegiatan" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Absensi Kegiatan</span>
                     </a>
                 </div>
