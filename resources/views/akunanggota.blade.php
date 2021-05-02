@@ -21,6 +21,7 @@
             <th class="align-middle" scope="col">Divisi</th>
             <th class="align-middle" scope="col">StudyGroup</th>
             <th class="align-middle" scope="col">Email</th>
+            <th class="align-middle" scope="col">Status</th>
             <th class="align-middle" scope="col">Action</th>
         </tr>
     </thead>
@@ -28,7 +29,7 @@
         {{-- @foreach ($anggota as $data) { ?> --}}
         <?php $index = 1; ?>
         @foreach ($angg as $data)
-            
+        @if($data->status !== 'Pending') 
         <tr>
             <td>{{$index++}}</td>
             <td>{{$data->nama}}</td>
@@ -38,12 +39,14 @@
             <td>{{$data->study_group}}</td>
             <td>{{$data->email}}</td>
             <td>
-                <div class="row">
-                    <div class="col"><a href="/updateakun/{{$data->id}}" class="btn btn-warning btn-block" onclick="return confirm('Apakah anda yakin ingin mengedit akun anggota?');">Edit</a></div>
-                    <div class="col"><a href="/delete/{{$data->id}}"  class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ingin menghapus akun anggota?');">Delete</a></div>
-                </div>
+            <span class="badge btn-success">{{$data->status}}</span>
+            </td>
+            <td>
+                    <a href="/updateakun/{{$data->id}}" class="btn btn-warning btn-sm" onclick="return confirm('Apakah anda yakin ingin mengedit akun anggota?');">Edit</a>
+                    <a href="/delete/{{$data->id}}"  class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus akun anggota?');">Delete</a>
             </td>
         </tr>
+        @endif
         @endforeach
         {{-- @endforeach --}}
     </tbody>
