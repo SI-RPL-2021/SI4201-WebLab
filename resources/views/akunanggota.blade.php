@@ -11,7 +11,7 @@
 @endif
 <h3 class="card-title" align="center">Daftar Akun Anggota</h3>
 <br>
-<table class="table table-responsive-sm table-hover table-sm">
+<table class="table table-responsive-sm table-hover table-sm"> 
     <thead class="thead-dark">
         <tr>
             <th class="align-middle" scope="col">No. </th>
@@ -26,10 +26,10 @@
         </tr>
     </thead>
     <tbody>
-        {{-- @foreach ($anggota as $data) { ?> --}}
+        <!-- {{-- @foreach ($anggota as $data) { ?> --}} -->
         <?php $index = 1; ?>
         @foreach ($angg as $data)
-        @if($data->status !== 'Pending') 
+        @if($data->Status !== 'Pending') 
         <tr>
             <td>{{$index++}}</td>
             <td>{{$data->nama}}</td>
@@ -39,7 +39,7 @@
             <td>{{$data->study_group}}</td>
             <td>{{$data->email}}</td>
             <td>
-            <span class="badge btn-success">{{$data->status}}</span>
+            <span class="badge btn-success">{{$data->Status}}</span>
             </td>
             <td>
                     <a href="/updateakun/{{$data->id}}" class="btn btn-warning btn-sm" onclick="return confirm('Apakah anda yakin ingin mengedit akun anggota?');">Edit</a>

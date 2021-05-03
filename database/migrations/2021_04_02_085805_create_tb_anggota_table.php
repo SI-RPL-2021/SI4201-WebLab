@@ -22,6 +22,7 @@ class CreateTbAnggotaTable extends Migration
             $table->text('study_group');
             $table->string('email');
             $table->string('password');
+            $table->string('status')->default('Pending');
             $table->string('akses')->default('non_admin');
             
             $table->timestamps();

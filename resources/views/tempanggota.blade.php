@@ -19,10 +19,10 @@
         </tr>
     </thead>
     <tbody>
-        {{-- @foreach ($anggota as $data) { ?> --}}
+        
         <?php $index = 1; ?>
         @foreach ($angg as $data)
-        @if($data->status == 'Pending')
+        @if($data->Status == 'Pending')
             
         <tr>
             <td>{{$index++}}</td>
@@ -32,7 +32,7 @@
             <td>{{$data->divisi}}</td>
             <td>{{$data->study_group}}</td>
             <td>{{$data->email}}</td>
-            <td><span class="badge btn-danger">{{$data->status}}</span>
+            <td><span class="badge btn-danger">{{$data->Status}}</span>
             </td>
             <td>
                     <a href="/approveanggota/{{$data->id}}" class="btn btn-primary btn-sm" onclick="return confirm('Apakah anda yakin ingin mengapprove akun anggota?');">Approve</a>

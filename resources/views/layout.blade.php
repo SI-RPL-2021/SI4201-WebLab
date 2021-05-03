@@ -166,6 +166,9 @@
                     <a href="cek_aprovalPelatihan" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Cek Aproval Pelatihan</span>
                     </a>
+                    <a href="tempanggota" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Approval Anggota</span>
+                    </a>
                     <a href="akunanggota" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">Daftar Akun Anggota</span>
                     </a>
