@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\RapatController;
 use App\Http\Controllers\PelatihanController;
-use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,9 +44,15 @@ Route::get('edit/profile/{id}', 'App\Http\Controllers\ProfileController@editProf
 
 // Routing admin
 Route::get('/akunanggota',[AnggotaController::class,'index']); 
+Route::get('/tempanggota',[AnggotaController::class,'indexs']); 
 Route::get('/updateakun/{Anggota:id}',[AnggotaController::class,'updateanggota']); 
 Route::post('/update/{Anggota:id}',[AnggotaController::class,'updatestore']);
 Route::get('/delete/{Anggota:id}',[AnggotaController::class,'destroy']);
+Route::get('/deletetemp/{Anggota:id}',[AnggotaController::class,'destroytemp']);
+Route::get('/approveanggota/{Anggota:id}',[AnggotaController::class,'approveanggota']);
+
+
+
 Route::get('cek_aprovalRapat',[RapatController::class, 'cek_aprovalRapat']);
 Route::get('aprove/{Rapat:id}',[RapatController::class, 'aprove']);
 Route::get('disaprove/{Rapat:id}',[RapatController::class, 'disaprove']);
@@ -72,8 +78,7 @@ Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRap
 Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
 Route::get('validasiKehadiranKegiatan', [RapatController::class, 'validasiKehadiranKegiatan']);
 Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
-Route::get('checkJoinData', [RapatController::class, 'checkJoinData']);
-Route::get('checkAnggota', [RapatController::class, 'checkAnggota']);
+Route::get('combineData', [RapatController::class, 'combineData']);
 
 // Routing trainer
 Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);
