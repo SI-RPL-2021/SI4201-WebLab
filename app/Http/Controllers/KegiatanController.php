@@ -7,6 +7,7 @@ use App\Models\Rapat;
 // use App\Models\Anggota;
 use App\Models\Kehadiran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KegiatanController extends Controller
 {
@@ -19,6 +20,7 @@ class KegiatanController extends Controller
 
     }
     public function absensikegiatan(){
+        $id_anggota = Auth::user()->id;
         $kehadirans = Kehadiran::orderBy('id','ASC')->get();
         return view('absensikegiatan',compact('kehadirans'));
     }

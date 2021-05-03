@@ -21,16 +21,15 @@
             {{-- <th scope="col">Jam Absen</th> --}}
         </tr>
     </thead>
-    {{-- <tbody> 
+    <tbody> 
         @foreach ($kehadirans as $hadir)
-            
         <tr>
         <td>{{$hadir->Nim}}</td>
         <td>{{$hadir->tanggal}}</td>
         <td>{{$hadir->kehadiran}}</td>
         </tr>
         @endforeach
-    </tbody> --}}
+    </tbody>
     
 </table>
 <!-- end of konten -->
