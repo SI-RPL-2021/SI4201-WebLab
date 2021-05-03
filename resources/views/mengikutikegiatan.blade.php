@@ -27,7 +27,7 @@
         <tbody>
             @foreach ($rapat as $hr)    
             <tr>
-                @if($hr->status_aproval !== "waiting")
+                @if($hr->status_aproval !== "waiting" and $hr->status_aproval !== "disaproved")
                 {{-- <td>{{ $loop->iteration }}</td> --}}
                 <td>{{ $hr->nama_rapat }}</td>
                 <td>{{ $hr->jenis_kegiatan }}</td>
@@ -48,7 +48,7 @@
             @endif
             @endforeach
             @foreach ($pelatihan as $pl)  
-            @if($pl->status_aproval !== "waiting")  
+            @if($pl->status_aproval !== "waiting" and $pl->status_aproval !== "disaproved")  
             <tr>
                 {{-- <td>{{ $loop->iteration }}</td> --}} 
                 <td>{{ $pl->nama_pelatihan }}</td>
@@ -63,7 +63,7 @@
                     <form action="{{route('absen')}}" method="POST">
                         @csrf
                         <a target="_blank" href="{{$links}}" class="btn btn-sm btn-success">Link Disini</a>
-                        <button class="btn btn-sm btn-success" type="submit">Absen</button>
+                        <button class="btn btn-sm btn-success" type="submit" name="absen_kegiatan">Absen</button>
                     </form>
                 </td>
             </tr>

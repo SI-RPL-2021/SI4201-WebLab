@@ -10,6 +10,7 @@ use App\Models\Rapat;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnggotaController extends Controller
 {
@@ -63,20 +64,13 @@ class AnggotaController extends Controller
         return view('mengikutiKegiatan',compact('hadirRapat'));
     }
     public function absen(Request $request){
+        $id_anggota = Auth::user()->id;
         $timezone = 'Asia/Pontianak';
         $date = new DateTime('now', new DateTimeZone($timezone));
         $tanggal = $date->format('Y-m-d');
         // $localtime = $date->format('H-i-s');
         $hadir = 'Hadir';
 
-        // $kehadiran = Kehadiran::where([
-        //     ['id_anggota','=' ,auth()->user()->id],
-        //     ['Nim','=', auth()->user()->nim],
-        //     ['tanggal','=',$tanggal],
-        // ])->first();
-        // if($kehadiran){
-        //     dd("Data udah ada!");
-        // }else{
             Kehadiran::create([
                 'id_anggota'=> auth()->user()->id,
                 'Nim' => auth()->user()->nim,
@@ -85,6 +79,6 @@ class AnggotaController extends Controller
                 // 'jamabsen' => $localtime,
             ]);
         // }
-        return redirect()->back();
+        return redirect('absensikegiatan')->with('success', 'Berhasil Absen');;
     }
 }
