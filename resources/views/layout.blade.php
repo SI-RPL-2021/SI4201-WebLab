@@ -221,7 +221,7 @@
                 {{-- menu 5 --}}
                 <a href="#submenu5" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start" 
                 <?php if ((Auth::user()->divisi) != 'Anggota') { echo 'hidden'; }
-                if ((Auth::user()->akses == 'non_admin')) { echo 'visible'; } ?>>
+                if ((Auth::user()->akses == 'admin')) { echo 'visible'; } ?>>
                     <div class="d-flex w-100 justify-content-start align-items-center">
                         <span class="fa fa-dashboard fa-fw mr-3"></span>
                         <span class="menu-collapsed">Menu Anggota</span>
