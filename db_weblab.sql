@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Bulan Mei 2021 pada 18.30
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.10
+-- Generation Time: May 04, 2021 at 02:07 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -34,7 +34,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_anggota`
+-- Table structure for table `tb_anggota`
 --
 
 CREATE TABLE `tb_anggota` (
@@ -63,27 +63,29 @@ CREATE TABLE `tb_anggota` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `akses` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'non_admin',
+  `Status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT 'Pending',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tb_anggota`
+-- Dumping data for table `tb_anggota`
 --
 
-INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`, `email`, `password`, `akses`, `created_at`, `updated_at`) VALUES
-(2, 'Admin', 1111, 'SI-42-01', 'Trainer', 'Data Engineer', 'admin@gmail.com', '$2y$10$dHP1X5Cx6Z9pfJcUmR34ou1ocu/7yNAzCThYFVdCxb.xbN5aUWLqe', 'admin', '2021-04-11 08:07:51', '2021-04-11 08:07:51'),
-(3, 'Jody Mardika', 1202180092, 'SI-42-01', 'Trainer', 'Data Scientist', 'jodymardika@gmail.com', '$2y$10$kfZXNwZV/8qghJatOXBiAeu5phx4bv37ox7fUPtGBeFpi1AJ4Cur.', 'non_admin', '2021-04-11 08:08:52', '2021-04-12 06:36:29'),
-(4, 'Sekretaris', 2222, 'SI-42-01', 'Sekretaris', 'Data Engineer', 'sekretaris@gmail.com', '$2y$10$L2JXHA7oqJtVPPM/tQC7DO41wwegn1iOY1fydIwXeYX0XowycDdTq', 'non_admin', '2021-04-11 08:09:17', '2021-04-11 08:09:17'),
-(5, 'Trainer', 3333, 'SI-42-01', 'Trainer', 'Data Scientist', 'trainer@gmail.com', '$2y$10$HKPPZrJ7a3MeUpupu2Fn6ecCTePxIn8B1MeaYaiQM6YVcRkTnIiGC', 'non_admin', '2021-04-12 05:06:39', '2021-04-12 05:06:39'),
-(6, 'poiuio', 6666, 'SI-42-01', 'Trainer', 'Data Engineer', 'a@gmail.com', '$2y$10$LriUa5riwTVp8aTYDXJn9eUsnlab/SjInwWst6ToA3PNQAby12XEi', 'non_admin', '2021-04-12 06:37:56', '2021-04-12 06:37:56'),
-(10, 'Tasya Nozuka Hasprasi', 1202184312, 'SI-42-01', 'Anggota', 'Data Engineer', 'tasyanozuka@gmail.com', '$2y$10$vbW0u.ag3qF.iQL3h66S.ePLZjoia5zrdP9WcgIY34/KjaWr1UkpG', 'non_admin', '2021-04-27 19:54:03', '2021-04-27 19:54:03'),
-(11, 'trainer2', 123456789, 'SI-42-02', 'Trainer', 'Data Engineer', 'trainer2@gmail.com', '$2y$10$iXWkrb9kTAxSrEwxqSJO6uP3T1rbdlsRXdb8AWDzIk.wJclM5xnSO', 'non_admin', '2021-05-01 01:45:56', '2021-05-01 01:45:56');
+INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`, `email`, `password`, `akses`, `Status`, `created_at`, `updated_at`) VALUES
+(2, 'Admin', 1111, 'SI-42-01', 'Trainer', 'Data Engineer', 'admin@gmail.com', '$2y$10$dHP1X5Cx6Z9pfJcUmR34ou1ocu/7yNAzCThYFVdCxb.xbN5aUWLqe', 'admin', 'Diterima', '2021-04-11 08:07:51', '2021-05-03 12:53:01'),
+(3, 'Jody Mardika', 1202180092, 'SI-42-01', 'Trainer', 'Data Scientist', 'jodymardika@gmail.com', '$2y$10$kfZXNwZV/8qghJatOXBiAeu5phx4bv37ox7fUPtGBeFpi1AJ4Cur.', 'non_admin', 'Diterima', '2021-04-11 08:08:52', '2021-05-03 12:52:51'),
+(4, 'Sekretaris', 2222, 'SI-42-01', 'Sekretaris', 'Data Engineer', 'sekretaris@gmail.com', '$2y$10$L2JXHA7oqJtVPPM/tQC7DO41wwegn1iOY1fydIwXeYX0XowycDdTq', 'non_admin', 'Diterima', '2021-04-11 08:09:17', '2021-05-03 12:52:50'),
+(5, 'Trainer', 3333, 'SI-42-01', 'Trainer', 'Data Scientist', 'trainer@gmail.com', '$2y$10$HKPPZrJ7a3MeUpupu2Fn6ecCTePxIn8B1MeaYaiQM6YVcRkTnIiGC', 'non_admin', 'Diterima', '2021-04-12 05:06:39', '2021-05-03 12:52:49'),
+(6, 'poiuio', 6666, 'SI-42-01', 'Trainer', 'Data Engineer', 'a@gmail.com', '$2y$10$LriUa5riwTVp8aTYDXJn9eUsnlab/SjInwWst6ToA3PNQAby12XEi', 'non_admin', 'Diterima', '2021-04-12 06:37:56', '2021-05-03 12:52:47'),
+(10, 'Tasya Nozuka Hasprasi', 1202184312, 'SI-42-01', 'Anggota', 'Data Engineer', 'tasyanozuka@gmail.com', '$2y$10$vbW0u.ag3qF.iQL3h66S.ePLZjoia5zrdP9WcgIY34/KjaWr1UkpG', 'non_admin', 'Diterima', '2021-04-27 19:54:03', '2021-05-03 12:52:45'),
+(11, 'trainer2', 123456789, 'SI-42-02', 'Trainer', 'Data Engineer', 'trainer2@gmail.com', '$2y$10$iXWkrb9kTAxSrEwxqSJO6uP3T1rbdlsRXdb8AWDzIk.wJclM5xnSO', 'non_admin', 'Diterima', '2021-05-01 01:45:56', '2021-05-03 12:52:44'),
+(15, 'udahlah', 121213421, 'SI-42-01', 'Trainer', 'Data Engineer', 'udahsi@gmail.com', '$2y$10$zaBq6.4T5VABb3wnTU7ZQ.1tLk.8fMF7uR2w.78D4zFziFINytLWG', 'non_admin', 'Pending', '2021-05-03 13:07:27', '2021-05-03 13:07:27');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kehadiran`
+-- Table structure for table `tb_kehadiran`
 --
 
 CREATE TABLE `tb_kehadiran` (
@@ -97,7 +99,7 @@ CREATE TABLE `tb_kehadiran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tb_kehadiran`
+-- Dumping data for table `tb_kehadiran`
 --
 
 INSERT INTO `tb_kehadiran` (`id`, `Nim`, `id_anggota`, `tanggal`, `kehadiran`, `created_at`, `updated_at`) VALUES
@@ -107,7 +109,7 @@ INSERT INTO `tb_kehadiran` (`id`, `Nim`, `id_anggota`, `tanggal`, `kehadiran`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pelatihan`
+-- Table structure for table `tb_pelatihan`
 --
 
 CREATE TABLE `tb_pelatihan` (
@@ -125,7 +127,7 @@ CREATE TABLE `tb_pelatihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tb_pelatihan`
+-- Dumping data for table `tb_pelatihan`
 --
 
 INSERT INTO `tb_pelatihan` (`id`, `nama_pelatihan`, `pemohon`, `study_group`, `tgl_pelatihan`, `jam_pelatihan`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
@@ -136,7 +138,7 @@ INSERT INTO `tb_pelatihan` (`id`, `nama_pelatihan`, `pemohon`, `study_group`, `t
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_rapat`
+-- Table structure for table `tb_rapat`
 --
 
 CREATE TABLE `tb_rapat` (
@@ -153,7 +155,7 @@ CREATE TABLE `tb_rapat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tb_rapat`
+-- Dumping data for table `tb_rapat`
 --
 
 INSERT INTO `tb_rapat` (`id`, `nama_rapat`, `pemohon`, `tgl_rapat`, `jam_rapat`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
@@ -166,13 +168,13 @@ INSERT INTO `tb_rapat` (`id`, `nama_rapat`, `pemohon`, `tgl_rapat`, `jam_rapat`,
 --
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_anggota`
+-- Indexes for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
   ADD PRIMARY KEY (`id`),
@@ -180,71 +182,71 @@ ALTER TABLE `tb_anggota`
   ADD UNIQUE KEY `nim` (`nim`);
 
 --
--- Indeks untuk tabel `tb_kehadiran`
+-- Indexes for table `tb_kehadiran`
 --
 ALTER TABLE `tb_kehadiran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_pelatihan`
+-- Indexes for table `tb_pelatihan`
 --
 ALTER TABLE `tb_pelatihan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pemohon` (`pemohon`);
 
 --
--- Indeks untuk tabel `tb_rapat`
+-- Indexes for table `tb_rapat`
 --
 ALTER TABLE `tb_rapat`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pemohon` (`pemohon`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_anggota`
+-- AUTO_INCREMENT for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_kehadiran`
+-- AUTO_INCREMENT for table `tb_kehadiran`
 --
 ALTER TABLE `tb_kehadiran`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pelatihan`
+-- AUTO_INCREMENT for table `tb_pelatihan`
 --
 ALTER TABLE `tb_pelatihan`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_rapat`
+-- AUTO_INCREMENT for table `tb_rapat`
 --
 ALTER TABLE `tb_rapat`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_pelatihan`
+-- Constraints for table `tb_pelatihan`
 --
 ALTER TABLE `tb_pelatihan`
   ADD CONSTRAINT `fk_pemohon2` FOREIGN KEY (`pemohon`) REFERENCES `tb_anggota` (`nim`);
 
 --
--- Ketidakleluasaan untuk tabel `tb_rapat`
+-- Constraints for table `tb_rapat`
 --
 ALTER TABLE `tb_rapat`
   ADD CONSTRAINT `fk_pemohon` FOREIGN KEY (`pemohon`) REFERENCES `tb_anggota` (`nim`);
