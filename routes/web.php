@@ -92,3 +92,7 @@ Route::get('goEditPelatihan/editPelatihan/{Pelatihan:id}', [PelatihanController:
 Route::get('mengikutiKegiatan', [KegiatanController::class, 'showalldata']);
 Route::get('absensikegiatan', [KegiatanController::class, 'absensikegiatan'])->name('absensi');
 Route::post('absen', [AnggotaController::class, 'absen'])->name('absen');
+
+Route::get('absenpelatihan', [PelatihanController::class, 'absenpelatihan']);
+Route::get('kehadiran/{Pelatihan:id}', [PelatihanController::class, 'kehadiran'])->name('kehadiran');
+Route::get('notifpelatihan', [PelatihanController::class, 'notifpelatihan']);

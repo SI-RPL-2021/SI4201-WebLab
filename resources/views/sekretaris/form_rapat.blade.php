@@ -46,7 +46,8 @@
     </div>
     <div class="form-group ml-3">
         <label>Link</label>
-        <input type="text" class="form-control" name="link" style="width:95%">
+        <input type="text" class="form-control" name="link" style="width:95%" placeholder="ex: https://meet.google.com/xxx-xxxx-xxx">
+        <small class="form-text text-muted">Mohon untuk menulis alamat link dengan format https"//meet.google.com/xxx-xxxx-xxx</small>
     </div>
     <div class="form-group ml-3">
         <input type="submit" class="btn btn-primary mb-2" value="Submit">

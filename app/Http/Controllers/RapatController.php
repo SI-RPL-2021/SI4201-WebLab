@@ -92,14 +92,14 @@ class RapatController extends Controller
 
         return view ('sekretaris.dokumentasi_validasi_kegiatan', ['combineData' => $combineData, 'pelatihan' => $pelatihan]);
     }
-  
+
     function checkJoinData()
       // cek apakah data berhasil di join
-     {
-         return DB::table('tb_rapat')
-         ->join('tb_anggota','tb_rapat.pemohon',"=", 'tb_anggota.nim')
-         ->get();
-     }
+    {
+        return DB::table('tb_rapat')
+        ->join('tb_anggota','tb_rapat.pemohon',"=", 'tb_anggota.nim')
+        ->get();
+    }
 
     // public function validasiKehadiranKegiatan($id,Request $request){
     public function validasiKehadiranKegiatan(Request $request){
@@ -110,10 +110,10 @@ class RapatController extends Controller
 
     function checkAnggota()
       // cek apakah data Anggota berhasil di buka
-     {
-         return DB::table('tb_anggota')
-         ->get();
-     }
+    {
+        return DB::table('tb_anggota')
+        ->get();
+    }
 
     public function uploadDokumentasi(Request $request){
         $rapat = Rapat::all();

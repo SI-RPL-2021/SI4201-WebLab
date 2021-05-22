@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pelatihan;
-use App\Models\Anggota;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class PelatihanController extends Controller
 {
@@ -135,5 +134,14 @@ class PelatihanController extends Controller
         }else {
             return redirect('cek_aprovalPelatihan')->with('edit_gagal', 'Data gagal disimpan');
         }
+    }
+
+    public function notifpelatihan(){ // Anggota lihat notifikasi pelatihan
+        $pelatihan = Pelatihan::all();
+        return view ('anggota.pelatihan.notifpelatihan', ['pelatihan' => $pelatihan]);
+    }
+
+    public function kehadiran($id, Request $request){ // Anggota lihat notifikasi pelatihan
+        return redirect()->back()->with('hadir', 'Absensi telah tercatat');
     }
 }

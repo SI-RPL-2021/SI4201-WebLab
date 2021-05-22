@@ -219,9 +219,7 @@
                 </div>
                 {{-- end of menu 4 --}}
                 {{-- menu 5 --}}
-                <a href="#submenu5" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start" 
-                <?php if ((Auth::user()->divisi) != 'Anggota') { echo 'hidden'; }
-                if ((Auth::user()->akses == 'admin')) { echo 'visible'; } ?>>
+                <a href="#submenu5" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-start align-items-center">
                         <span class="fa fa-dashboard fa-fw mr-3"></span>
                         <span class="menu-collapsed">Menu Anggota</span>
@@ -229,12 +227,36 @@
                     </div>
                 </a>
                 <div id='submenu5' class="collapse sidebar-submenu">
-                    <a href="mengikutiKegiatan" class="list-group-item list-group-item-action bg-dark text-white">
-                        <span class="menu-collapsed">Notifikasi Kegiatan</span>
+                    <a href="#submenu5a" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-dashboard fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Rapat</span>
+                            <span class="submenu-icon ml-auto"><i class="fas fa-angle-down"></i>
+                        </div>
                     </a>
-                    <a href="absensikegiatan" class="list-group-item list-group-item-action bg-dark text-white">
-                        <span class="menu-collapsed">Absensi Kegiatan</span>
+                    <div id='submenu5a' class="collapse sidebar-submenu">
+                        <a href="mengikutiKegiatan" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Notifikasi Kegiatan</span>
+                        </a>
+                        <a href="absensikegiatan" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Absensi Kegiatan</span>
+                        </a>
+                    </div>
+                    <a href="#submenu5b" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-dashboard fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Pelatihan</span>
+                            <span class="submenu-icon ml-auto"><i class="fas fa-angle-down"></i>
+                        </div>
                     </a>
+                    <div id='submenu5b' class="collapse sidebar-submenu">
+                        <a href="notifpelatihan" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Notifikasi Pelatihan</span>
+                        </a>
+                        <a href="absenpelatihan" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Absensi Pelatihan</span>
+                        </a>
+                    </div>
                 </div>
                 {{-- end of menu 5 --}}
             </ul>
