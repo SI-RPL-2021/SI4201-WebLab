@@ -13,9 +13,13 @@
     <div class="alert alert-success">
         <ul>
             <li>{!! \Session::get('hadir') !!}</li>
-            <?php
-                // echo "header('Location: http://localhost:8000/readRapat');"
-            ?>
+        </ul>
+    </div>
+@endif
+@if (\Session::has('failed_hadir'))
+    <div class="alert alert-danger">
+        <ul>
+            <li>{!! \Session::get('failed_hadir') !!}</li>
         </ul>
     </div>
 @endif

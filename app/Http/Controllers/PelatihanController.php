@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pelatihan;
+use App\Models\Absenpelatihan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
 class PelatihanController extends Controller
@@ -142,6 +144,17 @@ class PelatihanController extends Controller
     }
 
     public function kehadiran($id, Request $request){ // Anggota lihat notifikasi pelatihan
-        return redirect()->back()->with('hadir', 'Absensi telah tercatat');
+        $nim = Auth::user()->nim;
+        $id_pelatihan = 6;
+        $kehadiran = Absenpelatihan::create([
+            'id_pelatihan' => $id_pelatihan,
+            'nim' => $nim,
+        ]);
+        
+        if ($kehadiran) {
+            return redirect()->back()->with('hadir', 'Absensi telah tercatat');
+        }else {
+            return redirect()->back()->with('failed_hadir', 'Absensi gagal tercatat');
+        }
     }
 }
