@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2021 at 02:07 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: May 22, 2021 at 07:46 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_weblab`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `absenpelatihan`
+--
+
+CREATE TABLE `absenpelatihan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_pelatihan` bigint(20) UNSIGNED NOT NULL,
+  `nim` int(11) NOT NULL,
+  `status_validasi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'Menunggu validasi',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `absenpelatihan`
+--
+
+INSERT INTO `absenpelatihan` (`id`, `id_pelatihan`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
+(1, 6, 1111, 'Menunggu validasi', '2021-05-21 22:43:54', '2021-05-21 22:43:54'),
+(2, 6, 1111, 'Menunggu validasi', '2021-05-21 22:44:47', '2021-05-21 22:44:47');
 
 -- --------------------------------------------------------
 
@@ -45,7 +68,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2021_04_11_150249_create_tb_rapat_table', 2),
 (11, '2021_04_12_033004_create_kegiatan_table', 3),
 (12, '2021_04_12_121037_create_tb_pelatihan_table', 4),
-(13, '2021_05_01_090145_create__tb_kehadiran_table', 5);
+(13, '2021_05_01_090145_create__tb_kehadiran_table', 5),
+(14, '2021_05_22_044259_create_absenpelatihan_table', 6);
 
 -- --------------------------------------------------------
 
@@ -63,7 +87,6 @@ CREATE TABLE `tb_anggota` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `akses` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'non_admin',
-  `Status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT 'Pending',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -72,15 +95,14 @@ CREATE TABLE `tb_anggota` (
 -- Dumping data for table `tb_anggota`
 --
 
-INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`, `email`, `password`, `akses`, `Status`, `created_at`, `updated_at`) VALUES
-(2, 'Admin', 1111, 'SI-42-01', 'Trainer', 'Data Engineer', 'admin@gmail.com', '$2y$10$dHP1X5Cx6Z9pfJcUmR34ou1ocu/7yNAzCThYFVdCxb.xbN5aUWLqe', 'admin', 'Diterima', '2021-04-11 08:07:51', '2021-05-03 12:53:01'),
-(3, 'Jody Mardika', 1202180092, 'SI-42-01', 'Trainer', 'Data Scientist', 'jodymardika@gmail.com', '$2y$10$kfZXNwZV/8qghJatOXBiAeu5phx4bv37ox7fUPtGBeFpi1AJ4Cur.', 'non_admin', 'Diterima', '2021-04-11 08:08:52', '2021-05-03 12:52:51'),
-(4, 'Sekretaris', 2222, 'SI-42-01', 'Sekretaris', 'Data Engineer', 'sekretaris@gmail.com', '$2y$10$L2JXHA7oqJtVPPM/tQC7DO41wwegn1iOY1fydIwXeYX0XowycDdTq', 'non_admin', 'Diterima', '2021-04-11 08:09:17', '2021-05-03 12:52:50'),
-(5, 'Trainer', 3333, 'SI-42-01', 'Trainer', 'Data Scientist', 'trainer@gmail.com', '$2y$10$HKPPZrJ7a3MeUpupu2Fn6ecCTePxIn8B1MeaYaiQM6YVcRkTnIiGC', 'non_admin', 'Diterima', '2021-04-12 05:06:39', '2021-05-03 12:52:49'),
-(6, 'poiuio', 6666, 'SI-42-01', 'Trainer', 'Data Engineer', 'a@gmail.com', '$2y$10$LriUa5riwTVp8aTYDXJn9eUsnlab/SjInwWst6ToA3PNQAby12XEi', 'non_admin', 'Diterima', '2021-04-12 06:37:56', '2021-05-03 12:52:47'),
-(10, 'Tasya Nozuka Hasprasi', 1202184312, 'SI-42-01', 'Anggota', 'Data Engineer', 'tasyanozuka@gmail.com', '$2y$10$vbW0u.ag3qF.iQL3h66S.ePLZjoia5zrdP9WcgIY34/KjaWr1UkpG', 'non_admin', 'Diterima', '2021-04-27 19:54:03', '2021-05-03 12:52:45'),
-(11, 'trainer2', 123456789, 'SI-42-02', 'Trainer', 'Data Engineer', 'trainer2@gmail.com', '$2y$10$iXWkrb9kTAxSrEwxqSJO6uP3T1rbdlsRXdb8AWDzIk.wJclM5xnSO', 'non_admin', 'Diterima', '2021-05-01 01:45:56', '2021-05-03 12:52:44'),
-(15, 'udahlah', 121213421, 'SI-42-01', 'Trainer', 'Data Engineer', 'udahsi@gmail.com', '$2y$10$zaBq6.4T5VABb3wnTU7ZQ.1tLk.8fMF7uR2w.78D4zFziFINytLWG', 'non_admin', 'Pending', '2021-05-03 13:07:27', '2021-05-03 13:07:27');
+INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`, `email`, `password`, `akses`, `created_at`, `updated_at`) VALUES
+(2, 'Admin', 1111, 'SI-42-01', 'Trainer', 'Data Engineer', 'admin@gmail.com', '$2y$10$dHP1X5Cx6Z9pfJcUmR34ou1ocu/7yNAzCThYFVdCxb.xbN5aUWLqe', 'admin', '2021-04-11 08:07:51', '2021-04-11 08:07:51'),
+(3, 'Jody Mardika', 1202180092, 'SI-42-01', 'Trainer', 'Data Scientist', 'jodymardika@gmail.com', '$2y$10$kfZXNwZV/8qghJatOXBiAeu5phx4bv37ox7fUPtGBeFpi1AJ4Cur.', 'non_admin', '2021-04-11 08:08:52', '2021-04-12 06:36:29'),
+(4, 'Sekretaris', 2222, 'SI-42-01', 'Sekretaris', 'Data Engineer', 'sekretaris@gmail.com', '$2y$10$L2JXHA7oqJtVPPM/tQC7DO41wwegn1iOY1fydIwXeYX0XowycDdTq', 'non_admin', '2021-04-11 08:09:17', '2021-04-11 08:09:17'),
+(5, 'Trainer', 3333, 'SI-42-01', 'Trainer', 'Data Scientist', 'trainer@gmail.com', '$2y$10$HKPPZrJ7a3MeUpupu2Fn6ecCTePxIn8B1MeaYaiQM6YVcRkTnIiGC', 'non_admin', '2021-04-12 05:06:39', '2021-04-12 05:06:39'),
+(6, 'poiuio', 6666, 'SI-42-01', 'Trainer', 'Data Engineer', 'a@gmail.com', '$2y$10$LriUa5riwTVp8aTYDXJn9eUsnlab/SjInwWst6ToA3PNQAby12XEi', 'non_admin', '2021-04-12 06:37:56', '2021-04-12 06:37:56'),
+(10, 'Tasya Nozuka Hasprasi', 1202184312, 'SI-42-01', 'Anggota', 'Data Engineer', 'tasyanozuka@gmail.com', '$2y$10$vbW0u.ag3qF.iQL3h66S.ePLZjoia5zrdP9WcgIY34/KjaWr1UkpG', 'non_admin', '2021-04-27 19:54:03', '2021-04-27 19:54:03'),
+(11, 'trainer2', 123456789, 'SI-42-02', 'Trainer', 'Data Engineer', 'trainer2@gmail.com', '$2y$10$iXWkrb9kTAxSrEwxqSJO6uP3T1rbdlsRXdb8AWDzIk.wJclM5xnSO', 'non_admin', '2021-05-01 01:45:56', '2021-05-01 01:45:56');
 
 -- --------------------------------------------------------
 
@@ -104,7 +126,8 @@ CREATE TABLE `tb_kehadiran` (
 
 INSERT INTO `tb_kehadiran` (`id`, `Nim`, `id_anggota`, `tanggal`, `kehadiran`, `created_at`, `updated_at`) VALUES
 (1, 123456789, 11, '2021-05-01', 'Hadir', '2021-05-01 02:08:34', '2021-05-01 02:08:34'),
-(2, 1202184312, 10, '2021-05-01', 'Hadir', '2021-05-01 02:32:44', '2021-05-01 02:32:44');
+(2, 1202184312, 10, '2021-05-01', 'Hadir', '2021-05-01 02:32:44', '2021-05-01 02:32:44'),
+(3, 1111, 2, '2021-05-19', 'Hadir', '2021-05-18 20:44:04', '2021-05-18 20:44:04');
 
 -- --------------------------------------------------------
 
@@ -133,7 +156,8 @@ CREATE TABLE `tb_pelatihan` (
 INSERT INTO `tb_pelatihan` (`id`, `nama_pelatihan`, `pemohon`, `study_group`, `tgl_pelatihan`, `jam_pelatihan`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
 (2, 'Pelatihan 1', 1111, 'Data Engineer', '2021-04-13', '22:25:00', 'Link Pelatihan 1', 'aproved', 'pelatihan', '2021-04-12 07:24:52', '2021-04-12 07:36:36'),
 (4, 'Pelatihan 2', 3333, 'Data Scientist', '2021-05-01', '09:00:00', 'Link Pelatihan 2', 'waiting', 'pelatihan', '2021-04-29 10:58:44', '2021-04-29 10:58:44'),
-(5, 'Pelatihan 3', 123456789, 'Data Engineer', '2021-05-03', '10:00:00', 'meet.google.com/ehv-qsqc-htj', 'aproved', 'pelatihan', '2021-05-01 01:47:19', '2021-05-01 02:30:11');
+(5, 'Pelatihan 3', 123456789, 'Data Engineer', '2021-05-03', '10:00:00', 'https://meet.google.com/ehv-qsqc-htj', 'aproved', 'pelatihan', '2021-05-01 01:47:19', '2021-05-01 02:30:11'),
+(6, 'Pelatihan 4', 1111, 'Data Engineer', '2021-05-20', '10:54:00', 'https://meet.google.com/swd-iifv-pru', 'waiting', 'pelatihan', '2021-05-20 19:53:33', '2021-05-20 19:53:33');
 
 -- --------------------------------------------------------
 
@@ -166,6 +190,14 @@ INSERT INTO `tb_rapat` (`id`, `nama_rapat`, `pemohon`, `tgl_rapat`, `jam_rapat`,
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `absenpelatihan`
+--
+ALTER TABLE `absenpelatihan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelatihan` (`id_pelatihan`),
+  ADD KEY `nim` (`nim`);
 
 --
 -- Indexes for table `migrations`
@@ -206,28 +238,34 @@ ALTER TABLE `tb_rapat`
 --
 
 --
+-- AUTO_INCREMENT for table `absenpelatihan`
+--
+ALTER TABLE `absenpelatihan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_kehadiran`
 --
 ALTER TABLE `tb_kehadiran`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_pelatihan`
 --
 ALTER TABLE `tb_pelatihan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_rapat`
@@ -238,6 +276,13 @@ ALTER TABLE `tb_rapat`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `absenpelatihan`
+--
+ALTER TABLE `absenpelatihan`
+  ADD CONSTRAINT `fk_id_pelatihan` FOREIGN KEY (`id_pelatihan`) REFERENCES `tb_pelatihan` (`id`),
+  ADD CONSTRAINT `fk_nim` FOREIGN KEY (`nim`) REFERENCES `tb_anggota` (`nim`);
 
 --
 -- Constraints for table `tb_pelatihan`
