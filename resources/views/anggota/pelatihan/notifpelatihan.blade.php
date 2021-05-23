@@ -48,8 +48,8 @@
                 <td>{{ $x->tgl_pelatihan }}</td>
                 <td>{{ $x->jam_pelatihan }}</td>
                 <td>
-                    <a href="{{ $x->link }}" target="_blank">Link</a>
-                    <a href="kehadiran/{{ $x->id }}">Absen</a>
+                    <a href="{{ $x->link }}" class="btn btn-block btn-warning" target="_blank">Link</a>
+                    <a href="kehadiran/{{ $x->id }}" class="btn btn-block btn-success">Absen</a>
                 </td>
             </tr>
             @endforeach
