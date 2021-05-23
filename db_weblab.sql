@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2021 at 07:46 AM
+-- Generation Time: May 23, 2021 at 04:06 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -42,7 +42,8 @@ CREATE TABLE `absenpelatihan` (
 
 INSERT INTO `absenpelatihan` (`id`, `id_pelatihan`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
 (1, 6, 1111, 'Menunggu validasi', '2021-05-21 22:43:54', '2021-05-21 22:43:54'),
-(2, 6, 1111, 'Menunggu validasi', '2021-05-21 22:44:47', '2021-05-21 22:44:47');
+(2, 6, 1111, 'Menunggu validasi', '2021-05-21 22:44:47', '2021-05-21 22:44:47'),
+(3, 6, 2222, 'Menunggu validasi', '2021-05-23 06:52:38', '2021-05-23 06:52:38');
 
 -- --------------------------------------------------------
 
@@ -154,10 +155,10 @@ CREATE TABLE `tb_pelatihan` (
 --
 
 INSERT INTO `tb_pelatihan` (`id`, `nama_pelatihan`, `pemohon`, `study_group`, `tgl_pelatihan`, `jam_pelatihan`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
-(2, 'Pelatihan 1', 1111, 'Data Engineer', '2021-04-13', '22:25:00', 'Link Pelatihan 1', 'aproved', 'pelatihan', '2021-04-12 07:24:52', '2021-04-12 07:36:36'),
-(4, 'Pelatihan 2', 3333, 'Data Scientist', '2021-05-01', '09:00:00', 'Link Pelatihan 2', 'waiting', 'pelatihan', '2021-04-29 10:58:44', '2021-04-29 10:58:44'),
+(2, 'Pelatihan 1', 1111, 'Data Engineer', '2021-04-13', '22:25:00', 'https://meet.google.com/ehv-qsqc-htj', 'disaproved', 'pelatihan', '2021-04-12 07:24:52', '2021-05-23 07:00:18'),
+(4, 'Pelatihan 2', 3333, 'Data Scientist', '2021-05-01', '09:00:00', 'https://meet.google.com/ehv-qsqc-htj', 'aproved', 'pelatihan', '2021-04-29 10:58:44', '2021-05-23 07:01:23'),
 (5, 'Pelatihan 3', 123456789, 'Data Engineer', '2021-05-03', '10:00:00', 'https://meet.google.com/ehv-qsqc-htj', 'aproved', 'pelatihan', '2021-05-01 01:47:19', '2021-05-01 02:30:11'),
-(6, 'Pelatihan 4', 1111, 'Data Engineer', '2021-05-20', '10:54:00', 'https://meet.google.com/swd-iifv-pru', 'waiting', 'pelatihan', '2021-05-20 19:53:33', '2021-05-20 19:53:33');
+(6, 'Pelatihan 4', 1111, 'Data Engineer', '2021-05-20', '10:54:00', 'https://meet.google.com/swd-iifv-pru', 'aproved', 'pelatihan', '2021-05-20 19:53:33', '2021-05-23 05:31:34');
 
 -- --------------------------------------------------------
 
@@ -241,7 +242,7 @@ ALTER TABLE `tb_rapat`
 -- AUTO_INCREMENT for table `absenpelatihan`
 --
 ALTER TABLE `absenpelatihan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
