@@ -139,7 +139,8 @@ class PelatihanController extends Controller
     }
 
     public function notifpelatihan(){ // Anggota lihat notifikasi pelatihan
-        $pelatihan = Pelatihan::all();
+        $group = Auth::user()->study_group;
+        $pelatihan = Pelatihan::where('status_aproval','aproved')->where('study_group', $group)->get(); // anggota hanya melihat pelatihan yang sesuai dengan study group mereka dan yang sudah di aprove
         return view ('anggota.pelatihan.notifpelatihan', ['pelatihan' => $pelatihan]);
     }
 
