@@ -158,4 +158,11 @@ class PelatihanController extends Controller
             return redirect()->back()->with('failed_hadir', 'Absensi gagal tercatat');
         }
     }
+
+    public function absensipelatihan(){
+        $currentNIM = Auth::user()->nim;
+        $absen = Pelatihan::leftJoin('absenpelatihan', 'absenpelatihan.id_pelatihan', '=', 'tb_pelatihan.id')
+        ->select('absenpelatihan.*', 'tb_pelatihan.*')->where('absenpelatihan.nim',$currentNIM)->get();
+        return view ('anggota.pelatihan.absenpelatihan', ['absen' => $absen]);
+    }
 }

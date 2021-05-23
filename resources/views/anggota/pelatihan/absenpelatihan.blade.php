@@ -15,22 +15,27 @@
     <thead class="thead-dark">
         <tr>
             {{-- <th scope="col">No</th> --}}
-            <th scope="col">NIM</th>
-            <th scope="col">Tanggal</th>
-            <th scope="col">Kehadiran</th>
+            <th scope="col">No</th>
+            <th scope="col">Nama Pelatihan</th>
+            <th scope="col">Tanggal Pelatihan</th>
+            <th scope="col">Jam Pelatihan</th>
+            <th scope="col">Status Validasi Absen</th>
             {{-- <th scope="col">Jam Absen</th> --}}
         </tr>
     </thead>
-    <tbody> 
-        @foreach ($kehadirans as $hadir)
+    <tbody>
         <tr>
-        <td>{{$hadir->Nim}}</td>
-        <td>{{$hadir->tanggal}}</td>
-        <td>{{$hadir->kehadiran}}</td>
+            @foreach ($absen as $x)    
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $x->nama_pelatihan }}</td>
+                <td>{{ $x->tgl_pelatihan }}</td>
+                <td>{{ $x->jam_pelatihan }}</td>
+                <td>{{ $x->status_validasi }}</td>
+            </tr>
+            @endforeach
         </tr>
-        @endforeach
     </tbody>
-    
 </table>
 <!-- end of konten -->
 @endsection
