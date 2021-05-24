@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2021 at 04:06 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- Waktu pembuatan: 24 Bulan Mei 2021 pada 10.44
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `absenpelatihan`
+-- Struktur dari tabel `absenpelatihan`
 --
 
 CREATE TABLE `absenpelatihan` (
@@ -37,7 +37,7 @@ CREATE TABLE `absenpelatihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `absenpelatihan`
+-- Dumping data untuk tabel `absenpelatihan`
 --
 
 INSERT INTO `absenpelatihan` (`id`, `id_pelatihan`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
@@ -48,7 +48,29 @@ INSERT INTO `absenpelatihan` (`id`, `id_pelatihan`, `nim`, `status_validasi`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `absenrapat`
+--
+
+CREATE TABLE `absenrapat` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_rapat` bigint(20) UNSIGNED NOT NULL,
+  `nim` int(11) NOT NULL,
+  `status_validasi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'Menunggu validasi',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `absenrapat`
+--
+
+INSERT INTO `absenrapat` (`id`, `id_rapat`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
+(1, 6, 1202184312, 'Menunggu validasi', '2021-05-24 01:42:01', '2021-05-24 01:42:01');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -58,7 +80,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -75,7 +97,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_anggota`
+-- Struktur dari tabel `tb_anggota`
 --
 
 CREATE TABLE `tb_anggota` (
@@ -93,7 +115,7 @@ CREATE TABLE `tb_anggota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_anggota`
+-- Dumping data untuk tabel `tb_anggota`
 --
 
 INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`, `email`, `password`, `akses`, `created_at`, `updated_at`) VALUES
@@ -108,7 +130,7 @@ INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kehadiran`
+-- Struktur dari tabel `tb_kehadiran`
 --
 
 CREATE TABLE `tb_kehadiran` (
@@ -122,7 +144,7 @@ CREATE TABLE `tb_kehadiran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_kehadiran`
+-- Dumping data untuk tabel `tb_kehadiran`
 --
 
 INSERT INTO `tb_kehadiran` (`id`, `Nim`, `id_anggota`, `tanggal`, `kehadiran`, `created_at`, `updated_at`) VALUES
@@ -133,7 +155,7 @@ INSERT INTO `tb_kehadiran` (`id`, `Nim`, `id_anggota`, `tanggal`, `kehadiran`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pelatihan`
+-- Struktur dari tabel `tb_pelatihan`
 --
 
 CREATE TABLE `tb_pelatihan` (
@@ -151,7 +173,7 @@ CREATE TABLE `tb_pelatihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_pelatihan`
+-- Dumping data untuk tabel `tb_pelatihan`
 --
 
 INSERT INTO `tb_pelatihan` (`id`, `nama_pelatihan`, `pemohon`, `study_group`, `tgl_pelatihan`, `jam_pelatihan`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
@@ -163,7 +185,7 @@ INSERT INTO `tb_pelatihan` (`id`, `nama_pelatihan`, `pemohon`, `study_group`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_rapat`
+-- Struktur dari tabel `tb_rapat`
 --
 
 CREATE TABLE `tb_rapat` (
@@ -180,7 +202,7 @@ CREATE TABLE `tb_rapat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_rapat`
+-- Dumping data untuk tabel `tb_rapat`
 --
 
 INSERT INTO `tb_rapat` (`id`, `nama_rapat`, `pemohon`, `tgl_rapat`, `jam_rapat`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
@@ -193,7 +215,7 @@ INSERT INTO `tb_rapat` (`id`, `nama_rapat`, `pemohon`, `tgl_rapat`, `jam_rapat`,
 --
 
 --
--- Indexes for table `absenpelatihan`
+-- Indeks untuk tabel `absenpelatihan`
 --
 ALTER TABLE `absenpelatihan`
   ADD PRIMARY KEY (`id`),
@@ -201,13 +223,19 @@ ALTER TABLE `absenpelatihan`
   ADD KEY `nim` (`nim`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `absenrapat`
+--
+ALTER TABLE `absenrapat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_anggota`
+-- Indeks untuk tabel `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
   ADD PRIMARY KEY (`id`),
@@ -215,84 +243,90 @@ ALTER TABLE `tb_anggota`
   ADD UNIQUE KEY `nim` (`nim`);
 
 --
--- Indexes for table `tb_kehadiran`
+-- Indeks untuk tabel `tb_kehadiran`
 --
 ALTER TABLE `tb_kehadiran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_pelatihan`
+-- Indeks untuk tabel `tb_pelatihan`
 --
 ALTER TABLE `tb_pelatihan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pemohon` (`pemohon`);
 
 --
--- Indexes for table `tb_rapat`
+-- Indeks untuk tabel `tb_rapat`
 --
 ALTER TABLE `tb_rapat`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pemohon` (`pemohon`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `absenpelatihan`
+-- AUTO_INCREMENT untuk tabel `absenpelatihan`
 --
 ALTER TABLE `absenpelatihan`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `absenrapat`
+--
+ALTER TABLE `absenrapat`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `tb_anggota`
+-- AUTO_INCREMENT untuk tabel `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tb_kehadiran`
+-- AUTO_INCREMENT untuk tabel `tb_kehadiran`
 --
 ALTER TABLE `tb_kehadiran`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tb_pelatihan`
+-- AUTO_INCREMENT untuk tabel `tb_pelatihan`
 --
 ALTER TABLE `tb_pelatihan`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_rapat`
+-- AUTO_INCREMENT untuk tabel `tb_rapat`
 --
 ALTER TABLE `tb_rapat`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `absenpelatihan`
+-- Ketidakleluasaan untuk tabel `absenpelatihan`
 --
 ALTER TABLE `absenpelatihan`
   ADD CONSTRAINT `fk_id_pelatihan` FOREIGN KEY (`id_pelatihan`) REFERENCES `tb_pelatihan` (`id`),
   ADD CONSTRAINT `fk_nim` FOREIGN KEY (`nim`) REFERENCES `tb_anggota` (`nim`);
 
 --
--- Constraints for table `tb_pelatihan`
+-- Ketidakleluasaan untuk tabel `tb_pelatihan`
 --
 ALTER TABLE `tb_pelatihan`
   ADD CONSTRAINT `fk_pemohon2` FOREIGN KEY (`pemohon`) REFERENCES `tb_anggota` (`nim`);
 
 --
--- Constraints for table `tb_rapat`
+-- Ketidakleluasaan untuk tabel `tb_rapat`
 --
 ALTER TABLE `tb_rapat`
   ADD CONSTRAINT `fk_pemohon` FOREIGN KEY (`pemohon`) REFERENCES `tb_anggota` (`nim`);

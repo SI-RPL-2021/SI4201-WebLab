@@ -91,8 +91,8 @@ Route::get('goEditPelatihan/editPelatihan/{Pelatihan:id}', [PelatihanController:
 
 //routing anggota
 Route::get('notifrapat', [RapatController::class, 'notifrapat']);
-// Route::get('absenrapat', [RapatController::class, 'absensirapat']); 
-// Route::get('kehadirans/{Rapat:id}', [RapatController::class, 'kehadirans'])->name('kehadirans');
+Route::get('absenrapat', [RapatController::class, 'absensirapat']); 
+Route::get('kehadirans/{Rapat:id}', [RapatController::class, 'kehadirans'])->name('kehadirans');
 
 Route::get('absenpelatihan', [PelatihanController::class, 'absensipelatihan']);
 Route::get('kehadiran/{Pelatihan:id}', [PelatihanController::class, 'kehadiran'])->name('kehadiran');
