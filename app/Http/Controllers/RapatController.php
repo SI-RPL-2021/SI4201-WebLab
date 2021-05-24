@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Rapat;
 use App\Models\Anggota;
+use App\Models\Absenrapat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -184,5 +185,31 @@ class RapatController extends Controller
 
         return view ('admin.notifikasi_kegiatan', ['combineData' => $combineData, 'pelatihan' => $pelatihan]);
     }
+    public function notifrapat(){
+        $nim = Auth::user()->nim;
+        $rapat = Rapat::where('status_aproval','aproved')->get(); 
+        return view ('anggota.rapat.notifrapat', ['rapat' => $rapat]);
+    }
 
+    // public function kehadirans($id, Request $request){
+    //     $nim = Auth::user()->nim;
+    //     $id_rapat = 6;
+    //     $kehadirans = Absenrapat::create([
+    //         'id_rapat' => $id_rapat,
+    //         'nim' => $nim,
+    //     ]);
+        
+    //     if ($kehadirans) {
+    //         return redirect()->back()->with('hadir', 'Absensi telah tercatat');
+    //     }else {
+    //         return redirect()->back()->with('failed_hadir', 'Absensi gagal tercatat');
+    //     }
+    // }
+
+    // public function absensirapat(){
+    //     $cNIM = Auth::user()->nim;
+    //     $absens = Rapat::leftJoin('absenrapat', 'absenrapat.id_rapat', '=', 'tb_rapat.id')
+    //     ->select('absenrapat.*', 'tb_rapat.*')->where('absenrapat.nim',$cNIM)->get();
+    //     return view ('anggota.rapat.absenrapat', ['absens' => $absens]);
+    // }
 }

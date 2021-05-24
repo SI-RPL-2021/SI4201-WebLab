@@ -56,29 +56,4 @@ class AnggotaController extends Controller
         return redirect()->back();
 
     }
-    public function mengikutiKegiatan($id){
-        $hadirPelatihan = Pelatihan::findorfail($id);
-        return view('mengikutiKegiatan',compact('hadirPelatihan'));
-
-        $hadirRapat = Rapat::findorfail($id);
-        return view('mengikutiKegiatan',compact('hadirRapat'));
-    }
-    public function absen(Request $request){
-        $id_anggota = Auth::user()->id;
-        $timezone = 'Asia/Pontianak';
-        $date = new DateTime('now', new DateTimeZone($timezone));
-        $tanggal = $date->format('Y-m-d');
-        // $localtime = $date->format('H-i-s');
-        $hadir = 'Hadir';
-
-            Kehadiran::create([
-                'id_anggota'=> auth()->user()->id,
-                'Nim' => auth()->user()->nim,
-                'tanggal' => $tanggal,
-                'kehadiran' => $hadir,
-                // 'jamabsen' => $localtime,
-            ]);
-        // }
-        return redirect('absensikegiatan')->with('success', 'Berhasil Absen');;
-    }
 }

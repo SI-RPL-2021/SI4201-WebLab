@@ -235,11 +235,11 @@
                         </div>
                     </a>
                     <div id='submenu5a' class="collapse sidebar-submenu">
-                        <a href="mengikutiKegiatan" class="list-group-item list-group-item-action bg-dark text-white">
-                            <span class="menu-collapsed">Notifikasi Kegiatan</span>
+                        <a href="notifrapat" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Notifikasi Rapat</span>
                         </a>
-                        <a href="absensikegiatan" class="list-group-item list-group-item-action bg-dark text-white">
-                            <span class="menu-collapsed">Absensi Kegiatan</span>
+                        <a href="absenrapat" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Absensi Rapat</span>
                         </a>
                     </div>
                     <a href="#submenu5b" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
