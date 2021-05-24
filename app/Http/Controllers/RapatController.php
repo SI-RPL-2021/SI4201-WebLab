@@ -173,8 +173,16 @@ class RapatController extends Controller
     }
     
     public function notifikasiKegiatan(Request $request){
-        $rapat = Rapat::all();
-        return view ('admin.notifikasi_kegiatan', ['rapat' => $rapat]);
+        // $rapat = Rapat::all();
+        $combineData= DB::table('tb_rapat')
+        ->join('tb_anggota','tb_rapat.pemohon',"=", 'tb_anggota.nim')
+        ->get();
+
+        $pelatihan= DB::table('tb_pelatihan')
+        ->join('tb_anggota','tb_pelatihan.pemohon',"=", 'tb_anggota.nim')
+        ->get();
+
+        return view ('admin.notifikasi_kegiatan', ['combineData' => $combineData, 'pelatihan' => $pelatihan]);
     }
 
 }

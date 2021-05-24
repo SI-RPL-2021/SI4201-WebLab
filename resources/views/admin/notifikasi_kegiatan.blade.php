@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Home Page')
+@section('title', 'Notifikasi Kegiatan')
 @section('konten')
 <!-- konten -->
 @if (\Session::has('hapus_berhasil'))
@@ -38,7 +38,7 @@
 @endif
 <div class="table-responsive">
     <div class="col-md-15 mt-5 mb-5">
-        <h3 align="center">Notifikasi Kegiatan</h3>
+        <h1 align="center">Notifikasi Kegiatan</h1>
     </div>
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
@@ -51,33 +51,33 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($rapat as $p)
+            {{--  ($rapat as $p)  --}}
+            @foreach ($combineData as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $p->pemohon }}</td>
+                    <td>{{ $p->nama }}</td>
                     <td>{{ $p->nama_rapat }}</td>
-                    <td>{{ $p->jam_rapat }}</td>
+                    <td>{{ $p->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
-                            <a href="cek_aprovalRapat" class="btn btn-info mb-2">cek</a>
+                            <a href="cek_aprovalRapat" class="btn btn-primary mb-2">Cek</a>
                         </form>
                     </td>
                 </tr>
             @endforeach
-            {{-- @foreach ($pelatihan as $pe)
+            @foreach ($pelatihan as $pe)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $pe->pemohon }}</td>
-                    <td>{{ $pe->nama_rapat }}</td>
-                    <td>{{ $pe->jam_rapat }}</td>
+                    <td>{{ $pe->nama }}</td>
+                    <td>{{ $pe->nama_pelatihan }}</td>
+                    <td>{{ $pe->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
-                            <a href="cek_aprovalPelatihan" class="btn btn-info mb-2">cek</a>
+                            <a href="cek_aprovalPelatihan" class="btn btn-primary mb-2">Cek</a>
                         </form>
                     </td>
                 </tr>
-                </tr>
-            @endforeach --}}
+            @endforeach
         </tbody>
     </table>
 </div>
