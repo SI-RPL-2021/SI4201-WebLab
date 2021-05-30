@@ -30,7 +30,7 @@
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">No</th>
+                <th scope="col">No.</th>
                 <th scope="col">Nama Rapat</th>
                 <th scope="col">Tanggal Rapat</th>
                 <th scope="col">Jam Rapat</th>

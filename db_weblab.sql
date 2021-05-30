@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Bulan Mei 2021 pada 10.44
+-- Waktu pembuatan: 30 Bulan Mei 2021 pada 19.44
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -43,7 +43,8 @@ CREATE TABLE `absenpelatihan` (
 INSERT INTO `absenpelatihan` (`id`, `id_pelatihan`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
 (1, 6, 1111, 'Menunggu validasi', '2021-05-21 22:43:54', '2021-05-21 22:43:54'),
 (2, 6, 1111, 'Menunggu validasi', '2021-05-21 22:44:47', '2021-05-21 22:44:47'),
-(3, 6, 2222, 'Menunggu validasi', '2021-05-23 06:52:38', '2021-05-23 06:52:38');
+(3, 6, 2222, 'Menunggu validasi', '2021-05-23 06:52:38', '2021-05-23 06:52:38'),
+(4, 6, 1202184312, 'Menunggu validasi', '2021-05-24 01:48:40', '2021-05-24 01:48:40');
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,9 @@ CREATE TABLE `absenrapat` (
 --
 
 INSERT INTO `absenrapat` (`id`, `id_rapat`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
-(1, 6, 1202184312, 'Menunggu validasi', '2021-05-24 01:42:01', '2021-05-24 01:42:01');
+(11, 28, 1202184312, 'Menunggu validasi', '2021-05-30 02:28:00', '2021-05-30 02:28:00'),
+(13, 22, 1202184312, 'Menunggu validasi', '2021-05-30 02:32:04', '2021-05-30 02:32:04'),
+(20, 28, 1202181111, 'Menunggu validasi', '2021-05-30 09:53:29', '2021-05-30 09:53:29');
 
 -- --------------------------------------------------------
 
@@ -125,32 +128,8 @@ INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`,
 (5, 'Trainer', 3333, 'SI-42-01', 'Trainer', 'Data Scientist', 'trainer@gmail.com', '$2y$10$HKPPZrJ7a3MeUpupu2Fn6ecCTePxIn8B1MeaYaiQM6YVcRkTnIiGC', 'non_admin', '2021-04-12 05:06:39', '2021-04-12 05:06:39'),
 (6, 'poiuio', 6666, 'SI-42-01', 'Trainer', 'Data Engineer', 'a@gmail.com', '$2y$10$LriUa5riwTVp8aTYDXJn9eUsnlab/SjInwWst6ToA3PNQAby12XEi', 'non_admin', '2021-04-12 06:37:56', '2021-04-12 06:37:56'),
 (10, 'Tasya Nozuka Hasprasi', 1202184312, 'SI-42-01', 'Anggota', 'Data Engineer', 'tasyanozuka@gmail.com', '$2y$10$vbW0u.ag3qF.iQL3h66S.ePLZjoia5zrdP9WcgIY34/KjaWr1UkpG', 'non_admin', '2021-04-27 19:54:03', '2021-04-27 19:54:03'),
-(11, 'trainer2', 123456789, 'SI-42-02', 'Trainer', 'Data Engineer', 'trainer2@gmail.com', '$2y$10$iXWkrb9kTAxSrEwxqSJO6uP3T1rbdlsRXdb8AWDzIk.wJclM5xnSO', 'non_admin', '2021-05-01 01:45:56', '2021-05-01 01:45:56');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_kehadiran`
---
-
-CREATE TABLE `tb_kehadiran` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `Nim` bigint(20) NOT NULL,
-  `id_anggota` bigint(20) NOT NULL,
-  `tanggal` date NOT NULL,
-  `kehadiran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `tb_kehadiran`
---
-
-INSERT INTO `tb_kehadiran` (`id`, `Nim`, `id_anggota`, `tanggal`, `kehadiran`, `created_at`, `updated_at`) VALUES
-(1, 123456789, 11, '2021-05-01', 'Hadir', '2021-05-01 02:08:34', '2021-05-01 02:08:34'),
-(2, 1202184312, 10, '2021-05-01', 'Hadir', '2021-05-01 02:32:44', '2021-05-01 02:32:44'),
-(3, 1111, 2, '2021-05-19', 'Hadir', '2021-05-18 20:44:04', '2021-05-18 20:44:04');
+(11, 'trainer2', 123456789, 'SI-42-02', 'Trainer', 'Data Engineer', 'trainer2@gmail.com', '$2y$10$iXWkrb9kTAxSrEwxqSJO6uP3T1rbdlsRXdb8AWDzIk.wJclM5xnSO', 'non_admin', '2021-05-01 01:45:56', '2021-05-01 01:45:56'),
+(12, 'nanana', 1202181111, 'SI-42-04', 'Anggota', 'Data Scientist', 'nanana@gmail.com', '$2y$10$U90SHopzfCEO5jrUgpjaoublZuPu0EHtpAN/W9ukpwOSnNus4dCwW', 'non_admin', '2021-05-30 09:40:33', '2021-05-30 09:40:33');
 
 -- --------------------------------------------------------
 
@@ -208,7 +187,8 @@ CREATE TABLE `tb_rapat` (
 INSERT INTO `tb_rapat` (`id`, `nama_rapat`, `pemohon`, `tgl_rapat`, `jam_rapat`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
 (22, 'Tes Rapat 1', 1111, '2021-04-12', '14:34:00', 'Link Rapat 1', 'aproved', '\'rapat\'', '2021-04-12 00:34:44', '2021-04-12 06:09:02'),
 (23, 'Tes Rapat 2 (edited)', 1202180092, '2021-04-12', '19:00:00', 'Link Rapat 2', 'disaproved', '\'rapat\'', '2021-04-12 00:55:49', '2021-04-28 14:32:45'),
-(25, 'Tes Rapat 3', 1202180092, '2021-04-13', '21:10:00', 'Link Rapat 3', 'waiting', '\'rapat\'', '2021-04-12 06:09:41', '2021-04-12 06:09:41');
+(25, 'Tes Rapat 3', 1202180092, '2021-04-13', '21:10:00', 'Link Rapat 3', 'waiting', '\'rapat\'', '2021-04-12 06:09:41', '2021-04-12 06:09:41'),
+(28, 'Rapat 4', 2222, '2021-05-27', '10:00:00', 'https://meet.google.com/zya-ctxf-ppd', 'aproved', '\'rapat\'', '2021-05-24 17:04:20', '2021-05-24 17:05:29');
 
 --
 -- Indexes for dumped tables
@@ -226,7 +206,9 @@ ALTER TABLE `absenpelatihan`
 -- Indeks untuk tabel `absenrapat`
 --
 ALTER TABLE `absenrapat`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_rapat` (`id_rapat`) USING BTREE,
+  ADD KEY `nim` (`nim`);
 
 --
 -- Indeks untuk tabel `migrations`
@@ -241,12 +223,6 @@ ALTER TABLE `tb_anggota`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `nim` (`nim`);
-
---
--- Indeks untuk tabel `tb_kehadiran`
---
-ALTER TABLE `tb_kehadiran`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `tb_pelatihan`
@@ -270,13 +246,13 @@ ALTER TABLE `tb_rapat`
 -- AUTO_INCREMENT untuk tabel `absenpelatihan`
 --
 ALTER TABLE `absenpelatihan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `absenrapat`
 --
 ALTER TABLE `absenrapat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -288,13 +264,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT untuk tabel `tb_kehadiran`
---
-ALTER TABLE `tb_kehadiran`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pelatihan`
@@ -306,7 +276,7 @@ ALTER TABLE `tb_pelatihan`
 -- AUTO_INCREMENT untuk tabel `tb_rapat`
 --
 ALTER TABLE `tb_rapat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -318,6 +288,13 @@ ALTER TABLE `tb_rapat`
 ALTER TABLE `absenpelatihan`
   ADD CONSTRAINT `fk_id_pelatihan` FOREIGN KEY (`id_pelatihan`) REFERENCES `tb_pelatihan` (`id`),
   ADD CONSTRAINT `fk_nim` FOREIGN KEY (`nim`) REFERENCES `tb_anggota` (`nim`);
+
+--
+-- Ketidakleluasaan untuk tabel `absenrapat`
+--
+ALTER TABLE `absenrapat`
+  ADD CONSTRAINT `absenrapat_ibfk_1` FOREIGN KEY (`id_rapat`) REFERENCES `tb_rapat` (`id`),
+  ADD CONSTRAINT `absenrapat_ibfk_2` FOREIGN KEY (`nim`) REFERENCES `tb_anggota` (`nim`);
 
 --
 -- Ketidakleluasaan untuk tabel `tb_pelatihan`
