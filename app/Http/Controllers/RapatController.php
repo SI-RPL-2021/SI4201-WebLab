@@ -185,6 +185,7 @@ class RapatController extends Controller
 
         return view ('admin.notifikasi_kegiatan', ['combineData' => $combineData, 'pelatihan' => $pelatihan]);
     }
+    
     // Bagian Anggota
     public function notifrapat(){
         $nim = Auth::user()->nim;
@@ -193,18 +194,30 @@ class RapatController extends Controller
     }
 
     public function kehadirans($id, Request $request){
-        $nim = Auth::user()->nim;
-        $id_rapat = 28;
-        $kehadirans = Absenrapat::create([
-            'id_rapat' => $id_rapat,
-            'nim' => $nim,
-        ]);
+    $nim = Auth::user()->nim;
+            
+    $nHadir = Absenrapat::select('*') 
+        ->where([ 
+        ['nim', '=', $nim], 
+        ['id_rapat', '=', $id] 
+        ]) 
+        ->count(); 
         
-        if ($kehadirans) {
-            return redirect()->back()->with('hadir', 'Absensi telah tercatat');
-        }else {
-            return redirect()->back()->with('failed_hadir', 'Absensi gagal tercatat');
+    if($nHadir != 0){ 
+    return redirect()->back()->with('failed_hadir', 'Absensi Anda sudah tercatat sebelumnya'); 
+    }else{                                                                                                       
+    $kehadirans = Absenrapat::create([
+    'id_rapat' => $id,
+    'nim' => $nim,
+    ]);
+            
+    if ($kehadirans) {
+    return redirect()->back()->with('hadir', 'Absensi telah tercatat');
+    }else {
+    return redirect()->back()->with('failed_hadir', 'Absensi gagal tercatat');
+            }   
         }
+            
     }
 
     public function absensirapat(){

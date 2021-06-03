@@ -18,22 +18,22 @@
             <th scope="col">Nama Rapat</th>
             <th scope="col">Tanggal Rapat</th>
             <th scope="col">Jam Rapat</th>
-            <th scope="col">Status Validasi</th>
-            {{-- <th scope="col">Jam Absen</th> --}}
+            <th scope="col">Status Validasi Absen</th>
         </tr>
     </thead>
-    <tbody> 
-        @foreach ($absens as $hadir)
+    <tbody>
         <tr>
-        <td>{{$loop->iteration }}</td>
-        <td>{{$hadir->nama_rapat}}</td>
-        <td>{{$hadir->tgl_rapat}}</td>
-        <td>{{$hadir->jam_rapat}}</td>
-        <td>{{$hadir->status_validasi}}</td>
+            @foreach ($absens as $hr)    
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $hr->nama_rapat }}</td>
+                <td>{{ $hr->tgl_rapat }}</td>
+                <td>{{ $hr->jam_rapat }}</td>
+                <td>{{ $hr->status_validasi }}</td>
+            </tr>
+            @endforeach
         </tr>
-        @endforeach
     </tbody>
-    
 </table>
 <!-- end of konten -->
 @endsection
