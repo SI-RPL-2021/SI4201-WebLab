@@ -12,7 +12,7 @@
             <th class="align-middle" scope="col">NIM</th>
             <th class="align-middle" scope="col">Kelas</th>
             <th class="align-middle" scope="col">Divisi</th>
-            <th class="align-middle" scope="col">StudyGroup</th>
+            <th class="align-middle" scope="col">Study Group</th>
             <th class="align-middle" scope="col">Email</th>
             <th class="align-middle" scope="col">Status</th>
             <th class="align-middle" scope="col">Action</th>

@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AnggotaController extends Controller
 {
-    //
+    
     public function index(){
-        //bikin variabel baru untuk nampung data dari tabel tb_anggota
+        
         $angg = Anggota::get();
-        //compact = pecah data
+        
         return view('akunanggota',compact('angg'));
     }
     public function indexs(){
