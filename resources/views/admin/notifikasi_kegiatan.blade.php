@@ -47,7 +47,7 @@
                 <th scope="col">Nama Pemohon</th>
                 <th scope="col">Nama Kegiatan</th>
                 <th sccope="col">Jenis Kegiatan</th>
-                <th scope="col">Action</th>
+                <th scope="col">Action<th>
             </tr>
         </thead>
         <tbody>
