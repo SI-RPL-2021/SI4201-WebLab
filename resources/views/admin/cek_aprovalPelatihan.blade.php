@@ -42,13 +42,13 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nama Pemohon</th>
-                <th scope="col">Nama Kegiatan</th>
-                <th scope="col">Study Group</th>
-                <th scope="col">Tanggal Pelatihan</th>
-                <th scope="col">Jam Pelatihan</th>
+                <th scope="col">NamaPemohon</th>
+                <th scope="col">NamaKegiatan</th>
+                <th scope="col">StudyGroup</th>
+                <th scope="col">TanggalPelatihan</th>
+                <th scope="col">JamPelatihan</th>
                 <th scope="col">Link</th>
-                <th scope="col">Status Aproval</th>
+                <th scope="col">StatusAproval</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>

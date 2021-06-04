@@ -42,12 +42,12 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nama Pemohon</th>
-                <th scope="col">Nama Rapat</th>
-                <th scope="col">Tanggal Rapat</th>
-                <th scope="col">Jam Rapat</th>
+                <th scope="col">NamaPemohon</th>
+                <th scope="col">NamaRapat</th>
+                <th scope="col">TanggalRapat</th>
+                <th scope="col">JamRapat</th>
                 <th scope="col">Link</th>
-                <th scope="col">Status Aproval</th>
+                <th scope="col">StatusAproval</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
