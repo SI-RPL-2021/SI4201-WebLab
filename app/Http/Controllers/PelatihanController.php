@@ -168,4 +168,3 @@ class PelatihanController extends Controller
 }
 
 // fitur cek absensi pelatihan
-// fitur List pelatihan
