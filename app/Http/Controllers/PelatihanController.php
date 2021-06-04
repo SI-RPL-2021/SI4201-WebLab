@@ -166,5 +166,3 @@ class PelatihanController extends Controller
         return view ('anggota.pelatihan.absenpelatihan', ['absen' => $absen]);
     }
 }
-
-// fitur cek absensi pelatihan
