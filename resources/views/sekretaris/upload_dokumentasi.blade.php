@@ -11,14 +11,16 @@
 
 <div class="container mx-auto">
 <h5 align="center" class="mx-auto">File Submission</h5>
-<div class="text-center mt-5 mb-5">
-    <input type="submit" value="Input submit button" align="center" class="pull-center mb-2 mx-auto">
-</div>
-<div class="text-center mt-5 mb-5">
-    <form method="GET">
-        <a href="deletePelatihan/" class="btn btn-danger" align="center" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Save Changes</a>
+{{-- <form action="/addfoto" method="POST" enctype="multipart/form-data"> --}}
+    <form action="/addfoto" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="text-center mt-5 mb-5">
+        <input type="file" name="image" align="center" class="pull-center mb-2 mx-auto">
+    </div>
+    <div class="text-center mt-5 mb-5">
+        <input type="submit" value="Save Changes" href="deletePelatihan/" class="btn btn-danger" align="center" onclick="return confirm('Apakah anda yakin untuk mengupload dokumentasi ini?');">
         <a href="goEditPelatihan/" class="btn btn-light" align="center">Cancel</a>
-    </form>
+</form>
 </div>
 </div>
 

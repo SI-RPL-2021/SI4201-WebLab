@@ -5,6 +5,8 @@ use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\RapatController;
 use App\Http\Controllers\PelatihanController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request; 
+
 
 /*
 |--------------------------------------------------------------------------
@@ -100,3 +102,8 @@ Route::get('notifpelatihan', [PelatihanController::class, 'notifpelatihan']);
 
 //Routing Dokumentasi
 Route::get('dokumentasi', [DokumentasiController::class, 'index']);
+// Route::post('addfoto', [DokumentasiController::class, 'store'])->name('addfoto');
+Route::post('/addfoto', function (Request $request){
+    $request->image->store('images', 'public');
+    return 'File telah terupload';
+});
