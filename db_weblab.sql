@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2021 at 07:34 AM
+-- Generation Time: Jun 05, 2021 at 03:24 AM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- PHP Version: 8.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -131,7 +131,8 @@ INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`,
 (10, 'Tasya Nozuka Hasprasi', 1202184312, 'SI-42-01', 'Anggota', 'Data Engineer', 'tasyanozuka@gmail.com', '$2y$10$vbW0u.ag3qF.iQL3h66S.ePLZjoia5zrdP9WcgIY34/KjaWr1UkpG', 'non_admin', 'Diterima', '2021-04-27 19:54:03', '2021-06-03 22:33:28'),
 (11, 'trainer2', 123456789, 'SI-42-02', 'Trainer', 'Data Engineer', 'trainer2@gmail.com', '$2y$10$iXWkrb9kTAxSrEwxqSJO6uP3T1rbdlsRXdb8AWDzIk.wJclM5xnSO', 'non_admin', 'Diterima', '2021-05-01 01:45:56', '2021-06-03 22:33:27'),
 (12, 'nanana', 1202181111, 'SI-42-04', 'Anggota', 'Data Scientist', 'nanana@gmail.com', '$2y$10$U90SHopzfCEO5jrUgpjaoublZuPu0EHtpAN/W9ukpwOSnNus4dCwW', 'non_admin', 'Diterima', '2021-05-30 09:40:33', '2021-06-03 22:33:25'),
-(13, 'dada', 1212122112, 'SI-42-01', 'Trainer', 'Data Engineer', 'dada@gmail.com', '$2y$10$dIEX5lSVm23aEUVCOsbc7u6OwmObXyyMTn0aaPtQ7t8LW5rorc5b.', 'non_admin', 'Diterima', '2021-06-03 22:32:55', '2021-06-03 22:33:22');
+(13, 'dada', 1212122112, 'SI-42-01', 'Trainer', 'Data Engineer', 'dada@gmail.com', '$2y$10$dIEX5lSVm23aEUVCOsbc7u6OwmObXyyMTn0aaPtQ7t8LW5rorc5b.', 'non_admin', 'Diterima', '2021-06-03 22:32:55', '2021-06-03 22:33:22'),
+(14, 'Sekretaris 2', 1202184287, 'SI-42-01', 'Sekretaris', 'Data Engineer', 'sekretaris2@gmail.com', '$2y$10$RnYRM3DlV4fqkcuOupmGMepYm31IB1LXvUx.bCW8QczDTiZw82/lW', 'non_admin', 'Pending', '2021-06-04 18:21:21', '2021-06-04 18:21:21');
 
 -- --------------------------------------------------------
 
@@ -266,7 +267,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_pelatihan`
