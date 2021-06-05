@@ -97,3 +97,6 @@ Route::get('kehadirans/{Rapat:id}', [RapatController::class, 'kehadirans'])->nam
 Route::get('absenpelatihan', [PelatihanController::class, 'absensipelatihan']);
 Route::get('kehadiran/{Pelatihan:id}', [PelatihanController::class, 'kehadiran'])->name('kehadiran');
 Route::get('notifpelatihan', [PelatihanController::class, 'notifpelatihan']);
+
+//Routing Dokumentasi
+Route::get('dokumentasi', [DokumentasiController::class, 'index']);
