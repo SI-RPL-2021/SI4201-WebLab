@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 03:24 AM
+-- Generation Time: Jun 05, 2021 at 04:20 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -69,6 +69,20 @@ INSERT INTO `absenrapat` (`id`, `id_rapat`, `nim`, `status_validasi`, `created_a
 (11, 28, 1202184312, 'Menunggu validasi', '2021-05-30 02:28:00', '2021-05-30 02:28:00'),
 (13, 22, 1202184312, 'Menunggu validasi', '2021-05-30 02:32:04', '2021-05-30 02:32:04'),
 (20, 28, 1202181111, 'Menunggu validasi', '2021-05-30 09:53:29', '2021-05-30 09:53:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dokumentasi`
+--
+
+CREATE TABLE `dokumentasi` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_dokumentasi` int(11) NOT NULL,
+  `foto` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -214,6 +228,12 @@ ALTER TABLE `absenrapat`
   ADD KEY `nim` (`nim`);
 
 --
+-- Indexes for table `dokumentasi`
+--
+ALTER TABLE `dokumentasi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -256,6 +276,12 @@ ALTER TABLE `absenpelatihan`
 --
 ALTER TABLE `absenrapat`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `dokumentasi`
+--
+ALTER TABLE `dokumentasi`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
