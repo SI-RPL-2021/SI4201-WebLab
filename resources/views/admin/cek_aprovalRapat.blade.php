@@ -65,17 +65,19 @@
                         <form method="GET">
                             <div class="row">
                                 <div class="col">
-                                    <a href="aprove/{{$p->id}}" class="btn btn-sm btn-block btn-success">Aprove Pengajuan</a>
+                                    <a href="aprove/{{$p->id}}" class="btn mb-2 btn-block btn-success">Aprove Pengajuan</a>
                                 </div>
                             </div>
+                            
                             <div class="row">
                                 <div class="col">
-                                    <a href="disaprove/{{$p->id}}" class="btn btn-sm btn-block btn-danger">Disaprove Pengajuan</a>
+                                    <a href="disaprove/{{$p->id}}" class="btn mb-2 btn-block btn-danger">Disaprove Pengajuan</a>
                                 </div>
                             </div>
+                            
                             <div class="row">
                                 <div class="col">
-                                    <a href="goEditRapatAdmin/{{ $p->id }}" class="btn btn-sm btn-block btn-warning">Edit Pengajuan</a>
+                                    <a href="goEditRapatAdmin/{{ $p->id }}" class="btn mb-2 btn-block btn-warning">Edit Pengajuan</a>
                                 </div>
                             </div>
                         </form>
