@@ -4,6 +4,7 @@ use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\RapatController;
 use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\DokumentasiController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request; 
 
@@ -80,8 +81,19 @@ Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
 Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
 Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
 Route::get('validasiKehadiranKegiatan', [RapatController::class, 'validasiKehadiranKegiatan']);
-Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
+// Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
 Route::get('combineData', [RapatController::class, 'combineData']);
+//Routing Dokumentasi
+Route::get('uploadDokumentasiRapat', [DokumentasiController::class, 'uploadDokumentasiRapat']);
+Route::get('uploadDokumentasiPelatihan', [DokumentasiController::class, 'uploadDokumentasiPelatihan']);
+Route::get('dokumentasi', [DokumentasiController::class, 'index']);
+Route::post('addfotoRapat', [DokumentasiController::class, 'storeRapat']);
+Route::post('addfotoPelatihan', [DokumentasiController::class, 'storePelatihan']);
+
+// Route::post('/addfoto', function (Request $request){
+//     $request->image->store('images', 'public');
+//     return 'File telah terupload';
+// });
 
 // Routing trainer
 Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);
@@ -100,10 +112,3 @@ Route::get('absenpelatihan', [PelatihanController::class, 'absensipelatihan']);
 Route::get('kehadiran/{Pelatihan:id}', [PelatihanController::class, 'kehadiran'])->name('kehadiran');
 Route::get('notifpelatihan', [PelatihanController::class, 'notifpelatihan']);
 
-//Routing Dokumentasi
-Route::get('dokumentasi', [DokumentasiController::class, 'index']);
-// Route::post('addfoto', [DokumentasiController::class, 'store'])->name('addfoto');
-Route::post('/addfoto', function (Request $request){
-    $request->image->store('images', 'public');
-    return 'File telah terupload';
-});
