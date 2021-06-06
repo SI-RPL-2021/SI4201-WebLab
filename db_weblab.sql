@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2021 at 04:23 AM
+-- Generation Time: Jun 06, 2021 at 10:32 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -76,13 +76,33 @@ INSERT INTO `absenrapat` (`id`, `id_rapat`, `nim`, `status_validasi`, `created_a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokumentasi`
+-- Table structure for table `dokumentasipelatihan`
 --
 
-CREATE TABLE `dokumentasi` (
+CREATE TABLE `dokumentasipelatihan` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `id_dokumentasi` int(11) NOT NULL,
+  `id_pelatihan` bigint(20) UNSIGNED NOT NULL,
   `foto` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `size` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dokumentasirapat`
+--
+
+CREATE TABLE `dokumentasirapat` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_dokumentasi` int(11) NOT NULL,
+  `id_rapat` bigint(20) UNSIGNED NOT NULL,
+  `foto` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `size` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -234,10 +254,18 @@ ALTER TABLE `absenrapat`
   ADD KEY `nim` (`nim`);
 
 --
--- Indexes for table `dokumentasi`
+-- Indexes for table `dokumentasipelatihan`
 --
-ALTER TABLE `dokumentasi`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `dokumentasipelatihan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK id pelatihan` (`id_pelatihan`);
+
+--
+-- Indexes for table `dokumentasirapat`
+--
+ALTER TABLE `dokumentasirapat`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK id rapat` (`id_rapat`);
 
 --
 -- Indexes for table `migrations`
@@ -284,9 +312,15 @@ ALTER TABLE `absenrapat`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `dokumentasi`
+-- AUTO_INCREMENT for table `dokumentasipelatihan`
 --
-ALTER TABLE `dokumentasi`
+ALTER TABLE `dokumentasipelatihan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `dokumentasirapat`
+--
+ALTER TABLE `dokumentasirapat`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -330,6 +364,18 @@ ALTER TABLE `absenpelatihan`
 ALTER TABLE `absenrapat`
   ADD CONSTRAINT `absenrapat_ibfk_1` FOREIGN KEY (`id_rapat`) REFERENCES `tb_rapat` (`id`),
   ADD CONSTRAINT `absenrapat_ibfk_2` FOREIGN KEY (`nim`) REFERENCES `tb_anggota` (`nim`);
+
+--
+-- Constraints for table `dokumentasipelatihan`
+--
+ALTER TABLE `dokumentasipelatihan`
+  ADD CONSTRAINT `FK id pelatihan` FOREIGN KEY (`id_pelatihan`) REFERENCES `tb_pelatihan` (`id`);
+
+--
+-- Constraints for table `dokumentasirapat`
+--
+ALTER TABLE `dokumentasirapat`
+  ADD CONSTRAINT `FK id rapat` FOREIGN KEY (`id_rapat`) REFERENCES `tb_rapat` (`id`);
 
 --
 -- Constraints for table `tb_pelatihan`
