@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 04:35 PM
+-- Generation Time: Jun 06, 2021 at 04:23 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -44,7 +44,8 @@ INSERT INTO `absenpelatihan` (`id`, `id_pelatihan`, `nim`, `status_validasi`, `c
 (1, 6, 1111, 'Menunggu validasi', '2021-05-21 22:43:54', '2021-05-21 22:43:54'),
 (2, 6, 1111, 'Menunggu validasi', '2021-05-21 22:44:47', '2021-05-21 22:44:47'),
 (3, 6, 2222, 'Menunggu validasi', '2021-05-23 06:52:38', '2021-05-23 06:52:38'),
-(4, 6, 1202184312, 'Menunggu validasi', '2021-05-24 01:48:40', '2021-05-24 01:48:40');
+(4, 6, 1202184312, 'Menunggu validasi', '2021-05-24 01:48:40', '2021-05-24 01:48:40'),
+(6, 6, 54187343, 'Menunggu validasi', '2021-06-05 18:43:46', '2021-06-05 18:43:46');
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,9 @@ CREATE TABLE `absenrapat` (
 INSERT INTO `absenrapat` (`id`, `id_rapat`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
 (11, 28, 1202184312, 'Menunggu validasi', '2021-05-30 02:28:00', '2021-05-30 02:28:00'),
 (13, 22, 1202184312, 'Menunggu validasi', '2021-05-30 02:32:04', '2021-05-30 02:32:04'),
-(20, 28, 1202181111, 'Menunggu validasi', '2021-05-30 09:53:29', '2021-05-30 09:53:29');
+(20, 28, 1202181111, 'Menunggu validasi', '2021-05-30 09:53:29', '2021-05-30 09:53:29'),
+(21, 22, 164669513, 'Menunggu validasi', '2021-06-05 18:47:56', '2021-06-05 18:47:56'),
+(22, 28, 164669513, 'Menunggu validasi', '2021-06-05 18:48:08', '2021-06-05 18:48:08');
 
 -- --------------------------------------------------------
 
@@ -147,7 +150,9 @@ INSERT INTO `tb_anggota` (`id`, `nama`, `nim`, `kelas`, `divisi`, `study_group`,
 (12, 'nanana', 1202181111, 'SI-42-04', 'Anggota', 'Data Scientist', 'nanana@gmail.com', '$2y$10$U90SHopzfCEO5jrUgpjaoublZuPu0EHtpAN/W9ukpwOSnNus4dCwW', 'non_admin', 'Diterima', '2021-05-30 09:40:33', '2021-06-03 22:33:25'),
 (13, 'dada', 1212122112, 'SI-42-01', 'Trainer', 'Data Engineer', 'dada@gmail.com', '$2y$10$dIEX5lSVm23aEUVCOsbc7u6OwmObXyyMTn0aaPtQ7t8LW5rorc5b.', 'non_admin', 'Diterima', '2021-06-03 22:32:55', '2021-06-03 22:33:22'),
 (14, 'Sekretaris 2', 1202184287, 'SI-42-01', 'Sekretaris', 'Data Engineer', 'sekretaris2@gmail.com', '$2y$10$RnYRM3DlV4fqkcuOupmGMepYm31IB1LXvUx.bCW8QczDTiZw82/lW', 'non_admin', 'Pending', '2021-06-04 18:21:21', '2021-06-04 18:21:21'),
-(15, 'Trainer 3', 54187343, 'SI-42-01', 'Trainer', 'Data Engineer', 'trainer3@gmail.com', '$2y$10$gZzSVUg9cPNo28yjqxL1i.4RE23QAHUZ/XFx6AWjCSqhNHQk8APA2', 'non_admin', 'Pending', '2021-06-05 07:34:22', '2021-06-05 07:34:22');
+(15, 'Trainer 3', 54187343, 'SI-42-01', 'Trainer', 'Data Engineer', 'trainer3@gmail.com', '$2y$10$gZzSVUg9cPNo28yjqxL1i.4RE23QAHUZ/XFx6AWjCSqhNHQk8APA2', 'non_admin', 'Pending', '2021-06-05 07:34:22', '2021-06-05 07:34:22'),
+(17, 'Anggota 3', 164669513, 'SI-42-01', 'Anggota', 'Data Engineer', 'Anggota3@gmail.com', '$2y$10$SnR.YoRx7ndxo5ZcWbCSw.ON8G8B4ajKGAxz5AWWqZmebaDXiFeOO', 'non_admin', 'Diterima', '2021-06-05 18:47:43', '2021-06-05 19:02:10'),
+(18, 'Admin 2', 138763, 'SI-42-01', 'Anggota', 'Data Engineer', 'admin2@gmail.com', '$2y$10$SnR.YoRx7ndxo5ZcWbCSw.ON8G8B4ajKGAxz5AWWqZmebaDXiFeOO', 'admin', 'Diterima', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -174,7 +179,7 @@ CREATE TABLE `tb_pelatihan` (
 --
 
 INSERT INTO `tb_pelatihan` (`id`, `nama_pelatihan`, `pemohon`, `study_group`, `tgl_pelatihan`, `jam_pelatihan`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
-(2, 'Pelatihan 1', 1111, 'Data Engineer', '2021-04-13', '22:25:00', 'https://meet.google.com/ehv-qsqc-htj', 'disaproved', 'pelatihan', '2021-04-12 07:24:52', '2021-05-23 07:00:18'),
+(2, 'Pelatihan 1', 1111, 'Data Engineer', '2021-04-13', '22:25:00', 'https://meet.google.com/ehv-qsqc-htj', 'disaproved', 'pelatihan', '2021-04-12 07:24:52', '2021-06-05 18:45:30'),
 (4, 'Pelatihan 2', 3333, 'Data Scientist', '2021-05-01', '09:00:00', 'https://meet.google.com/ehv-qsqc-htj', 'aproved', 'pelatihan', '2021-04-29 10:58:44', '2021-05-23 07:01:23'),
 (5, 'Pelatihan 3', 123456789, 'Data Engineer', '2021-05-03', '10:00:00', 'https://meet.google.com/ehv-qsqc-htj', 'aproved', 'pelatihan', '2021-05-01 01:47:19', '2021-05-01 02:30:11'),
 (6, 'Pelatihan 4', 1111, 'Data Engineer', '2021-05-20', '10:54:00', 'https://meet.google.com/swd-iifv-pru', 'aproved', 'pelatihan', '2021-05-20 19:53:33', '2021-05-23 05:31:34');
@@ -270,13 +275,13 @@ ALTER TABLE `tb_rapat`
 -- AUTO_INCREMENT for table `absenpelatihan`
 --
 ALTER TABLE `absenpelatihan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `absenrapat`
 --
 ALTER TABLE `absenrapat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `dokumentasi`
@@ -294,7 +299,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_pelatihan`
