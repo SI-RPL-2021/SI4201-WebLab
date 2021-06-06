@@ -185,7 +185,6 @@ class RapatController extends Controller
 
         return view ('admin.notifikasi_kegiatan', ['combineData' => $combineData, 'pelatihan' => $pelatihan]);
     }
-    
     // Bagian Anggota
     public function notifrapat(){
         $nim = Auth::user()->nim;
@@ -223,7 +222,7 @@ class RapatController extends Controller
     public function absensirapat(){
         $cNIM = Auth::user()->nim;
         $absens = Rapat::leftJoin('absenrapat', 'absenrapat.id_rapat', '=', 'tb_rapat.id')
-        ->select('absenrapat.*', 'tb_rapat.*')->where('absenrapat.nim',$cNIM)->get();
+        ->select('absenrapat.*', 'tb_rapat.*')->where('absenrapat.nim',$cNIM)->orderby('absenrapat.id','desc')->get();
         return view ('anggota.rapat.absenrapat', ['absens' => $absens]);
     }
 }

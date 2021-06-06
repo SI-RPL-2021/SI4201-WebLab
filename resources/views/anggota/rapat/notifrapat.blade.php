@@ -38,16 +38,32 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($rapat as $hr)    
+            @foreach ($rapat as $hr)
+            
+            @php
+                date_default_timezone_set('Asia/Jakarta');
+                $sekarang = date('Y-m-d H:i:s');
+                $tanggalLengkap = date('Y-m-d H:i:s', strtotime("$hr->tgl_rapat $hr->jam_rapat"));
+                $akhirAbsen = date('Y-m-d H:i:s', strtotime($tanggalLengkap .' +1 hours'));
+                $hariIni = date("Y-m-d", strtotime($sekarang));
+            @endphp
+            
             <tr>
-                @if($hr->status_aproval !== "waiting" and $hr->status_aproval !== "disaproved")
+                @if($hr->status_aproval !== "waiting" and $hr->status_aproval !== "disaproved" and $hr->tgl_rapat >= $hariIni)
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $hr->nama_rapat }}</td>
                 <td>{{ $hr->tgl_rapat }}</td>
                 <td>{{ $hr->jam_rapat }}</td>
                 <td>
-                    <a href="{{ $hr->link }}" class="btn btn-block btn-warning" target="_blank">Link</a>
-                    <a href="kehadirans/{{ $hr->id }}" class="btn btn-block btn-success">Absen</a>
+                    @if($sekarang > $tanggalLengkap && $sekarang < $akhirAbsen )
+                        <a href="{{ $hr->link }}" class="btn btn-block btn-warning" target="_blank">Link</a>
+                        <a href="kehadirans/{{ $hr->id }}" class="btn btn-block btn-success">Absen</a>
+                    @elseif($sekarang > $akhirAbsen)
+                        <i>Absensi sudah ditutup</i>
+                        @else
+                            <i>Rapat Belum Dimulai</i>
+                    @endif
+                    
                 </td>
                 </td>
             </tr>
