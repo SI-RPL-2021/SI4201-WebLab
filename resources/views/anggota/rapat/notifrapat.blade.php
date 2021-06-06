@@ -47,9 +47,9 @@
                 $akhirAbsen = date('Y-m-d H:i:s', strtotime($tanggalLengkap .' +1 hours'));
                 $hariIni = date("Y-m-d", strtotime($sekarang));
             @endphp
-            
+
             <tr>
-                @if($hr->status_aproval !== "waiting" and $hr->status_aproval !== "disaproved" and $hr->tgl_rapat >= $hariIni)
+                @if($hr->status_aproval !== "waiting" and $hr->status_aproval !== "disaproved")
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $hr->nama_rapat }}</td>
                 <td>{{ $hr->tgl_rapat }}</td>
@@ -59,15 +59,14 @@
                         <a href="{{ $hr->link }}" class="btn btn-block btn-warning" target="_blank">Link</a>
                         <a href="kehadirans/{{ $hr->id }}" class="btn btn-block btn-success">Absen</a>
                     @elseif($sekarang > $akhirAbsen)
-                        <i>Absensi sudah ditutup</i>
+                        <h5><i>Absensi sudah ditutup</i></h5>
                         @else
-                            <i>Rapat Belum Dimulai</i>
+                        <h5><i>Rapat Belum Dimulai</i></h5>
                     @endif
-                    
                 </td>
                 </td>
             </tr>
-            @endif
+                @endif
             @endforeach
         </tbody>
     </table>

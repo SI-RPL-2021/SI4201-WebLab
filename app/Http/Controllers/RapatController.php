@@ -188,7 +188,12 @@ class RapatController extends Controller
     // Bagian Anggota
     public function notifrapat(){
         $nim = Auth::user()->nim;
-        $rapat = Rapat::where('status_aproval','aproved')->get(); 
+        date_default_timezone_set('Asia/Jakarta');
+        $sekarang = date('Y-m-d');
+        $rapat = Rapat::where([
+                                ['status_aproval','aproved'],
+                                ['tgl_rapat', '>=',$sekarang],
+                            ])->get(); 
         return view ('anggota.rapat.notifrapat', ['rapat' => $rapat]);
     }
 
@@ -203,19 +208,19 @@ class RapatController extends Controller
         ->count(); 
         
     if($nHadir != 0){ 
-    return redirect()->back()->with('failed_hadir', 'Absensi Anda sudah tercatat sebelumnya'); 
+        return redirect()->back()->with('failed_hadir', 'Absensi Anda sudah tercatat sebelumnya'); 
     }else{                                                                                                       
-    $kehadirans = Absenrapat::create([
-    'id_rapat' => $id,
-    'nim' => $nim,
+        $kehadirans = Absenrapat::create([
+        'id_rapat' => $id,
+        'nim' => $nim,
     ]);
             
     if ($kehadirans) {
-    return redirect()->back()->with('hadir', 'Absensi telah tercatat');
+        return redirect()->back()->with('hadir', 'Absensi telah tercatat');
     }else {
-    return redirect()->back()->with('failed_hadir', 'Absensi gagal tercatat');
-            }   
-        }
+        return redirect()->back()->with('failed_hadir', 'Absensi gagal tercatat');
+        }   
+    }
             
     }
 
