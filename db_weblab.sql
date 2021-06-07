@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2021 at 10:32 AM
+-- Generation Time: Jun 07, 2021 at 02:58 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -81,7 +81,6 @@ INSERT INTO `absenrapat` (`id`, `id_rapat`, `nim`, `status_validasi`, `created_a
 
 CREATE TABLE `dokumentasipelatihan` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `id_dokumentasi` int(11) NOT NULL,
   `id_pelatihan` bigint(20) UNSIGNED NOT NULL,
   `foto` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -98,7 +97,6 @@ CREATE TABLE `dokumentasipelatihan` (
 
 CREATE TABLE `dokumentasirapat` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `id_dokumentasi` int(11) NOT NULL,
   `id_rapat` bigint(20) UNSIGNED NOT NULL,
   `foto` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,

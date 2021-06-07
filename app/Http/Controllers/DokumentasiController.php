@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
 use App\Models\Rapat;
 use App\Models\Pelatihan;
@@ -10,25 +9,27 @@ use App\Models\Absenrapat;
 use Illuminate\Http\Request;
 use App\Models\DokumentasiRapat;
 use App\Models\DokumentasiPelatihan;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class DokumentasiController extends Controller
 {
     //
-    public function index()
-    {
-        return view('upload_dokumentasi');
-    }
+    // public function index()
+    // {
+    //     return view('upload_dokumentasi');
+    // }
 
     public function uploadDokumentasiRapat(Request $request){
         $rapat = Rapat::all();
+        // $fotos = DokumentasiRapat::all();
         return view ('sekretaris.upload_dokumentasiRapat', ['rapat' => $rapat]);
+        // return view ('sekretaris.upload_dokumentasiRapat', compact('fotos'));
     }
 
     public function uploadDokumentasiPelatihan(Request $request){
+        // $fotos = DokumentasiPelatihan::all();
         $pelatihan = Pelatihan::all();
         return view ('sekretaris.upload_dokumentasiPelatihan', ['Pelatihan' => $pelatihan]);
+        // return view ('sekretaris.upload_dokumentasiPelatihan', compact('fotos'));
     }
 
     public function storeRapat(Request $request)
