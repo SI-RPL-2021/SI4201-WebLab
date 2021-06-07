@@ -59,7 +59,7 @@
                         <a href="{{ $hr->link }}" class="btn btn-block btn-warning" target="_blank">Link</a>
                         <a href="kehadirans/{{ $hr->id }}" class="btn btn-block btn-success">Absen</a>
                     @elseif($sekarang > $akhirAbsen)
-                        <h5><i>Absensi sudah ditutup</i></h5>
+                        <h5><i>Absensi Sudah Ditutup</i></h5>
                         @else
                         <h5><i>Rapat Belum Dimulai</i></h5>
                     @endif

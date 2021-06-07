@@ -191,9 +191,9 @@ class RapatController extends Controller
         date_default_timezone_set('Asia/Jakarta');
         $sekarang = date('Y-m-d');
         $rapat = Rapat::where([
-                                ['status_aproval','aproved'],
-                                ['tgl_rapat', '>=',$sekarang],
-                            ])->get(); 
+            ['status_aproval','aproved'],
+            ['tgl_rapat', '>=',$sekarang],
+            ])->get(); 
         return view ('anggota.rapat.notifrapat', ['rapat' => $rapat]);
     }
 
