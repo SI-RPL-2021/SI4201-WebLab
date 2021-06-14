@@ -82,6 +82,8 @@ Route::get('validasiKehadiranKegiatan', [RapatController::class, 'validasiKehadi
 // Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
 Route::get('combineData', [RapatController::class, 'combineData']);
 //Routing Dokumentasi
+// Route::get('uploadDokumentasiRapat/{Rapat:id}', [DokumentasiController::class, 'uploadDokumentasiRapat']);
+// Route::get('uploadDokumentasiPelatihan/{Pelatihan:id}', [DokumentasiController::class, 'uploadDokumentasiPelatihan']);
 Route::get('uploadDokumentasiRapat', [DokumentasiController::class, 'uploadDokumentasiRapat']);
 Route::get('uploadDokumentasiPelatihan', [DokumentasiController::class, 'uploadDokumentasiPelatihan']);
 Route::get('dokumentasi', [DokumentasiController::class, 'index']);

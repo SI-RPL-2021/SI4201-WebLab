@@ -23,13 +23,22 @@ class DokumentasiController extends Controller
         // $fotos = DokumentasiRapat::all();
         return view ('sekretaris.upload_dokumentasiRapat', ['rapat' => $rapat]);
         // return view ('sekretaris.upload_dokumentasiRapat', compact('fotos'));
+            // $rapat = Rapat::findorfail($id);
+    //     return view ('sekretaris.upload_dokumentasiRapat', ['rapat' => $rapat]);
     }
+
+    // public function goEditPelatihan($id, Request $request){
+    //     $go = Pelatihan::findorfail($id);
+    //     return view ('trainer.edit_pelatihan', ['go' => $go]);
+    // }
 
     public function uploadDokumentasiPelatihan(Request $request){
         // $fotos = DokumentasiPelatihan::all();
         $pelatihan = Pelatihan::all();
         return view ('sekretaris.upload_dokumentasiPelatihan', ['Pelatihan' => $pelatihan]);
         // return view ('sekretaris.upload_dokumentasiPelatihan', compact('fotos'));
+            // $pelatihan = Pelatihan::findorfail($id);
+    //     return view ('sekretaris.upload_dokumentasiPelatihan', ['Pelatihan' => $pelatihan]);
     }
 
     public function storeRapat(Request $request)
