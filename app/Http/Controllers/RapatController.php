@@ -211,8 +211,8 @@ class RapatController extends Controller
         return redirect()->back()->with('failed_hadir', 'Absensi Anda sudah tercatat sebelumnya'); 
     }else{                                                                                                       
         $kehadirans = Absenrapat::create([
-        'id_rapat' => $id,
-        'nim' => $nim,
+            'id_rapat' => $id,
+            'nim' => $nim,
     ]);
             
     if ($kehadirans) {

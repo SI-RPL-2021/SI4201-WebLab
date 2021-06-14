@@ -27,6 +27,7 @@
     <div class="col-md-15 mt-5 mb-5">
         <h3 align="center">Notifikasi Rapat</h3>
     </div>
+    
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>
