@@ -4,7 +4,9 @@
 <!-- konten -->
 <h5>Selamat Datang, {{ Auth::user()->nama }}</h5>
 
-    <canvas id="chartHadir" width="100" height="20"></canvas>
+@php 
+    if ((Auth::user()->akses) != 'admin') { echo " <canvas id='chartHadir' width='100' height='20'></canvas> "; }   
+@endphp
 
 <script>
     var ctx = document.getElementById("chartHadir");
