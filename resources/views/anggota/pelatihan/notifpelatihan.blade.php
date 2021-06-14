@@ -40,7 +40,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($pelatihan as $x)    
+            @foreach ($pelatihan as $x)
+            
+            @php
+                date_default_timezone_set('Asia/Jakarta');
+                $sekarang = date('Y-m-d H:i:s');
+                $tanggalLengkap = date('Y-m-d H:i:s', strtotime("$x->tgl_pelatihan $x->jam_pelatihan"));
+                $akhirAbsen = date('Y-m-d H:i:s', strtotime($tanggalLengkap .' +1 hours'));
+                $hariIni = date("Y-m-d", strtotime($sekarang));
+            @endphp
+
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $x->nama_pelatihan }}</td>
@@ -48,9 +57,19 @@
                 <td>{{ $x->tgl_pelatihan }}</td>
                 <td>{{ $x->jam_pelatihan }}</td>
                 <td>
+                    @if($sekarang > $tanggalLengkap && $sekarang < $akhirAbsen )
+                        <a href="{{ $x->link }}" class="btn btn-block btn-warning" target="_blank">Link</a>
+                        <a href="kehadirans/{{ $x->id }}" class="btn btn-block btn-success">Absen</a>
+                    @elseif($sekarang > $akhirAbsen)
+                        <h5><i>Absensi Pelatihan Sudah Ditutup</i></h5>
+                        @else
+                        <h5><i>Pelatihan Belum Dimulai</i></h5>
+                    @endif
+                </td>
+                {{-- <td>
                     <a href="{{ $x->link }}" class="btn btn-block btn-warning" target="_blank">Link</a>
                     <a href="kehadiran/{{ $x->id }}" class="btn btn-block btn-success">Absen</a>
-                </td>
+                </td> --}}
             </tr>
             @endforeach
         </tbody>
