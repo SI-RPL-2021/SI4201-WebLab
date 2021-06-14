@@ -34,9 +34,7 @@ Route::get('login', 'App\Http\Controllers\AuthController@getLogin')-> name('get_
 Route::post('login', 'App\Http\Controllers\AuthController@postLogin') -> name('login') -> middleware('guest');
 Route::get('logout', 'App\Http\Controllers\AuthController@logout') -> name('logout')  -> middleware('auth');
 
-Route::get('home', function () {
-    return view('home');
-}) -> name('home') -> middleware('auth');
+Route::get('home', [AnggotaController::class,'homeAnggota'])-> name('home') -> middleware('auth');
 
 Route::get('editprofile', function () {
     return view('editprofile');

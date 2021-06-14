@@ -7,6 +7,9 @@ use App\Models\Anggota;
 use App\Models\Kehadiran;
 use App\Models\Pelatihan;
 use App\Models\Rapat;
+use App\Models\Absenrapat;
+use App\Models\Absenpelatihan;
+use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Http\Request;
@@ -56,4 +59,43 @@ class AnggotaController extends Controller
         return redirect()->back();
 
     }
+    public function homeAnggota(){
+        $cNIM = Auth::user()->nim;
+        $sgroup = Auth::user()->study_group;
+        $data = [];
+        for ($month = 1; $month <= 12; $month++) {
+
+            $date = Carbon::create(date('Y'), $month);
+            $date_end = $date->copy()->endOfMonth();
+        
+            $hadirRapat = Absenrapat::select('*')
+                ->where('nim','=',$cNIM)
+                ->where('created_at', '>=', $date)
+                ->where('created_at', '<=', $date_end)
+                ->where('status_validasi', '=', 'valid')
+                ->count();
+                
+            $nRapat = Rapat::select('*')
+                ->whereMonth('tgl_rapat', '=' , $month)
+                ->where('status_aproval', '=', 'aproved')
+                ->count();
+            
+            $hadirPelatihan = Absenpelatihan::select('*')
+                ->where('nim','=',$cNIM)
+                ->where('created_at', '>=', $date)
+                ->where('created_at', '<=', $date_end)
+                ->where('status_validasi', '=', 'valid')
+                ->count();
+            
+            $nPelatihan = Pelatihan::select('*')
+                ->whereMonth('tgl_pelatihan', '=' , $month)
+                ->where('status_aproval', '=', 'aproved')
+                ->where('study_group', '=', $sgroup)
+                ->count();
+
+            $data[$month] = array('rapat' => $hadirRapat, 'pelatihan' => $hadirPelatihan, 'nRapat' => $nRapat, 'nPelatihan' => $nPelatihan);
+        }
+        return view('home', ['hadir' => $data]);
+    }
+
 }
