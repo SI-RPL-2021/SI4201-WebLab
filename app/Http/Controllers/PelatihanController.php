@@ -88,6 +88,7 @@ class PelatihanController extends Controller
     public function cek_aprovalPelatihan(Request $request){
         $pelatihan = Pelatihan::leftJoin('tb_anggota', 'tb_anggota.nim', '=', 'tb_pelatihan.pemohon')
         ->select('tb_anggota.nama', 'tb_pelatihan.*')->get();
+        // $status = Pelatihan::findorfail($id);
         return view ('admin.cek_aprovalPelatihan', ['pelatihan' => $pelatihan]);
     }
 
