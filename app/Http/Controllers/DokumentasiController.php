@@ -9,77 +9,54 @@ use App\Models\Absenrapat;
 use Illuminate\Http\Request;
 use App\Models\DokumentasiRapat;
 use App\Models\DokumentasiPelatihan;
+use Illuminate\Support\Facades\Auth;
 
 class DokumentasiController extends Controller
 {
-    //
-    // public function index()
-    // {
-    //     return view('upload_dokumentasi');
-    // }
 
     public function uploadDokumentasiRapat(Request $request){
         $rapat = Rapat::all();
-        // $fotos = DokumentasiRapat::all();
         return view ('sekretaris.upload_dokumentasiRapat', ['rapat' => $rapat]);
-        // return view ('sekretaris.upload_dokumentasiRapat', compact('fotos'));
-            // $rapat = Rapat::findorfail($id);
-    //     return view ('sekretaris.upload_dokumentasiRapat', ['rapat' => $rapat]);
     }
 
-    // public function goEditPelatihan($id, Request $request){
-    //     $go = Pelatihan::findorfail($id);
-    //     return view ('trainer.edit_pelatihan', ['go' => $go]);
-    // }
-
     public function uploadDokumentasiPelatihan(Request $request){
-        // $fotos = DokumentasiPelatihan::all();
+
         $pelatihan = Pelatihan::all();
         return view ('sekretaris.upload_dokumentasiPelatihan', ['Pelatihan' => $pelatihan]);
-        // return view ('sekretaris.upload_dokumentasiPelatihan', compact('fotos'));
-            // $pelatihan = Pelatihan::findorfail($id);
-    //     return view ('sekretaris.upload_dokumentasiPelatihan', ['Pelatihan' => $pelatihan]);
     }
 
     public function storeRapat(Request $request)
     {
+        // dd($request->foto);
 
-        $size = $request->file('foto')->getSize();
-        $name = $request->file('foto')->getClientOriginalName();
+        // $request->validate({
+        //     'title' => 'required|max:255|min:3',
+        //     'subject' => 'required|min:10',
+        // });
+            
+        $imgName = $request->foto->getClientOriginalName() . '-' . time()
+                                            . '.' . $request->foto->extension();
+        $request->foto->move(public_path('image'), $imgName);
+        
 
-        $request->file('foto')->storeAs('public/images/', $name);
-        $foto = new DokumentasiRapat();
-        $foto->name = $name;
-        $foto->size = $size;
-        $foto->save();
-        return redirect()->back();
+        DokumentasiRapat::create([
+            'foto' => $imgName,
+            // 'id_rapat' => Auth::DokumentasiRapat()->id()
+        ]);     
 
-        // $dokumentasi = new Dokumentasi();
+        // $size = $request->file('foto')->getSize();
+        // $name = $request->file('foto')->getClientOriginalName();
 
-        // $dokumentasi->name = $request->input('foto');
-
-        // if ($request->hasfile('foto'))
-        // {
-        //     $file = $request->file('foto');
-        //     $extension = $file->getClientOriginalExtension(); //mendapatkan image extension
-        //     $filename = time() . '.' . $extension;
-        //     $file->move('uploads/dokumentasi/', $filename);
-        //     $dokumentasi->foto = $filename;
-        // }   else {
-        //     return $request;
-        //     $dokumentasi->foto = '';
-        // }
-
-        // $dokumentasi->save();
-
-        // return view('dokumentasi')->with('dokumentasi',$dokumentasi);
-
-
+        // $request->file('foto')->storeAs('public/images/', $name);
+        // $foto = new DokumentasiRapat();
+        // $foto->name = $name;
+        // $foto->size = $size;
+        // $foto->save();
+        // return redirect()->back();
     }
 
     public function storePelatihan(Request $request)
     {
-
         $size = $request->file('foto')->getSize();
         $name = $request->file('foto')->getClientOriginalName();
 

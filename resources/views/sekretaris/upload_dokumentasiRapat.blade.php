@@ -20,21 +20,6 @@
         <input type="submit" value="Save Changes" class="btn btn-danger" align="center" onclick="return confirm('Apakah anda yakin untuk mengupload dokumentasi ini?');">
         <a href="goEditPelatihan/" class="btn btn-light" align="center">Cancel</a>
 </form>
-{{-- </hr>
-<ul>
-    @foreach ($fotos as $foto)
-    <li>{{ $foto->name }}<img src="{{asset('storage/images/'. $foto->name) }}"></li>
-    @endforeach --}}
-
-{{-- <form action="/addfoto" method="POST" enctype="multipart/form-data">
-    @csrf
-    <div class="text-center mt-5 mb-5">
-        <input type="file" name="image" align="center" class="pull-center mb-2 mx-auto">
-    </div>
-    <div class="text-center mt-5 mb-5">
-        <input type="submit" value="Save Changes" href="deletePelatihan/" class="btn btn-danger" align="center" onclick="return confirm('Apakah anda yakin untuk mengupload dokumentasi ini?');">
-        <a href="goEditPelatihan/" class="btn btn-light" align="center">Cancel</a>
-</form> --}}
 </div>
 </div>
 
