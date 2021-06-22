@@ -64,6 +64,9 @@ class AnggotaController extends Controller
         $sgroup = Auth::user()->study_group;
         $data = [];
         $anggotaBerjalan = 0;
+        $rapatBerjalan = 0;
+        $pelatihanBerjalan = 0;
+
         for ($month = 1; $month <= 12; $month++) {
 
             $date = Carbon::create(date('Y'), $month);
@@ -94,17 +97,37 @@ class AnggotaController extends Controller
                 ->where('study_group', '=', $sgroup)
                 ->count();
 
-            $nAnggota = Anggota::select('*')
-                ->where('Status', '=', 'Diterima')
-                ->whereMonth('created_at', '=' , $month)
-                ->count();
-                    if($month <= (Carbon::now()->month)){
-                        $anggotaBerjalan = $anggotaBerjalan + $nAnggota;
-                    }else{
-                        $anggotaBerjalan = 0;
-                    }
+            // $aPelatihan = Pelatihan::select('*')
+            //     ->whereMonth('tgl_pelatihan', '=' , $month)
+            //     ->where('status_aproval', '=', 'aproved')
+            //     ->count();
+            //     if($month <= (Carbon::now()->month)){
+            //         $pelatihanBerjalan = $pelatihanBerjalan + $aPelatihan;
+            //     }else{
+            //         $pelatihanBerjalan = 0;
+            //     }
+            
+            // $aRapat = Rapat::select('*')
+            //     ->whereMonth('tgl_rapat', '=' , $month)
+            //     ->where('status_aproval', '=', 'aproved')
+            //     ->count();
+            //     if($month <= (Carbon::now()->month)){
+            //         $rapatBerjalan = $rapatBerjalan + $aRapat;
+            //     }else{
+            //         $rapatBerjalan = 0;
+            //     }
 
-            $data[$month] = array('rapat' => $hadirRapat, 'pelatihan' => $hadirPelatihan, 'nRapat' => $nRapat, 'nPelatihan' => $nPelatihan, 'anggotaBerjalan'=>$anggotaBerjalan);
+            // $nAnggota = Anggota::select('*')
+            //     ->where('Status', '=', 'Diterima')
+            //     ->whereMonth('created_at', '=' , $month)
+            //     ->count();
+            //         if($month <= (Carbon::now()->month)){
+            //             $anggotaBerjalan = $anggotaBerjalan + $nAnggota;
+            //         }else{
+            //             $anggotaBerjalan = 0;
+            //         }
+            
+            $data[$month] = array('rapat' => $hadirRapat, 'pelatihan' => $hadirPelatihan, 'nRapat' => $nRapat, 'nPelatihan' => $nPelatihan, 'anggotaBerjalan'=>$anggotaBerjalan, 'pelatihanBerjalan'=>$pelatihanBerjalan, 'rapatBerjalan'=>$rapatBerjalan);
         }
         return view('home', ['hadir' => $data]);
     }
