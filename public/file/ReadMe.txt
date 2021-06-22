@@ -1,0 +1,1 @@
+lokasi tempat penyimpanan gambar dokumentasi

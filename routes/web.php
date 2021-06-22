@@ -84,13 +84,11 @@ Route::get('validasiKehadiranKegiatan', [RapatController::class, 'validasiKehadi
 // Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
 Route::get('combineData', [RapatController::class, 'combineData']);
 //Routing Dokumentasi
-// Route::get('uploadDokumentasiRapat/{Rapat:id}', [DokumentasiController::class, 'uploadDokumentasiRapat']);
-// Route::get('uploadDokumentasiPelatihan/{Pelatihan:id}', [DokumentasiController::class, 'uploadDokumentasiPelatihan']);
-Route::get('uploadDokumentasiRapat', [DokumentasiController::class, 'uploadDokumentasiRapat']);
-Route::get('uploadDokumentasiPelatihan', [DokumentasiController::class, 'uploadDokumentasiPelatihan']);
+Route::get('uploadDokumentasiRapat/{Rapat:id}', [DokumentasiController::class, 'uploadDokumentasiRapat']);
+Route::get('uploadDokumentasiPelatihan/{Pelatihan:id}', [DokumentasiController::class, 'uploadDokumentasiPelatihan']);
 Route::get('dokumentasi', [DokumentasiController::class, 'index']);
-Route::post('addfotoRapat', [DokumentasiController::class, 'storeRapat']);
-Route::post('addfotoPelatihan', [DokumentasiController::class, 'storePelatihan']);
+Route::post('uploadDokumentasiRapat/addfotoRapat/{Rapat:id}', [DokumentasiController::class, 'storeRapat']);
+Route::post('uploadDokumentasiPelatihan/addfotoPelatihan/{Pelatihan:id}', [DokumentasiController::class, 'storePelatihan']);
 
 // Route::post('/addfoto', function (Request $request){
 //     $request->image->store('images', 'public');

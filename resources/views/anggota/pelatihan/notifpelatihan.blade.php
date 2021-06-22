@@ -59,7 +59,7 @@
                 <td>
                     @if($sekarang > $tanggalLengkap && $sekarang < $akhirAbsen )
                         <a href="{{ $x->link }}" class="btn btn-block btn-warning" target="_blank">Link</a>
-                        <a href="kehadirans/{{ $x->id }}" class="btn btn-block btn-success">Absen</a>
+                        <a href="kehadiran/{{ $x->id }}" class="btn btn-block btn-success">Absen</a>
                     @elseif($sekarang > $akhirAbsen)
                         <h5><i>Absensi Pelatihan Sudah Ditutup</i></h5>
                         @else

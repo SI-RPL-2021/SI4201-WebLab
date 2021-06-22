@@ -9,63 +9,64 @@ use App\Models\Absenrapat;
 use Illuminate\Http\Request;
 use App\Models\DokumentasiRapat;
 use App\Models\DokumentasiPelatihan;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class DokumentasiController extends Controller
 {
 
-    public function uploadDokumentasiRapat(Request $request){
-        $rapat = Rapat::all();
+    public function uploadDokumentasiRapat($id, Request $request){
+        $rapat= DB::table('tb_rapat')
+        ->select('tb_rapat.nama_rapat', 'tb_rapat.id')
+        ->where([ 'id' => $id ])
+        ->get();
+
         return view ('sekretaris.upload_dokumentasiRapat', ['rapat' => $rapat]);
     }
 
-    public function uploadDokumentasiPelatihan(Request $request){
+    public function uploadDokumentasiPelatihan($id, Request $request){
+        $pelatihan= DB::table('tb_pelatihan')
+        ->select('tb_pelatihan.nama_pelatihan', 'tb_pelatihan.id')
+        ->where([ 'id' => $id ])
+        ->get();
 
-        $pelatihan = Pelatihan::all();
-        return view ('sekretaris.upload_dokumentasiPelatihan', ['Pelatihan' => $pelatihan]);
+        return view ('sekretaris.upload_dokumentasiPelatihan', ['pelatihan' => $pelatihan]);
     }
 
-    public function storeRapat(Request $request)
+    public function storeRapat($id, Request $request)
     {
-        // dd($request->foto);
-
-        // $request->validate({
-        //     'title' => 'required|max:255|min:3',
-        //     'subject' => 'required|min:10',
-        // });
-            
-        $imgName = $request->foto->getClientOriginalName() . '-' . time()
-                                            . '.' . $request->foto->extension();
-        $request->foto->move(public_path('image'), $imgName);
+        $id_rapat = $id;
         
+        $request->validate([
+            'file' => 'required|file|mimes:jpg,jpeg,bmp,png'
+        ]);
 
+        $fileName = time().'.'.$request->file->extension();
+
+        $request->file->move(public_path('file'), $fileName);
         DokumentasiRapat::create([
-            'foto' => $imgName,
-            // 'id_rapat' => Auth::DokumentasiRapat()->id()
-        ]);     
-
-        // $size = $request->file('foto')->getSize();
-        // $name = $request->file('foto')->getClientOriginalName();
-
-        // $request->file('foto')->storeAs('public/images/', $name);
-        // $foto = new DokumentasiRapat();
-        // $foto->name = $name;
-        // $foto->size = $size;
-        // $foto->save();
-        // return redirect()->back();
+            'file' => $fileName,
+            'id_rapat' => $id_rapat
+        ]);
+        return back();
     }
 
-    public function storePelatihan(Request $request)
+    public function storePelatihan($id, Request $request)
     {
-        $size = $request->file('foto')->getSize();
-        $name = $request->file('foto')->getClientOriginalName();
+        $id_pelatihan = $id;
 
-        $request->file('foto')->storeAs('public/images/', $name);
-        $foto = new DokumentasiPelatihan();
-        $foto->name = $name;
-        $foto->size = $size;
-        $foto->save();
-        return redirect()->back();
+        $request->validate([
+            'file' => 'required|file|mimes:jpg,jpeg,bmp,png'
+        ]);
+
+        $fileName = time().'.'.$request->file->extension();
+
+        $request->file->move(public_path('file'), $fileName);
+        DokumentasiPelatihan::create([
+            'file' => $fileName,
+            'id_pelatihan' => $id_pelatihan
+        ]);
+        return back();
     }
 
 }

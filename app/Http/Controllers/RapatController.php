@@ -82,12 +82,13 @@ class RapatController extends Controller
     }
 
     public function dokumentasiValidasi(Request $request){
-        // $rapat = Rapat::all();
         $combineData= DB::table('tb_rapat')
+        ->select('tb_rapat.id', 'tb_anggota.nama', 'tb_rapat.nama_rapat', 'tb_rapat.jenis_kegiatan')
         ->join('tb_anggota','tb_rapat.pemohon',"=", 'tb_anggota.nim')
         ->get();
 
         $pelatihan= DB::table('tb_pelatihan')
+        ->select(DB::raw('tb_pelatihan.id as id_pelatihan, tb_anggota.nama, tb_pelatihan.nama_pelatihan, tb_pelatihan.jenis_kegiatan'))
         ->join('tb_anggota','tb_pelatihan.pemohon',"=", 'tb_anggota.nim')
         ->get();
 

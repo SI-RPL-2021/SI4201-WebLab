@@ -9,5 +9,5 @@ class DokumentasiPelatihan extends Model
 {
     use HasFactory;
     protected $table = 'dokumentasiPelatihan';
-    protected $fillable = ['id_dokumentasi','id_pelatihan','foto','name','size'];
+    protected $fillable = ['id_pelatihan','file'];
 }

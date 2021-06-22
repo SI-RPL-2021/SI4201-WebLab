@@ -60,7 +60,7 @@
                     <td>{{ $p->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
-                            <a href="uploadDokumentasiRapat" class="btn btn-primary mb-2">Dokumentasi</a>
+                            <a href="uploadDokumentasiRapat/{{ $p->id }}" class="btn btn-primary mb-2">Dokumentasi</a>
                             <br>
                             <a href="validasiKehadiranKegiatan" class="btn btn-primary ml-4">Validasi</a>
                         </form>
@@ -76,7 +76,7 @@
                     <td>{{ $pe->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
-                            <a href="uploadDokumentasiPelatihan" class="btn btn-primary mb-2">Dokumentasi</a>
+                            <a href="uploadDokumentasiPelatihan/{{ $pe->id_pelatihan }}" class="btn btn-primary mb-2">Dokumentasi</a>
                             <br>
                             <a href="validasiKehadiranKegiatan" class="btn btn-primary ml-4">Validasi</a>
                         </form>

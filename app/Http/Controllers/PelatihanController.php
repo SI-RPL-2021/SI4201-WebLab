@@ -149,16 +149,27 @@ class PelatihanController extends Controller
 
     public function kehadiran($id, Request $request){ // Anggota lihat notifikasi pelatihan
         $nim = Auth::user()->nim;
-        $id_pelatihan = 6;
-        $kehadiran = Absenpelatihan::create([
-            'id_pelatihan' => $id_pelatihan,
-            'nim' => $nim,
+            
+        $Hadir = Absenpelatihan::select('*') 
+            ->where([ 
+            ['nim', '=', $nim], 
+            ['id_pelatihan', '=', $id] 
+            ]) 
+            ->count(); 
+            
+        if($Hadir != 0){ 
+            return redirect()->back()->with('failed_hadir', 'Absensi Anda sudah tercatat sebelumnya'); 
+        }else{                                                                                                       
+            $kehadiran = Absenpelatihan::create([
+                'id_pelatihan' => $id,
+                'nim' => $nim,
         ]);
-        
+                
         if ($kehadiran) {
             return redirect()->back()->with('hadir', 'Absensi telah tercatat');
         }else {
             return redirect()->back()->with('failed_hadir', 'Absensi gagal tercatat');
+            }   
         }
     }
 
