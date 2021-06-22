@@ -15,6 +15,20 @@ use Illuminate\Support\Facades\Auth;
 class DokumentasiController extends Controller
 {
 
+    public function daftarDokumentasi(Request $request){
+        $rapat= DB::table('tb_rapat')
+        ->select('dokumentasirapat.file', 'tb_rapat.nama_rapat', 'tb_rapat.tgl_rapat')
+        ->join('dokumentasirapat','tb_rapat.id',"=", 'dokumentasirapat.id_rapat')
+        ->get();
+
+        $pelatihan= DB::table('tb_pelatihan')
+        ->select('dokumentasipelatihan.file', 'tb_pelatihan.nama_pelatihan', 'tb_pelatihan.tgl_pelatihan')
+        ->join('dokumentasipelatihan','tb_pelatihan.id',"=", 'dokumentasipelatihan.id_pelatihan')
+        ->get();
+
+        return view ('sekretaris.daftarDokumentasi', ['rapat' => $rapat, 'pelatihan' => $pelatihan]);
+    }
+
     public function uploadDokumentasiRapat($id, Request $request){
         $rapat= DB::table('tb_rapat')
         ->select('tb_rapat.nama_rapat', 'tb_rapat.id')
@@ -48,7 +62,7 @@ class DokumentasiController extends Controller
             'file' => $fileName,
             'id_rapat' => $id_rapat
         ]);
-        return back();
+        return redirect('daftarDokumentasi')->with('rapat_berhasil', 'Dokumentasi rapat telah ditambahkan');
     }
 
     public function storePelatihan($id, Request $request)
@@ -66,7 +80,7 @@ class DokumentasiController extends Controller
             'file' => $fileName,
             'id_pelatihan' => $id_pelatihan
         ]);
-        return back();
+        return redirect('daftarDokumentasi')->with('pelatihan_berhasil', 'Dokumentasi pelatihan telah ditambahkan');
     }
 
 }

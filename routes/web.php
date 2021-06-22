@@ -89,11 +89,8 @@ Route::get('uploadDokumentasiPelatihan/{Pelatihan:id}', [DokumentasiController::
 Route::get('dokumentasi', [DokumentasiController::class, 'index']);
 Route::post('uploadDokumentasiRapat/addfotoRapat/{Rapat:id}', [DokumentasiController::class, 'storeRapat']);
 Route::post('uploadDokumentasiPelatihan/addfotoPelatihan/{Pelatihan:id}', [DokumentasiController::class, 'storePelatihan']);
+Route::get('daftarDokumentasi', [DokumentasiController::class, 'daftarDokumentasi']);
 
-// Route::post('/addfoto', function (Request $request){
-//     $request->image->store('images', 'public');
-//     return 'File telah terupload';
-// });
 
 // Routing trainer
 Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);

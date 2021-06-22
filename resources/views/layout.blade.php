@@ -198,6 +198,9 @@
                     <a href="dokumentasiValidasi" class="list-group-item list-group-item-action bg-dark text-white" style="height: fit-content">
                         <span class="menu-collapsed">Dokumentasi dan Validasi Kegiatan</span>
                     </a>
+                    <a href="daftarDokumentasi" class="list-group-item list-group-item-action bg-dark text-white" style="height: fit-content">
+                        <span class="menu-collapsed">Daftar Foto Dokumentasi</span>
+                    </a>
                 </div>
                 {{-- end of menu 3 --}}
                 {{-- menu 4 --}}
