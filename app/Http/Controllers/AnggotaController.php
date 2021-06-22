@@ -107,15 +107,15 @@ class AnggotaController extends Controller
                     $pelatihanBerjalan = 0;
                 }
             
-            // $aRapat = Rapat::select('*')
-            //     ->whereMonth('tgl_rapat', '=' , $month)
-            //     ->where('status_aproval', '=', 'aproved')
-            //     ->count();
-            //     if($month <= (Carbon::now()->month)){
-            //         $rapatBerjalan = $rapatBerjalan + $aRapat;
-            //     }else{
-            //         $rapatBerjalan = 0;
-            //     }
+            $aRapat = Rapat::select('*')
+                ->whereMonth('tgl_rapat', '=' , $month)
+                ->where('status_aproval', '=', 'aproved')
+                ->count();
+                if($month <= (Carbon::now()->month)){
+                    $rapatBerjalan = $rapatBerjalan + $aRapat;
+                }else{
+                    $rapatBerjalan = 0;
+                }
 
             $nAnggota = Anggota::select('*')
                 ->where('Status', '=', 'Diterima')

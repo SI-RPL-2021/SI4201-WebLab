@@ -139,33 +139,33 @@
     });
     
 </script>
-// <script>
-//     var ctx = document.getElementById("chartSekretaris");
-//     var myChart = new Chart(ctx, {
-//         data: {
-//             labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
-//             datasets: [{
-//                     type: 'bar',
-//                     label: 'Jumlah Rapat',
-//                     data: [@foreach($hadir as $hk)
-//                             {{$hk['rapatBerjalan']}},
-//                           @endforeach],
-//                     backgroundColor: 'rgba(184, 134, 11, 0.2)',
-//                     borderColor: 'rgba(184, 134, 11,1)',
-//                     borderWidth: 1
-//         }]
-//         },
-//         options: {
-//             scales: {
-//                 yAxes: [{
-//                         ticks: {
-//                             beginAtZero: true
-//                         }
-//                     }]
-//             }
-//         }
-//     });
+<script>
+    var ctx = document.getElementById("chartSekretaris");
+    var myChart = new Chart(ctx, {
+        data: {
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+            datasets: [{
+                    type: 'bar',
+                    label: 'Jumlah Rapat',
+                    data: [@foreach($hadir as $hk)
+                            {{$hk['rapatBerjalan']}},
+                          @endforeach],
+                    backgroundColor: 'rgba(184, 134, 11, 0.2)',
+                    borderColor: 'rgba(184, 134, 11,1)',
+                    borderWidth: 1
+        }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
+        }
+    });
     
-// </script>
+</script>
 
 @endsection
