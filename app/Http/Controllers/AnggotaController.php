@@ -97,15 +97,15 @@ class AnggotaController extends Controller
                 ->where('study_group', '=', $sgroup)
                 ->count();
 
-            // $aPelatihan = Pelatihan::select('*')
-            //     ->whereMonth('tgl_pelatihan', '=' , $month)
-            //     ->where('status_aproval', '=', 'aproved')
-            //     ->count();
-            //     if($month <= (Carbon::now()->month)){
-            //         $pelatihanBerjalan = $pelatihanBerjalan + $aPelatihan;
-            //     }else{
-            //         $pelatihanBerjalan = 0;
-            //     }
+            $aPelatihan = Pelatihan::select('*')
+                ->whereMonth('tgl_pelatihan', '=' , $month)
+                ->where('status_aproval', '=', 'aproved')
+                ->count();
+                if($month <= (Carbon::now()->month)){
+                    $pelatihanBerjalan = $pelatihanBerjalan + $aPelatihan;
+                }else{
+                    $pelatihanBerjalan = 0;
+                }
             
             // $aRapat = Rapat::select('*')
             //     ->whereMonth('tgl_rapat', '=' , $month)
@@ -117,15 +117,15 @@ class AnggotaController extends Controller
             //         $rapatBerjalan = 0;
             //     }
 
-            // $nAnggota = Anggota::select('*')
-            //     ->where('Status', '=', 'Diterima')
-            //     ->whereMonth('created_at', '=' , $month)
-            //     ->count();
-            //         if($month <= (Carbon::now()->month)){
-            //             $anggotaBerjalan = $anggotaBerjalan + $nAnggota;
-            //         }else{
-            //             $anggotaBerjalan = 0;
-            //         }
+            $nAnggota = Anggota::select('*')
+                ->where('Status', '=', 'Diterima')
+                ->whereMonth('created_at', '=' , $month)
+                ->count();
+                    if($month <= (Carbon::now()->month)){
+                        $anggotaBerjalan = $anggotaBerjalan + $nAnggota;
+                    }else{
+                        $anggotaBerjalan = 0;
+                    }
             
             $data[$month] = array('rapat' => $hadirRapat, 'pelatihan' => $hadirPelatihan, 'nRapat' => $nRapat, 'nPelatihan' => $nPelatihan, 'anggotaBerjalan'=>$anggotaBerjalan, 'pelatihanBerjalan'=>$pelatihanBerjalan, 'rapatBerjalan'=>$rapatBerjalan);
         }
