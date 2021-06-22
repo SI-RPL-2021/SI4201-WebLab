@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2021 at 02:58 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.5
+-- Generation Time: Jun 22, 2021 at 06:11 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,11 +41,8 @@ CREATE TABLE `absenpelatihan` (
 --
 
 INSERT INTO `absenpelatihan` (`id`, `id_pelatihan`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
-(1, 6, 1111, 'Menunggu validasi', '2021-05-21 22:43:54', '2021-05-21 22:43:54'),
-(2, 6, 1111, 'Menunggu validasi', '2021-05-21 22:44:47', '2021-05-21 22:44:47'),
-(3, 6, 2222, 'Menunggu validasi', '2021-05-23 06:52:38', '2021-05-23 06:52:38'),
-(4, 6, 1202184312, 'Menunggu validasi', '2021-05-24 01:48:40', '2021-05-24 01:48:40'),
-(6, 6, 54187343, 'Menunggu validasi', '2021-06-05 18:43:46', '2021-06-05 18:43:46');
+(9, 7, 1111, 'Menunggu validasi', '2021-06-22 04:45:54', '2021-06-22 04:45:54'),
+(10, 8, 1111, 'Menunggu validasi', '2021-06-22 04:45:57', '2021-06-22 04:45:57');
 
 -- --------------------------------------------------------
 
@@ -67,11 +64,7 @@ CREATE TABLE `absenrapat` (
 --
 
 INSERT INTO `absenrapat` (`id`, `id_rapat`, `nim`, `status_validasi`, `created_at`, `updated_at`) VALUES
-(11, 28, 1202184312, 'Menunggu validasi', '2021-05-30 02:28:00', '2021-05-30 02:28:00'),
-(13, 22, 1202184312, 'Menunggu validasi', '2021-05-30 02:32:04', '2021-05-30 02:32:04'),
-(20, 28, 1202181111, 'Menunggu validasi', '2021-05-30 09:53:29', '2021-05-30 09:53:29'),
-(21, 22, 164669513, 'Menunggu validasi', '2021-06-05 18:47:56', '2021-06-05 18:47:56'),
-(22, 28, 164669513, 'Menunggu validasi', '2021-06-05 18:48:08', '2021-06-05 18:48:08');
+(23, 29, 1111, 'Menunggu validasi', '2021-06-22 04:37:14', '2021-06-22 04:37:14');
 
 -- --------------------------------------------------------
 
@@ -82,9 +75,7 @@ INSERT INTO `absenrapat` (`id`, `id_rapat`, `nim`, `status_validasi`, `created_a
 CREATE TABLE `dokumentasipelatihan` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `id_pelatihan` bigint(20) UNSIGNED NOT NULL,
-  `foto` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `size` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -98,9 +89,7 @@ CREATE TABLE `dokumentasipelatihan` (
 CREATE TABLE `dokumentasirapat` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `id_rapat` bigint(20) UNSIGNED NOT NULL,
-  `foto` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `size` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -197,10 +186,8 @@ CREATE TABLE `tb_pelatihan` (
 --
 
 INSERT INTO `tb_pelatihan` (`id`, `nama_pelatihan`, `pemohon`, `study_group`, `tgl_pelatihan`, `jam_pelatihan`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
-(2, 'Pelatihan 1', 1111, 'Data Engineer', '2021-04-13', '22:25:00', 'https://meet.google.com/ehv-qsqc-htj', 'disaproved', 'pelatihan', '2021-04-12 07:24:52', '2021-06-05 18:45:30'),
-(4, 'Pelatihan 2', 3333, 'Data Scientist', '2021-05-01', '09:00:00', 'https://meet.google.com/ehv-qsqc-htj', 'aproved', 'pelatihan', '2021-04-29 10:58:44', '2021-05-23 07:01:23'),
-(5, 'Pelatihan 3', 123456789, 'Data Engineer', '2021-05-03', '10:00:00', 'https://meet.google.com/ehv-qsqc-htj', 'aproved', 'pelatihan', '2021-05-01 01:47:19', '2021-05-01 02:30:11'),
-(6, 'Pelatihan 4', 1111, 'Data Engineer', '2021-05-20', '10:54:00', 'https://meet.google.com/swd-iifv-pru', 'aproved', 'pelatihan', '2021-05-20 19:53:33', '2021-05-23 05:31:34');
+(7, 'Pelatihan 1', 1111, 'Data Engineer', '2021-06-22', '18:34:00', 'Link Rapat 1', 'aproved', 'pelatihan', '2021-06-22 04:34:52', '2021-06-22 04:35:03'),
+(8, 'Pelatihan 1 edited', 1111, 'Data Engineer', '2021-06-22', '18:38:00', 'Link Rapat 1', 'aproved', 'pelatihan', '2021-06-22 04:38:47', '2021-06-22 04:38:54');
 
 -- --------------------------------------------------------
 
@@ -216,7 +203,7 @@ CREATE TABLE `tb_rapat` (
   `jam_rapat` time NOT NULL,
   `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_aproval` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'waiting',
-  `jenis_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '''rapat''',
+  `jenis_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'rapat',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -226,10 +213,8 @@ CREATE TABLE `tb_rapat` (
 --
 
 INSERT INTO `tb_rapat` (`id`, `nama_rapat`, `pemohon`, `tgl_rapat`, `jam_rapat`, `link`, `status_aproval`, `jenis_kegiatan`, `created_at`, `updated_at`) VALUES
-(22, 'Tes Rapat 1', 1111, '2021-04-12', '14:34:00', 'Link Rapat 1', 'aproved', '\'rapat\'', '2021-04-12 00:34:44', '2021-04-12 06:09:02'),
-(23, 'Tes Rapat 2 (edited)', 1202180092, '2021-04-12', '19:00:00', 'Link Rapat 2', 'disaproved', '\'rapat\'', '2021-04-12 00:55:49', '2021-04-28 14:32:45'),
-(25, 'Tes Rapat 3', 1202180092, '2021-04-13', '21:10:00', 'Link Rapat 3', 'waiting', '\'rapat\'', '2021-04-12 06:09:41', '2021-04-12 06:09:41'),
-(28, 'Rapat 4', 2222, '2021-05-27', '10:00:00', 'https://meet.google.com/zya-ctxf-ppd', 'aproved', '\'rapat\'', '2021-05-24 17:04:20', '2021-05-24 17:05:29');
+(29, 'Tes Rapat 1', 1111, '2021-06-22', '18:34:00', 'Link Rapat 1', 'aproved', '\'rapat\'', '2021-06-22 04:34:35', '2021-06-22 04:34:59'),
+(30, 'Tes Rapat 2', 1111, '2021-06-22', '19:27:00', 'Link Rapat 2', 'aproved', '\'rapat\'', '2021-06-22 05:27:26', '2021-06-22 05:27:32');
 
 --
 -- Indexes for dumped tables
@@ -301,25 +286,25 @@ ALTER TABLE `tb_rapat`
 -- AUTO_INCREMENT for table `absenpelatihan`
 --
 ALTER TABLE `absenpelatihan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `absenrapat`
 --
 ALTER TABLE `absenrapat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `dokumentasipelatihan`
 --
 ALTER TABLE `dokumentasipelatihan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `dokumentasirapat`
 --
 ALTER TABLE `dokumentasirapat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -337,13 +322,13 @@ ALTER TABLE `tb_anggota`
 -- AUTO_INCREMENT for table `tb_pelatihan`
 --
 ALTER TABLE `tb_pelatihan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_rapat`
 --
 ALTER TABLE `tb_rapat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
