@@ -51,7 +51,7 @@
             </tr>
         </thead>
         <tbody>
-            {{--  ($rapat as $p)  --}}
+            {{--  Untuk menggabungkan data antara pelatihan dan rapat  --}}
             @foreach ($combineData as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -67,6 +67,7 @@
                     </td>
                 </tr>
             @endforeach
+            {{--  Untuk menampilkan data pelatihan  --}}
             @foreach ($pelatihan as $pe)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
