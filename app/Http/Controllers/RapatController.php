@@ -157,7 +157,6 @@ class RapatController extends Controller
     public function cek_aprovalRapat(Request $request){
         $rapat = Rapat::leftJoin('tb_anggota', 'tb_anggota.nim', '=', 'tb_rapat.pemohon')
         ->select('tb_anggota.nama', 'tb_rapat.*')->get();
-        // $status = Rapat::findorfail($id);
         return view ('admin.cek_aprovalRapat', ['rapat' => $rapat]);
     }
 

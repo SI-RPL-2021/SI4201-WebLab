@@ -60,7 +60,7 @@
                     <td>{{ $p->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
-                            <a href="cek_aprovalRapat" class="btn btn-primary mb-2">Cek</a>
+                            <a href="readRapat" class="btn btn-primary mb-2">Cek</a>
                         </form>
                     </td>
                 </tr>
@@ -73,7 +73,7 @@
                     <td>{{ $pe->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
-                            <a href="cek_aprovalPelatihan" class="btn btn-primary mb-2">Cek</a>
+                            <a href="readPelatihan" class="btn btn-primary mb-2">Cek</a>
                         </form>
                     </td>
                 </tr>

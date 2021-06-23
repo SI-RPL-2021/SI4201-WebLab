@@ -55,14 +55,12 @@ Route::get('/approveanggota/{Anggota:id}',[AnggotaController::class,'approveangg
 
 
 Route::get('cek_aprovalRapat',[RapatController::class, 'cek_aprovalRapat']);
-// Route::get('cek_aprovalRapat/{Rapat:id}',[RapatController::class, 'cek_aprovalRapat']);
 Route::get('aprove/{Rapat:id}',[RapatController::class, 'aprove']);
 Route::get('disaprove/{Rapat:id}',[RapatController::class, 'disaprove']);
 Route::get('notifikasiKegiatan', [RapatController::class, 'notifikasiKegiatan']);
 Route::get('combineData', [RapatController::class, 'combineData']);
 
 Route::get('cek_aprovalPelatihan',[PelatihanController::class, 'cek_aprovalPelatihan']);
-// Route::get('cek_aprovalPelatihan/{Pelatihan:id}',[PelatihanController::class, 'cek_aprovalPelatihan']);
 Route::get('aprovePelatihan/{Pelatihan:id}',[PelatihanController::class, 'aprovePelatihan']);
 Route::get('disaprovePelatihan/{Pelatihan:id}',[PelatihanController::class, 'disaprovePelatihan']);
 
