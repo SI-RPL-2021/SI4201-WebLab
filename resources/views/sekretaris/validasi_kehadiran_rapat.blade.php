@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Validasi Kehadiran Kegiatan')
+@section('title', 'Validasi Kehadiran Rapat')
 @section('konten')
 <!-- konten -->
 @if (\Session::has('hapus_berhasil'))
@@ -38,7 +38,7 @@
 @endif
 <div class="table-responsive">
     <div class="col-md-15 mt-5 mb-5">
-        <h1 align="center">Validasi Kehadian Kegiatan</h1>
+        <h1 align="center">Validasi Kehadian Rapat</h1>
         <h5 align="center">#nama rapat</h5>
     {{-- <h5>{{ $tb_rapat->nama_rapat }}</h5> --}}
     </div>
@@ -58,7 +58,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($anggota as $p)
+            @foreach ($absenrapatanggota as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $p->nama }}</td>
