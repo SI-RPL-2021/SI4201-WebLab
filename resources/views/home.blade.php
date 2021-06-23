@@ -112,35 +112,35 @@
     });
     
 </script>
-// <script>
-//     var ctx = document.getElementById("chartAnggota");
-//     var myChart = new Chart(ctx, {
-//         data: {
-//             labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
-//             datasets: [
-//                 {
-//                     type: 'bar',
-//                     label: 'Anggota',
-//                     data: [@foreach($hadir as $ha)
-//                             {{$ha['anggotaBerjalan']}},
-//                           @endforeach],
-//                     backgroundColor: 'rgba(221, 160, 2217, 0.2)',
-//                     borderColor: 'rgba(221, 160, 221,1)',
-//                     borderWidth: 1
-//         }]
-//         },
-//         options: {
-//             scales: {
-//                 yAxes: [{
-//                         ticks: {
-//                             beginAtZero: true
-//                         }
-//                     }]
-//             }
-//         }
-//     });
+<script>
+    var ctx = document.getElementById("chartAnggota");
+    var myChart = new Chart(ctx, {
+        data: {
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+            datasets: [
+                {
+                    type: 'bar',
+                    label: 'Anggota',
+                    data: [@foreach($hadir as $ha)
+                            {{$ha['anggotaBerjalan']}},
+                          @endforeach],
+                    backgroundColor: 'rgba(221, 160, 2217, 0.2)',
+                    borderColor: 'rgba(221, 160, 221,1)',
+                    borderWidth: 1
+        }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
+        }
+    });
     
-// </script>
+</script>
 <script>
     var ctx = document.getElementById("chartSekretaris");
     var myChart = new Chart(ctx, {

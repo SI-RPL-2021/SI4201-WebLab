@@ -76,7 +76,7 @@ class AnggotaController extends Controller
                 ->where('nim','=',$cNIM)
                 ->where('created_at', '>=', $date)
                 ->where('created_at', '<=', $date_end)
-                // ->where('status_validasi', '=', 'valid')
+                ->where('status_validasi', '=', 'valid')
                 ->count();
                 
             $nRapat = Rapat::select('*')
@@ -88,7 +88,7 @@ class AnggotaController extends Controller
                 ->where('nim','=',$cNIM)
                 ->where('created_at', '>=', $date)
                 ->where('created_at', '<=', $date_end)
-                // ->where('status_validasi', '=', 'valid')
+                ->where('status_validasi', '=', 'valid')
                 ->count();
             
             $nPelatihan = Pelatihan::select('*')
