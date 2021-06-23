@@ -9,6 +9,8 @@
     }
     elseif ((Auth::user()->divisi) == 'Sekretaris') { echo " <canvas id='chartSekretaris' width='100' height='20'></canvas> <br> <canvas id='chartHadir' width='100' height='20'></canvas>";
     }
+    elseif ((Auth::user()->divisi) == 'Trainer') { echo " <canvas id='chartTrainer' width='100' height='20'></canvas> <br> <canvas id='chartHadir' width='100' height='20'></canvas>";
+    }
     else
     {
         echo "<canvas id='chartHadir' width='100' height='20'></canvas>";
@@ -149,6 +151,34 @@
                     label: 'Jumlah Rapat',
                     data: [@foreach($hadir as $hk)
                             {{$hk['rapatBerjalan']}},
+                          @endforeach],
+                    backgroundColor: 'rgba(184, 134, 11, 0.2)',
+                    borderColor: 'rgba(184, 134, 11,1)',
+                    borderWidth: 1
+        }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
+        }
+    });
+    
+</script>
+<script>
+    var ctx = document.getElementById("chartTrainer");
+    var myChart = new Chart(ctx, {
+        data: {
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+            datasets: [{
+                    type: 'bar',
+                    label: 'Jumlah Pelatihan',
+                    data: [@foreach($hadir as $hk)
+                            {{$hk['pelatihanBerjalan']}},
                           @endforeach],
                     backgroundColor: 'rgba(184, 134, 11, 0.2)',
                     borderColor: 'rgba(184, 134, 11,1)',
