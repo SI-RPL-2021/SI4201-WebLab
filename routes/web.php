@@ -80,8 +80,8 @@ Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);
 Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
 Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
 Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
-Route::get('validasiKehadiranRapat', [RapatController::class, 'validasiKehadiranRapat']);
-Route::get('validasiKehadiranPelatihan', [RapatController::class, 'validasiKehadiranPelatihan']);
+Route::get('validasiKehadiranRapat/{Rapat:id}', [RapatController::class, 'validasiKehadiranRapat']);
+Route::get('validasiKehadiranPelatihan/{Pelatihan:id}', [RapatController::class, 'validasiKehadiranPelatihan']);
 // Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
 Route::get('combineData', [RapatController::class, 'combineData']);
 //Routing Dokumentasi

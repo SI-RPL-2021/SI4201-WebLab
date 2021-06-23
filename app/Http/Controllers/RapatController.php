@@ -103,20 +103,35 @@ class RapatController extends Controller
         ->get();
     }
 
-    // public function validasiKehadiranKegiatan($id,Request $request){
-        public function validasiKehadiranRapat(Request $request){
+        public function validasiKehadiranRapat($id, Request $request){
             $absenrapatanggota= DB::table('absenrapat')
             ->join('tb_anggota','absenrapat.nim',"=", 'tb_anggota.nim')
+            // ->join('tb_rapat', 'absenrapat.id_pelatihan',"=", 'tb_rapat.id')
             ->get();
     
             return view ('sekretaris.validasi_kehadiran_rapat', ['absenrapatanggota' => $absenrapatanggota]);
         }
     
-        public function validasiKehadiranPelatihan(Request $request){
+        public function validasiKehadiranPelatihan($id, Request $request){
             $absenpelatihananggota= DB::table('absenpelatihan')
             ->join('tb_anggota','absenpelatihan.nim',"=", 'tb_anggota.nim')
+            // ->join('tb_pelatihan', 'absenpelatihan.id_pelatihan',"=", 'tb_pelatihan.id')
             ->get();
             return view ('sekretaris.validasi_kehadiran_pelatihan', ['absenpelatihananggota' => $absenpelatihananggota]);
+        }
+
+        public function validasiAnggotaRapat($id){
+            $validRapat = Absenrapat::findorfail($id);
+            $validRapat->status_validasi = 'Valid';
+            $validRapat->save();
+            return redirect()->back();
+        }
+
+        public function validasiAnggotaPelatihan($id){
+            $validPelatihan = Absenpelatihan::findorfail($id);
+            $validPelatihan->status_validasi = 'Valid';
+            $validPelatihan->save();
+            return redirect()->back();
         }
 
     function checkAnggota()

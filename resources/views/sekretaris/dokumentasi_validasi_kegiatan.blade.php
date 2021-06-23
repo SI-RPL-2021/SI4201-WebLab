@@ -62,7 +62,7 @@
                         <form method="GET">
                             <a href="uploadDokumentasiRapat/{{ $p->id }}" class="btn btn-primary mb-2">Dokumentasi</a>
                             <br>
-                            <a href="validasiKehadiranRapat" class="btn btn-primary ml-4">Validasi</a>
+                            <a href="validasiKehadiranRapat/{{ $p->id }}" class="btn btn-primary ml-4">Validasi</a>
                         </form>
                     </td>
                 </tr>
@@ -78,7 +78,7 @@
                         <form method="GET">
                             <a href="uploadDokumentasiPelatihan/{{ $pe->id_pelatihan }}" class="btn btn-primary mb-2">Dokumentasi</a>
                             <br>
-                            <a href="validasiKehadiranPelatihan" class="btn btn-primary ml-4">Validasi</a>
+                            <a href="validasiKehadiranPelatihan/{{ $pe->id_pelatihan }}" class="btn btn-primary ml-4">Validasi</a>
                         </form>
                     </td>
                 </tr>

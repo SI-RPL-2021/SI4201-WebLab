@@ -39,8 +39,9 @@
 <div class="table-responsive">
     <div class="col-md-15 mt-5 mb-5">
         <h1 align="center">Validasi Kehadian Rapat</h1>
-        <h5 align="center">#nama rapat</h5>
-    {{-- <h5>{{ $tb_rapat->nama_rapat }}</h5> --}}
+        {{-- @foreach ($absenrapatanggota as $pe)
+        <h5 align="center">{{ $pe->nama_rapat }}</h5>
+        @endforeach --}}
     </div>
     
     <a href="goEditPelatihan/" class="btn btn-success pull-right mb-2 ">Validasi Semua</a>
@@ -54,6 +55,7 @@
                 <th scope="col">Divisi</th>
                 <th scope="col">Study Group</th>
                 <th scope="col">Email</th>
+                <th scope="col">Status Validasi</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -67,11 +69,12 @@
                     <td>{{ $p->divisi }}</td>
                     <td>{{ $p->study_group }}</td>
                     <td>{{ $p->email }}</td>
+                    <td>{{ $p->status_validasi }}</td>
                     <td>
                         <form method="GET">
-                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning btn-sm ml-2 mb-2">Edit</a><br>
-                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger btn-sm mb-2" onclick="return confirm('Apakah anda yakin untuk membatalkan pengajuan pelatihan ini?');">Hapus</a><br>
-                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-success btn-sm ml-1">Valid</a>
+                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning btn-sm ml-2 mb-2" onclick="return confirm('Apakah anda yakin untuk mengedit pengajuan pelatihan ini?');">Edit</a><br>
+                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger btn-sm mb-2">Hapus</a><br>
+                            <a href="validasiAnggotaRapat/{{ $p->id }}" class="btn btn-success btn-sm ml-1">Valid</a>
                         </form>
                     </td>
                 </tr>
