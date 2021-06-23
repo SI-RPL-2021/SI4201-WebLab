@@ -61,6 +61,7 @@
         </thead>
         <tbody>
             @foreach ($absenrapatanggota as $p)
+            {{-- @if($p->status_validasi == 'Menunggu validasi') --}}
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $p->nama }}</td>

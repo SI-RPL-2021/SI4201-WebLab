@@ -82,14 +82,18 @@ Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRap
 Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
 Route::get('validasiKehadiranRapat/{Rapat:id}', [RapatController::class, 'validasiKehadiranRapat']);
 Route::get('validasiKehadiranPelatihan/{Pelatihan:id}', [RapatController::class, 'validasiKehadiranPelatihan']);
-// Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);
+Route::get('validasiKehadiranRapat/validasiAnggotaRapat/{Rapat:id}', [RapatController::class, 'validasiAnggotaRapat']);
+Route::get('validasiKehadiranPelatihan/validasiAnggotaPelatihan/{Pelatihan:id}', [RapatController::class, 'validasiAnggotaPelatihan']);
+// Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);validasiAnggotaRapat
 Route::get('combineData', [RapatController::class, 'combineData']);
+
+
 //Routing Dokumentasi
 Route::get('uploadDokumentasiRapat/{Rapat:id}', [DokumentasiController::class, 'uploadDokumentasiRapat']);
 Route::get('uploadDokumentasiPelatihan/{Pelatihan:id}', [DokumentasiController::class, 'uploadDokumentasiPelatihan']);
-Route::get('dokumentasi', [DokumentasiController::class, 'index']);
 Route::post('uploadDokumentasiRapat/addfotoRapat/{Rapat:id}', [DokumentasiController::class, 'storeRapat']);
 Route::post('uploadDokumentasiPelatihan/addfotoPelatihan/{Pelatihan:id}', [DokumentasiController::class, 'storePelatihan']);
+Route::get('dokumentasi', [DokumentasiController::class, 'index']);
 Route::get('daftarDokumentasi', [DokumentasiController::class, 'daftarDokumentasi']);
 
 

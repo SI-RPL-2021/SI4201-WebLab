@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Rapat;
 use App\Models\Anggota;
 use App\Models\Absenrapat;
+use App\Models\Absenpelatihan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -107,6 +108,8 @@ class RapatController extends Controller
             $absenrapatanggota= DB::table('absenrapat')
             ->join('tb_anggota','absenrapat.nim',"=", 'tb_anggota.nim')
             // ->join('tb_rapat', 'absenrapat.id_pelatihan',"=", 'tb_rapat.id')
+            // ->select('absenrapat.id')
+            // ->where(['id' => $id])
             ->get();
     
             return view ('sekretaris.validasi_kehadiran_rapat', ['absenrapatanggota' => $absenrapatanggota]);
@@ -116,22 +119,26 @@ class RapatController extends Controller
             $absenpelatihananggota= DB::table('absenpelatihan')
             ->join('tb_anggota','absenpelatihan.nim',"=", 'tb_anggota.nim')
             // ->join('tb_pelatihan', 'absenpelatihan.id_pelatihan',"=", 'tb_pelatihan.id')
+            // ->select('absenpelatihan.id')
+            // ->where(['id' => $id])
             ->get();
             return view ('sekretaris.validasi_kehadiran_pelatihan', ['absenpelatihananggota' => $absenpelatihananggota]);
         }
 
-        public function validasiAnggotaRapat($id){
-            $validRapat = Absenrapat::findorfail($id);
-            $validRapat->status_validasi = 'Valid';
-            $validRapat->save();
-            return redirect()->back();
+        public function validasiAnggotaRapat($id, Request $request){
+            $validasiAnggotaRapat = "Valid";
+            $status = Absenrapat::findorfail($id);
+            $status->status_validasi = $validasiAnggotaRapat;
+            $status->save();
+            return redirect()->back()->with('Valid', 'Status rapat telah diaprove');
         }
 
-        public function validasiAnggotaPelatihan($id){
-            $validPelatihan = Absenpelatihan::findorfail($id);
-            $validPelatihan->status_validasi = 'Valid';
-            $validPelatihan->save();
-            return redirect()->back();
+        public function validasiAnggotaPelatihan($id, Request $request){
+            $validasiAnggotaPelatihan = "Valid";
+            $status = Absenpelatihan::findorfail($id);
+            $status->status_validasi = $validasiAnggotaPelatihan;
+            $status->save();
+            return redirect()->back()->with('Valid', 'Status Pelatihan telah diaprove');
         }
 
     function checkAnggota()
