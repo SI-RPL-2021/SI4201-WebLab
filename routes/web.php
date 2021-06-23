@@ -74,6 +74,7 @@ Route::get('goEditRapatAdmin/editRapatAdmin/{Rapat:id}', [RapatController::class
 Route::get('rapat', [RapatController::class, 'rapat']);
 Route::get('rapat/create', [RapatController::class, 'createRapat']);
 Route::get('readRapat', [RapatController::class, 'readRapat']);
+// Route::get('readRapat/{Rapat:id}', [RapatController::class, 'readRapat']);
 Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);
 Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
 Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
@@ -99,6 +100,7 @@ Route::get('daftarDokumentasi', [DokumentasiController::class, 'daftarDokumentas
 Route::get('pelatihan', [PelatihanController::class, 'pelatihan']);
 Route::get('pelatihan/create', [PelatihanController::class, 'createPelatihan']);
 Route::get('readPelatihan', [PelatihanController::class, 'readPelatihan']);
+// Route::get('readPelatihan/{Pelatihan:id}', [PelatihanController::class, 'readPelatihan']);
 Route::get('deletePelatihan/{Pelatihan:id}', [PelatihanController::class, 'deletePelatihan']);
 Route::get('goEditPelatihan/{Pelatihan:id}', [PelatihanController::class, 'goEditPelatihan']);
 Route::get('goEditPelatihan/editPelatihan/{Pelatihan:id}', [PelatihanController::class, 'editPelatihan']);

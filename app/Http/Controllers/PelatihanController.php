@@ -42,8 +42,9 @@ class PelatihanController extends Controller
         }
     }
 
-    public function readPelatihan(Request $request){
+    public function readPelatihan($id, Request $request){
         $pelatihan = Pelatihan::all();
+        // $pelatihan = Pelatihan::findorfail($id);
         return view ('trainer.notifikasi_pelatihan', ['pelatihan' => $pelatihan]);
     }
 
