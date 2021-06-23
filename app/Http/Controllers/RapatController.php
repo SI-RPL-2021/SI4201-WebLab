@@ -104,11 +104,20 @@ class RapatController extends Controller
     }
 
     // public function validasiKehadiranKegiatan($id,Request $request){
-    public function validasiKehadiranKegiatan(Request $request){
-        $anggota= DB::table('tb_anggota')
-        ->get();
-        return view ('sekretaris.validasi_kehadiran_kegiatan', ['anggota' => $anggota]);
-    }
+        public function validasiKehadiranRapat(Request $request){
+            $absenrapatanggota= DB::table('absenrapat')
+            ->join('tb_anggota','absenrapat.nim',"=", 'tb_anggota.nim')
+            ->get();
+    
+            return view ('sekretaris.validasi_kehadiran_rapat', ['absenrapatanggota' => $absenrapatanggota]);
+        }
+    
+        public function validasiKehadiranPelatihan(Request $request){
+            $absenpelatihananggota= DB::table('absenpelatihan')
+            ->join('tb_anggota','absenpelatihan.nim',"=", 'tb_anggota.nim')
+            ->get();
+            return view ('sekretaris.validasi_kehadiran_pelatihan', ['absenpelatihananggota' => $absenpelatihananggota]);
+        }
 
     function checkAnggota()
       // cek apakah data Anggota berhasil di buka
