@@ -65,7 +65,7 @@ class AnggotaController extends Controller
         $data = [];
         // $anggotaBerjalan = 0;
         $rapatBerjalan = 0;
-        // $pelatihanBerjalan = 0;
+        $pelatihanBerjalan = 0;
 
         for ($month = 1; $month <= 12; $month++) {
 
@@ -97,15 +97,15 @@ class AnggotaController extends Controller
                 ->where('study_group', '=', $sgroup)
                 ->count();
 
-            // $aPelatihan = Pelatihan::select('*')
-            //     ->whereMonth('tgl_pelatihan', '=' , $month)
-            //     ->where('status_aproval', '=', 'aproved')
-            //     ->count();
-            //     if($month <= (Carbon::now()->month)){
-            //         $pelatihanBerjalan = $pelatihanBerjalan + $aPelatihan;
-            //     }else{
-            //         $pelatihanBerjalan = 0;
-            //     }
+            $aPelatihan = Pelatihan::select('*')
+                ->whereMonth('tgl_pelatihan', '=' , $month)
+                ->where('status_aproval', '=', 'aproved')
+                ->count();
+                if($month <= (Carbon::now()->month)){
+                    $pelatihanBerjalan = $pelatihanBerjalan + $aPelatihan;
+                }else{
+                    $pelatihanBerjalan = 0;
+                }
             
             $aRapat = Rapat::select('*')
                 ->whereMonth('tgl_rapat', '=' , $month)
