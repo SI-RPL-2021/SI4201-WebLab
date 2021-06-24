@@ -106,22 +106,22 @@ class RapatController extends Controller
     }
 
         public function validasiKehadiranRapat($id, Request $request){
+            $id_rapat = $id;
             $absenrapatanggota= DB::table('absenrapat')
+            ->select('tb_anggota.nama', 'tb_anggota.nim', 'tb_anggota.kelas', 'tb_anggota.divisi', 'tb_anggota.email', 'tb_anggota.study_group', 'absenrapat.status_validasi', 'absenrapat.id_rapat', 'absenrapat.id')
             ->join('tb_anggota','absenrapat.nim',"=", 'tb_anggota.nim')
-            // ->join('tb_rapat', 'absenrapat.id_pelatihan',"=", 'tb_rapat.id')
-            // ->select('absenrapat.id')
-            // ->where(['id' => $id])
+            ->where('absenrapat.id_rapat',$id_rapat)
             ->get();
     
             return view ('sekretaris.validasi_kehadiran_rapat', ['absenrapatanggota' => $absenrapatanggota]);
         }
     
         public function validasiKehadiranPelatihan($id, Request $request){
+            $id_pelatihan = $id;
             $absenpelatihananggota= DB::table('absenpelatihan')
             ->join('tb_anggota','absenpelatihan.nim',"=", 'tb_anggota.nim')
-            // ->join('tb_pelatihan', 'absenpelatihan.id_pelatihan',"=", 'tb_pelatihan.id')
-            // ->select('absenpelatihan.id')
-            // ->where(['id' => $id])
+            ->select('tb_anggota.nama', 'tb_anggota.nim', 'tb_anggota.kelas', 'tb_anggota.divisi', 'tb_anggota.email', 'tb_anggota.study_group', 'absenpelatihan.status_validasi', 'absenpelatihan.id_pelatihan', 'absenpelatihan.id')
+            ->where('absenpelatihan.id_pelatihan',$id_pelatihan)
             ->get();
             return view ('sekretaris.validasi_kehadiran_pelatihan', ['absenpelatihananggota' => $absenpelatihananggota]);
         }
@@ -131,7 +131,18 @@ class RapatController extends Controller
             $status = Absenrapat::findorfail($id);
             $status->status_validasi = $validasiAnggotaRapat;
             $status->save();
-            return redirect()->back()->with('Valid', 'Status rapat telah diaprove');
+            return redirect()->back()->with('valid', 'Absensi rapat telah divalidasi');
+        }
+
+        public function deletevalidasiAnggotaRapat($id, Request $request){
+            $status = Absenrapat::findorfail($id);
+            $status->delete();
+            return redirect()->back()->with('delete', 'Absensi rapat telah dihapus');
+        }
+
+        public function validasiAnggotaRapatAll($id, Request $request){
+            $absen = Absenrapat::where('id_rapat', $id)->update(['status_validasi'=>'Valid']);
+            return redirect()->back()->with('valid', 'Absensi rapat telah divalidasi');
         }
 
         public function validasiAnggotaPelatihan($id, Request $request){
@@ -140,6 +151,12 @@ class RapatController extends Controller
             $status->status_validasi = $validasiAnggotaPelatihan;
             $status->save();
             return redirect()->back()->with('Valid', 'Status Pelatihan telah diaprove');
+        }
+
+        public function deletevalidasiAnggotaPelatihan($id, Request $request){
+            $status = Absenpelatihan::findorfail($id);
+            $status->delete();
+            return redirect()->back()->with('delete', 'Absensi pelatihan telah dihapus');
         }
 
     function checkAnggota()

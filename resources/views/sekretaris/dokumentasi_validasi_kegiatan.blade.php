@@ -2,6 +2,7 @@
 @section('title', 'Dokumentasi & Validasi Kegiatan')
 @section('konten')
 <!-- konten -->
+
 @if (\Session::has('hapus_berhasil'))
     <div class="alert alert-success">
         <ul>
@@ -60,9 +61,9 @@
                     <td>{{ $p->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
-                            <a href="uploadDokumentasiRapat/{{ $p->id }}" class="btn btn-primary mb-2">Dokumentasi</a>
+                            <a href="uploadDokumentasiRapat/{{ $p->id }}" class="btn btn-primary mb-2" target="_blank">Dokumentasi</a>
                             <br>
-                            <a href="validasiKehadiranRapat/{{ $p->id }}" class="btn btn-primary ml-4">Validasi</a>
+                            <a href="validasiKehadiranRapat/{{ $p->id }}" class="btn btn-primary ml-4" target="_blank">Validasi</a>
                         </form>
                     </td>
                 </tr>
@@ -76,9 +77,9 @@
                     <td>{{ $pe->jenis_kegiatan }}</td>
                     <td>
                         <form method="GET">
-                            <a href="uploadDokumentasiPelatihan/{{ $pe->id_pelatihan }}" class="btn btn-primary mb-2">Dokumentasi</a>
+                            <a href="uploadDokumentasiPelatihan/{{ $pe->id_pelatihan }}" class="btn btn-primary mb-2" target="_blank">Dokumentasi</a>
                             <br>
-                            <a href="validasiKehadiranPelatihan/{{ $pe->id_pelatihan }}" class="btn btn-primary ml-4">Validasi</a>
+                            <a href="validasiKehadiranPelatihan/{{ $pe->id_pelatihan }}" class="btn btn-primary ml-4" target="_blank">Validasi</a>
                         </form>
                     </td>
                 </tr>

@@ -2,7 +2,7 @@
 @section('title', 'Upload Dokumentasi Rapat')
 @section('konten')
 <!-- konten -->
-
+<a href="javascript:window.close();" class="btn btn-success pull-left mb-2 "><-- Kembali</a><br>
 <div class="col-md-15 mt-5 mb-5">
     <h1 align="center">Upload Dokumentasi</h1>
     @foreach ($rapat as $p)

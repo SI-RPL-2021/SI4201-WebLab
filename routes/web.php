@@ -78,11 +78,15 @@ Route::get('readRapat', [RapatController::class, 'readRapat']);
 Route::get('deleteRapat/{Rapat:id}', [RapatController::class, 'deleteRapat']);
 Route::get('goEditRapat/{Rapat:id}', [RapatController::class, 'goEditRapat']);
 Route::get('goEditRapat/editRapat/{Rapat:id}', [RapatController::class, 'editRapat']);
-Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
+Route::get('dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi'])-> name('dokumentasiValidasi');
+Route::get('validasiKehadiranRapat/dokumentasiValidasi', [RapatController::class, 'dokumentasiValidasi']);
 Route::get('validasiKehadiranRapat/{Rapat:id}', [RapatController::class, 'validasiKehadiranRapat']);
 Route::get('validasiKehadiranPelatihan/{Pelatihan:id}', [RapatController::class, 'validasiKehadiranPelatihan']);
-Route::get('validasiKehadiranRapat/validasiAnggotaRapat/{Rapat:id}', [RapatController::class, 'validasiAnggotaRapat']);
+Route::get('validasiKehadiranRapat/validasiAnggotaRapat/{Absenrapat:id}', [RapatController::class, 'validasiAnggotaRapat']);
+Route::get('validasiKehadiranRapat/deletevalidasiAnggotaRapat/{Absenrapat:id}', [RapatController::class, 'deletevalidasiAnggotaRapat']);
+Route::get('validasiKehadiranRapat/validasiAnggotaRapatAll/{Absenrapat:id}', [RapatController::class, 'validasiAnggotaRapatAll']);
 Route::get('validasiKehadiranPelatihan/validasiAnggotaPelatihan/{Pelatihan:id}', [RapatController::class, 'validasiAnggotaPelatihan']);
+Route::get('validasiKehadiranPelatihan/deletevalidasiAnggotaPelatihan/{Pelatihan:id}', [RapatController::class, 'deletevalidasiAnggotaPelatihan']);
 // Route::get('uploadDokumentasi', [RapatController::class, 'uploadDokumentasi']);validasiAnggotaRapat
 Route::get('combineData', [RapatController::class, 'combineData']);
 

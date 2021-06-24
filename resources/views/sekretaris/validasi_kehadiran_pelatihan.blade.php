@@ -2,37 +2,17 @@
 @section('title', 'Validasi Kehadiran Pelatihan')
 @section('konten')
 <!-- konten -->
-@if (\Session::has('hapus_berhasil'))
+@if (\Session::has('valid'))
     <div class="alert alert-success">
         <ul>
-            <li>{!! \Session::get('hapus_berhasil') !!}</li>
-            @php
-                header('Location: http://localhost:8000/readRapat');
-            @endphp
+            <li>{!! \Session::get('valid') !!}</li>
         </ul>
     </div>
 @endif
-@if (\Session::has('hapus_gagal'))
+@if (\Session::has('delete'))
     <div class="alert alert-success">
         <ul>
-            <li>{!! \Session::get('hapus_gagal') !!}</li>
-        </ul>
-    </div>
-@endif
-@if (\Session::has('edit_berhasil'))
-    <div class="alert alert-success">
-        <ul>
-            <li>{!! \Session::get('edit_berhasil') !!}</li>
-            @php
-                header('Location: http://localhost:8000/readRapat');
-            @endphp
-        </ul>
-    </div>
-@endif
-@if (\Session::has('edit_gagal'))
-    <div class="alert alert-success">
-        <ul>
-            <li>{!! \Session::get('edit_gagal') !!}</li>
+            <li>{!! \Session::get('delete') !!}</li>
         </ul>
     </div>
 @endif
@@ -44,7 +24,6 @@
         @endforeach --}}
     </div>
     
-    <a href="goEditPelatihan/" class="btn btn-success pull-right mb-2 ">Validasi Semua</a>
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>
@@ -73,8 +52,7 @@
                     <td>{{ $p->status_validasi }}</td>
                     <td>
                         <form method="GET">
-                            <a href="goEditPelatihan/{{ $p->id }}" class="btn btn-warning btn-sm ml-2 mb-2" onclick="return confirm('Apakah anda yakin untuk mengedit pengajuan pelatihan ini?');">Edit</a><br>
-                            <a href="deletePelatihan/{{ $p->id }}" class="btn btn-danger btn-sm mb-2">Hapus</a><br>
+                            <a href="deletevalidasiAnggotaPelatihan/{{ $p->id }}" class="btn btn-danger btn-sm mb-2">Hapus</a><br>
                             <a href="validasiAnggotaPelatihan/{{ $p->id }}" class="btn btn-success btn-sm ml-1">Valid</a>
                         </form>
                     </td>
