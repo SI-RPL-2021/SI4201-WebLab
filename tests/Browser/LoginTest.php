@@ -14,7 +14,7 @@ class LoginTest extends DuskTestCase
      * @return void
      */
     public function testExample()
-    // Test ini dilakukan untuk memeriksa apakah login bisa di automatic testing atau tidak
+    // Test ini dilakukan untuk memeriksa apakah login bisa di automatic testing atau tidak (Resolved)
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/login')

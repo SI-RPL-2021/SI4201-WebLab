@@ -14,7 +14,7 @@ class RegisterTest extends DuskTestCase
      * @return void
      */
     public function testExample()
-    // Test ini dilakukan untuk memeriksa apakah register bisa di automatic testing atau tidak
+    // Test ini dilakukan untuk memeriksa apakah register bisa di automatic testing atau tidak (Resolved)
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
