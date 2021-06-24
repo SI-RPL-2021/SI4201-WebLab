@@ -42,9 +42,8 @@ class RapatController extends Controller
         }
     }
 
-    public function readRapat($id, Request $request){
+    public function readRapat(Request $request){
         $rapat = Rapat::all();
-        // $rapat = Rapat::findorfail($id);
         return view ('sekretaris.notifikasi_rapat', ['rapat' => $rapat]);
     }
 
